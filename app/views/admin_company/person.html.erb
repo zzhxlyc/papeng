@@ -1,0 +1,20 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'user_sidebar'%>
+<% end %>
+
+<p>姓名：<%=@obj.name%></p>
+<p>邮箱：<%=@obj.email%></p>
+<p>手机：<%=@obj.mobile%></p>
+<p>身份证：<%=@obj.idcard%></p>
+<p>支付宝：<%=@obj.alipay%></p>
+
+<p>
+角色：
+  <%@roles.each do |z|%>
+      <%if eql?(z.id, @obj.role_id)%>
+      <%=z.name%>
+      <%end%>
+  <%end%>
+</p>
+
+<%=back_link%>

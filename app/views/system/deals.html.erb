@@ -1,0 +1,35 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'deal_sidebar'%>
+<% end %>
+
+<div>
+  <form action="" method="get">
+  <p>
+    楼盘名称：
+    <select name="estate_id">
+      <option value=""></option>
+      <%@estates.each do |z|%>
+          <option value="<%=z.id%>" <%=if_selected(z.id, if_nil(params[:estate_id]))%>><%=z.name%></option>
+      <%end%>
+    </select>
+    工单状态：
+    <select name="state">
+      <option value=""></option>
+      <option value="bbjd" <%=if_selected('bbjd', if_nil(params[:state]))%>>报备界定</option>
+      <option value="bbjd" <%=if_selected('bbjd', if_nil(params[:state]))%>>报备界定</option>
+    </select>
+  </p>
+  </form>
+</div>
+
+<%@list.each do |obj|%>
+<p>
+  <a href="/admin/system/deal?id=<%=obj.id%>"><%=obj.id%></a>
+  <a href="/admin/system/deal_jieding?id=<%=obj.id%>">报备界定</a>
+  <a href="/admin/system/deal_chengjiao?id=<%=obj.id%>">成交确认</a>
+  <a href="/admin/system/deal_daikan?id=<%=obj.id%>">带看确认</a>
+  <a href="/admin/system/deal_jieyong?id=<%=obj.id%>">结佣确认</a>
+  <a href="/admin/system/deal_renchou?id=<%=obj.id%>">认筹确认</a>
+  <a href="/admin/system/deal_delete?id=<%=obj.id%>" onclick="return confirm_delete()">删除</a>
+</p>
+<%end%>

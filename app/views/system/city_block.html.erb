@@ -1,0 +1,35 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'system/city_block_sidebar'%>
+<% end %>
+
+<form action="/admin/system/city_block" method="post" onsubmit="return check_form(this)">
+  <input type="hidden" name="id" <%=if_value(@obj, :id) %>/>
+  <p><input type="text" name="name" value="<%=@obj.name%>"/></p>
+
+  <p>
+    <select name="zone_id">
+      <%@zones.each do |z|%>
+          <option value="<%=z.areaID%>" <%=if_selected(@obj.zone_id, z.areaID)%>><%=z.area%></option>
+      <%end%>
+    </select>
+  </p>
+
+  <p>
+    简介：<textarea name="info" rows="5" cols="50"><%=@obj.info%></textarea>
+  </p>
+
+
+  <%= token_tag %>
+  <input type="submit" value="提交" />
+</form>
+
+<script type="text/javascript">
+    function check_form(form){
+        var msg;
+        var name = form_field_value(form, 'name');
+        if((msg = form_check_string(name))){alert('名称' + msg);return false;}
+        var zone_id = form_field_value(form, 'zone_id');
+        if((msg = form_check(zone_id))){alert('行政区' + msg);return false;}
+        return true;
+    }
+</script>

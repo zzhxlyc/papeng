@@ -1,0 +1,27 @@
+
+<form action="/admin/estate/image_upload" method="post" enctype="multipart/form-data">
+  <p>
+    主要图片：<%=img_tag(@obj.image, :width => 100)%>
+    <input type="file" name="img"/>
+  </p>
+  <p>
+     其他图片：
+    <%@obj.images.each do |image|%>
+        <%=img_tag(image, :width => 100)%>
+        <a href="/admin/estate/image_delete?id=<%=@obj.id%>&image_id=<%=image.id%>">删除</a>
+    <%end%>
+  </p>
+  <p>继续上传图片</p>
+  <p class="img_p" id="example">
+    <input type="file" name="pics[]"/>
+  </p>
+  <p><input type="button" onclick="add_img()" value="添加图片" /></p>
+  <input type="hidden" name="id" value="<%=@obj.id%>"/>
+  <%= token_tag %>
+  <input type="submit" value="提交" />
+  <script type="text/javascript">
+      function add_img(){
+          $('#example').clone().insertAfter($('.img_p').last());
+      }
+  </script>
+</form>

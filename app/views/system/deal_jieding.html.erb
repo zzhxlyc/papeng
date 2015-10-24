@@ -1,0 +1,29 @@
+<form action="/admin/system/deal" method="post">
+  <p>
+    楼盘名称：<%=@obj.estate.name%>
+  </p>
+  <p>
+    经纪人姓名：<%=@obj.customer.created_by.name%>
+  </p>
+  <p>
+    客户姓名：<%=@obj.customer.name%>
+  </p>
+  <p>
+    客户联系方式：<%=@obj.customer.contact%>
+  </p>
+  <p>
+    确认结果：
+    <select name="bb_status">
+      <option value="0" <%=if_selected(@obj.bb_status, 0)%>>界定中</option>
+      <option value="1" <%=if_selected(@obj.bb_status, 1)%>>界定有效</option>
+      <option value="2" <%=if_selected(@obj.bb_status, 2)%>>界定无效</option>
+    </select>
+  </p>
+  <p>
+    界定备注：<textarea name="bb_note" rows="5" cols="50" placeholder="选填"><%=@obj.bb_note%></textarea>
+  </p>
+  <input type="hidden" name="id" value="<%=@obj.id%>"/>
+  <%= token_tag %>
+  <input type="submit" value="提交" />
+  <a href="javascript:void(0)" onclick="history.back()">返回</a>
+</form>

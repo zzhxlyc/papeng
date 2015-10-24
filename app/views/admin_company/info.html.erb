@@ -1,0 +1,34 @@
+  <p>
+    名称：<%=@company.name%>
+  </p>
+
+  <p>
+    区域：浙江省 杭州市
+    <%CityZone.hzZones.each do |z|%>
+        <%if z.areaID.to_s == @company.zone_id.to_s%><%=z.area%><%end%>
+    <%end%>
+  </p>
+
+  <p>
+    简介：<%=@company.info%>
+  </p>
+  <p>
+    邮编：<%=@company.poster%>
+  </p>
+  <p>
+    联系人：<%=@company.contact%>
+  </p>
+  <p>
+    联系方式：<%=@company.contact_phone%>
+  </p>
+  <p>
+    结佣账户：<%=@company.account%>
+  </p>
+  <p>
+    结佣银行：<%=@company.bank%>
+  </p>
+  <p>
+    结佣卡号：<%=@company.card%>
+  </p>
+
+<a href="/admin/company/info_edit">编辑</a>

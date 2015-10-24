@@ -1,0 +1,22 @@
+<ul>
+    <li><a href="/admin/company/index">首页</a></li>
+    <%if user.can?(Constants::Role::LIMIT_COMPANY_EDIT)%>
+    <li><a href="/admin/company/info">公司管理</a></li>
+    <%end%>
+    <%if user.can?(Constants::Role::LIMIT_COMPANY_DEPARTMENT)%>
+    <li><a href="/admin/company/departments">部门管理</a></li>
+    <%end%>
+    <%if user.can?(Constants::Role::LIMIT_COMPANY_DEPARTMENT)%>
+    <li><a href="/admin/company/users">人员管理</a></li>
+    <%end%>
+    <%if user.can?(Constants::Role::LIMIT_COMPANY_ESTATE)%>
+    <li><a href="/admin/company/estates">楼盘管理</a></li>
+    <%end%>
+    <%if user.can?(Constants::Role::LIMIT_COMPANY_CUSTOMER)%>
+    <li><a href="/admin/company/customers">客户管理</a></li>
+    <%end%>
+    <%if user.can?(Constants::Role::LIMIT_COMPANY_DEAL)%>
+    <li><a href="/admin/company/deals">订单管理</a></li>
+    <%end%>
+    <li><a href="/admin/user/index">个人信息管理</a></li>
+</ul>

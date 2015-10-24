@@ -1,0 +1,10 @@
+<ul>
+    <li><a href="/admin/system/index" <%=add_class('current', params[:action] == 'index')%>>首页</a></li>
+    <li><a href="/admin/system/city_blocks" <%=add_class('current', params[:action].starts_with?('city_block'))%>>区域管理</a></li>
+    <li><a href="/admin/system/roles" <%=add_class('current', params[:action].starts_with?('role'))%>>角色管理</a></li>
+    <li><a href="/admin/system/users" <%=add_class('current', params[:action].starts_with?('user'))%>>员工管理</a></li>
+    <li><a href="/admin/system/companys" <%=add_class('current', params[:action].starts_with?('company'))%>>公司管理</a></li>
+    <li><a href="/admin/system/estates" <%=add_class('current', params[:action].starts_with?('estate'))%>>楼盘管理</a></li>
+    <li><a href="/admin/system/deals" <%=add_class('current', params[:action].starts_with?('deal'))%>>工单管理</a></li>
+    <li><a href="/admin/system/customers" <%=add_class('current', params[:action].starts_with?('customer'))%>>客户管理</a></li>
+</ul>

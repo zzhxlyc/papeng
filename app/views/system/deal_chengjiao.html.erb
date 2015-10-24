@@ -1,0 +1,31 @@
+<form action="/admin/system/deal" method="post" onsubmit="return check_form(this)">
+  <p>
+    楼盘名称：<%=@obj.estate.name%>
+  </p>
+  <p>
+    经纪人姓名：<%=@obj.customer.created_by.name%>
+  </p>
+  <p>
+    客户姓名：<%=@obj.customer.name%>
+  </p>
+  <p>
+    客户联系方式：<%=@obj.customer.contact%>
+  </p>
+  <p>
+    成交金额：<input type="text" name="deal_price" value="<%=@obj.deal_price%>"/>
+  </p>
+  <input type="hidden" name="deal_status" value="1"/>
+  <input type="hidden" name="id" value="<%=@obj.id%>"/>
+  <%= token_tag %>
+  <input type="submit" value="提交" />
+  <a href="javascript:void(0)" onclick="history.back()">返回</a>
+</form>
+
+<script type="text/javascript">
+    function check_form(form){
+        var msg;
+        var deal_price = form_field_value(form, 'deal_price');
+        if((msg = form_check_string(deal_price))){alert('成交金额' + msg);return false;}
+        return true;
+    }
+</script>

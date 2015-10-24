@@ -1,0 +1,47 @@
+<form action="/admin/system/company" method="post">
+  <input type="hidden" name="id" <%=if_value(@obj, :id) %>/>
+  <input type="text" name="name" value="<%=@obj.name%>"/>
+
+  <p>
+    <select name="province_id">
+      <option value="330000">浙江省</option>
+    </select>
+    <select name="city_id">
+      <option value="330100">杭州市</option>
+    </select>
+    <select name="zone_id">
+      <option value=""></option>
+      <%CityZone.hzZones.each do |z|%>
+      <option value="<%=z.areaID%>" <%=if_selected(@obj.zone_id, z.areaID)%>><%=z.area%></option>
+      <%end%>
+    </select>
+  </p>
+
+  <p>
+    简介：<textarea name="info" rows="5" cols="50"><%=@obj.info%></textarea>
+  </p>
+  <p>
+    邮编：<input type="text" name="poster" value="<%=@obj.poster%>"/>
+  </p>
+  <p>
+    联系人：<input type="text" name="contact" value="<%=@obj.contact%>"/>
+  </p>
+  <p>
+    联系方式：<input type="text" name="contact_phone" value="<%=@obj.contact_phone%>"/>
+  </p>
+  <p>
+    account：<input type="text" name="account" value="<%=@obj.account%>"/>
+  </p>
+  <p>
+    银行：<input type="text" name="bank" value="<%=@obj.bank%>"/>
+  </p>
+  <p>
+    银行卡号：<input type="text" name="card" value="<%=@obj.card%>"/>
+  </p>
+
+
+  <%= token_tag %>
+  <input type="submit" value="提交" />
+</form>
+
+<a href="/admin/system/companys">返回</a>

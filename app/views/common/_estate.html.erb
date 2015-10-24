@@ -1,0 +1,145 @@
+  <p>
+    名称：<input type="text" name="name" value="<%=@obj.name%>"/>
+  </p>
+
+  <%if @companys%>
+  <p>
+    公司：
+    <select name="company_id">
+      <option value=""></option>
+      <%@companys.each do |z|%>
+          <option value="<%=z.id%>" <%=if_selected(@obj.company_id, z.id)%>><%=z.name%></option>
+      <%end%>
+    </select>
+  </p>
+  <%elsif @company%>
+  <input type="hidden" name="company_id" value="<%=@company.id%>" />
+  <%end%>
+
+  <p>区域：
+    <select name="province_id">
+      <option value="330000">浙江省</option>
+    </select>
+    <select name="city_id">
+      <option value="330100">杭州市</option>
+    </select>
+    <select name="zone_id">
+      <option value=""></option>
+      <%CityZone.hzZones.each do |z|%>
+      <option value="<%=z.areaID%>" <%=if_selected(@obj.zone_id, z.areaID)%>><%=z.area%></option>
+      <%end%>
+    </select>
+  </p>
+
+  <p>
+    区块：
+    <select name="city_block_id">
+      <option value=""></option>
+      <%@blocks.each do |z|%>
+          <option value="<%=z.id%>" <%=if_selected(@obj.city_block_id, z.id)%>><%=z.name%></option>
+      <%end%>
+    </select>
+  </p>
+
+  <p>
+    住宅类型：
+    普通住宅：<input type="radio" name="estate_kind" value="1" <%=if_checked(@obj.estate_kind, 1)%>/>
+    Lofter：<input type="radio" name="estate_kind" value="2" <%=if_checked(@obj.estate_kind, 2)%>/>
+    写字楼：<input type="radio" name="estate_kind" value="3" <%=if_checked(@obj.estate_kind, 3)%>/>
+  </p>
+  <p>
+    简介：<textarea name="desc" rows="5" cols="50"><%=@obj.desc%></textarea>
+  </p>
+  <p>
+    联系方式：<input type="text" name="contact" value="<%=@obj.contact%>"/>
+  </p>
+  <p>
+    地址：<input type="text" name="address" value="<%=@obj.address%>"/>
+  </p>
+  <p>产权：<input type="text" name="chanquan" value="<%=@obj.chanquan%>"/>年</p>
+  <p>
+    佣金类型：
+    金额：<input type="radio" name="yongjin_kind" value="1" <%=if_checked(@obj.yongjin_kind, 1)%>/>
+    比例：<input type="radio" name="yongjin_kind" value="2" <%=if_checked(@obj.yongjin_kind, 2)%>/>
+  </p>
+  <p>佣金信息：<input type="text" name="yongjin_info" value="<%=@obj.yongjin_info%>"/> 1万/套、3%</p>
+  <p>是否带看：<input type="checkbox" name="if_daikan" value="1" <%=if_checked(@obj.if_daikan)%>/></p>
+  <p>带看有效期/不带看保留期：<input type="text" name="daikan_days" value="<%=@obj.daikan_days%>"/>天</p>
+  <p>是否有带看奖：<input type="checkbox" name="if_daikan_reward" value="1" <%=if_checked(@obj.if_daikan_reward)%>/></p>
+  <p>带看奖说明：<input type="text" name="daikan_reward_info" value="<%=@obj.daikan_reward_info%>"/></p>
+  <p>是否有认筹奖：<input type="checkbox" name="if_renchou" value="1" <%=if_checked(@obj.if_renchou)%>/></p>
+  <p>认筹奖说明：<input type="text" name="renchou_info" value="<%=@obj.renchou_info%>"/></p>
+  <p>认筹价格：<input type="text" name="renchou_price" value="<%=@obj.renchou_price%>"/>元</p>
+  <p>认筹描述：<input type="text" name="renchou_desc" value="<%=@obj.renchou_desc%>"/></p>
+  <p>
+    界定时间：
+    实时 <input id="jd_ss" type="checkbox" <%=if_checked(@obj.jieding_time, 0)%>/>
+    或 <input id="jd_t" type="text" name="jieding_time" value="<%=@obj.jieding_time || 0%>"/>分钟
+  </p>
+  <p>结佣时间：<input type="text" name="jieyong_time" value="<%=@obj.jieyong_time%>"/>天数</p>
+  <p>
+    推荐客户描述：<textarea name="step1" rows="5" cols="50"><%=@obj.step1%></textarea>
+  </p>
+  <p>
+    客户带看描述：<textarea name="step2" rows="5" cols="50"><%=@obj.step2%></textarea>
+  </p>
+  <p>
+    客户认筹描述：<textarea name="step3" rows="5" cols="50"><%=@obj.step3%></textarea>
+  </p>
+  <p>
+    客户成交描述：<textarea name="step4" rows="5" cols="50"><%=@obj.step4%></textarea>
+  </p>
+  <p>
+    地段描述：<textarea name="info1" rows="5" cols="50"><%=@obj.info1%></textarea>
+  </p>
+  <p>
+    配套描述：<textarea name="info2" rows="5" cols="50"><%=@obj.info2%></textarea>
+  </p>
+  <p>
+    教育描述：<textarea name="info3" rows="5" cols="50"><%=@obj.info3%></textarea>
+  </p>
+  <p>
+    环境描述：<textarea name="info4" rows="5" cols="50"><%=@obj.info4%></textarea>
+  </p>
+  <p>
+    交通描述：<textarea name="info5" rows="5" cols="50"><%=@obj.info5%></textarea>
+  </p>
+  <p>
+    简介描述：<textarea name="info6" rows="5" cols="50"><%=@obj.info6%></textarea>
+  </p>
+  <p>楼盘有效起始时间：<input type="text" name="start_at" value="<%=date(@obj.start_at)%>"/></p>
+  <p>楼盘有效截止时间：<input type="text" name="end_at" value="<%=date(@obj.end_at)%>"/></p>
+  <p>上线时间：<input type="text" name="online_at" value="<%=date(@obj.online_at)%>"/></p>
+
+  <p>
+    备注：<textarea name="note" rows="5" cols="50"><%=@obj.note%></textarea>
+  </p>
+
+
+  <input type="hidden" name="id" value="<%=@obj.id%>"/>
+  <%= token_tag %>
+  <input type="submit" value="提交" />
+
+<script type="text/javascript">
+function check_form(form){
+    var msg;
+    var name = form_field_value(form, 'name');
+    if((msg = form_check_string(name))){alert('名称' + msg);return false;}
+    var zone_id = form_field_value(form, 'zone_id');
+    if((msg = form_check(zone_id))){alert('行政区' + msg);return false;}
+    var contact = form_field_value(form, 'contact');
+    if((msg = form_check_string(contact, 100))){alert('联系方式' + msg);return false;}
+    return true;
+}
+$('#jd_ss').click(function(){
+    if(this.checked){
+        $('#jd_t').val(0);
+    }
+});
+$('#jd_t').focus(function(){
+    if(this.value == '0'){
+        this.value = '';
+    }
+    $('#jd_ss')[0].checked = false;
+});
+</script>

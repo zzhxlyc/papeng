@@ -1,0 +1,15 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'sidebar'%>
+<% end %>
+
+<form action="/admin/user/pswd" method="post">
+  <p>
+    原密码：<input type="text" name="password"/>
+  </p>
+  <p>
+    新密码：<input type="text" name="new_password"/>
+  </p>
+
+  <input type="submit" value="提交" />
+  <%= token_tag %>
+</form>

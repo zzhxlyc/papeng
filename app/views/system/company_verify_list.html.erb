@@ -1,0 +1,11 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'system/company_sidebar'%>
+<% end %>
+
+<%@list.each do |obj|%>
+<p>
+    <a href="/admin/system/company?id=<%=obj.id%>"><%=obj.name%></a>
+    <a href="/admin/system/company_verify?id=<%=obj.id%>&pass=1">通过</a>
+    <a href="/admin/system/company_verify?id=<%=obj.id%>&pass=0">拒绝</a>
+</p>
+<%end%>

@@ -1,0 +1,31 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'system/user_sidebar'%>
+<% end %>
+
+<form action="/admin/system/admin" method="post" onsubmit="return check_form(this)">
+  <input type="hidden" name="id" <%=if_value(@obj, :id) %>/>
+  <p>
+    账号：<input type="text" name="user" value="<%=@obj.user%>"/>
+    <%=if_has_error(@errors, :user)%>
+  </p>
+  <%if @obj.id.blank?%>
+  <p>
+    密码：<%=@obj.password%>
+    <input type="hidden" name="password" value="<%=@obj.password%>"/>
+  </p>
+  <%end%>
+
+
+  <%= token_tag %>
+  <input type="submit" value="提交" />
+
+</form>
+
+<script type="text/javascript">
+    function check_form(form){
+        var msg;
+        var name = form_field_value(form, 'user');
+        if((msg = form_check_string(name))){alert('账号' + msg);return false;}
+        return true;
+    }
+</script>

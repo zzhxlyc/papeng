@@ -1,0 +1,10 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'system/company_sidebar'%>
+<% end %>
+
+<%@list.each do |obj|%>
+<a href="/admin/system/department?id=<%=obj.id%>&company_id=<%=obj.company_id%>"><%=obj.name%></a>
+<%end%>
+
+<a href="/admin/system/department?company_id=<%=@father.id%>">新增</a>
+<a href="javascript:void(0)" onclick="history.back()">返回</a>

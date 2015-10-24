@@ -1,0 +1,10 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'system/city_block_sidebar'%>
+<% end %>
+
+<%@list.each do |obj|%>
+<p>
+  <a href="/admin/system/city_block?id=<%=obj.id%>"><%=obj.name%></a>
+  <a href="/admin/system/city_block_delete?id=<%=obj.id%>" onclick="return confirm_delete()">删除</a>
+</p>
+<%end%>

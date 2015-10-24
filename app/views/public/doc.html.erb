@@ -1,0 +1,36 @@
+<table>
+  <tr>
+    <td>基础概念</td>
+    <td>city：城市（如杭州），zone：区（如西湖区），city_block或者block：房产区块（如钱江新城）</td>
+  </tr>
+  <tr>
+    <td>图片地址</td>
+    <td>/uploads/{image_path}</td>
+  </tr>
+  <tr>
+    <td>模型字段对应</td>
+    <td>
+      楼盘（estate或estate_project）：看app/views/common/_estate.html.erb <br />
+    </td>
+  </tr>
+  <tr>
+    <td>枚举值</td>
+    <td>
+      住宅类型（estate_kind）：1-普通住宅，2-Lofter，3-写字楼 <br />
+      佣金类型（yongjin_kind）：1-金额，2-比例 <br />
+      界定时间（jieding_time）：0-实时，>0 分钟值 <br />
+    </td>
+  </tr>
+  <tr>
+    <td>/api/base/base_data</td>
+    <td>返回城市（仅杭州）、所有区、所有房产区块信息</td>
+  </tr>
+  <tr>
+    <td>/api/estate/list</td>
+    <td>所有楼盘列表信息，可带参数搜索name=?或zone_id=?或block_id=?，可带参数排序order={yjje, jjbl, jjsj}</td>
+  </tr>
+  <tr>
+    <td>/api/estate/show?id=?</td>
+    <td>楼盘detail信息</td>
+  </tr>
+</table>

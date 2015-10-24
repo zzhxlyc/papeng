@@ -1,0 +1,30 @@
+  <p>
+    姓名：<input type="text" name="name" value="<%=@obj.name%>"/>
+  </p>
+  <p>
+    性别：
+    男：<input type="radio" name="sex" value="男" <%=if_checked(@obj.sex, '男')%>/>
+    女：<input type="radio" name="sex" value="女" <%=if_checked(@obj.sex, '女')%>/>
+  </p>
+  <p>
+    联系方式：<input type="text" name="contact" value="<%=@obj.contact%>"/>
+  </p>
+  <p>
+    备注：<textarea name="note" rows="5" cols="50"><%=@obj.note%></textarea>
+  </p>
+
+
+  <input type="hidden" name="id" value="<%=@obj.id%>"/>
+  <%= token_tag %>
+  <input type="submit" value="提交" />
+
+<script type="text/javascript">
+function check_form(form){
+    var msg;
+    var name = form_field_value(form, 'name');
+    if((msg = form_check_string(name))){alert('姓名' + msg);return false;}
+    var contact = form_field_value(form, 'contact');
+    if((msg = form_check_string(contact, 100))){alert('联系方式' + msg);return false;}
+    return true;
+}
+</script>

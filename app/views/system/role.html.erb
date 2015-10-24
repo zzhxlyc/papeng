@@ -1,0 +1,30 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'system/role_sidebar'%>
+<% end %>
+
+<form action="/admin/system/role" method="post" onsubmit="return check_form(this)">
+  <input type="hidden" name="id" <%=r if_value(@role, :id) %>/>
+  <%if @error%><p>错误：<%=@error%></p><%end%>
+  <p>角色名：<input type="text" name="name" value="<%=@role.name%>"/></p>
+  <p>标识符：<input type="text" name="key" value="<%=@role.key%>"/></p>
+
+
+<% Constants::Role::LIMIT_PERMISSIONS.each do |pm| %>
+    <p><%= t pm %>：<input name="perms[]" type="checkbox" value="<%= pm %>"
+                          <%if @role%><%=r if_checked(@role.permissions.include?(pm)) %><%end%>/></p>
+<% end %>
+
+  <%= token_tag %>
+  <input type="submit" value="提交" />
+</form>
+
+<script type="text/javascript">
+    function check_form(form){
+        var msg;
+        var name = form_field_value(form, 'name');
+        if((msg = form_check_string(name))){alert('名称' + msg);return false;}
+        var key = form_field_value(form, 'key');
+        if((msg = form_check_string(key))){alert('标识符' + msg);return false;}
+        return true;
+    }
+</script>

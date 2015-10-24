@@ -1,0 +1,10 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'estate_sidebar'%>
+<% end %>
+
+<%@list.each do |obj|%>
+<p>
+  <%=obj.name%>
+  <a href="/admin/system/estate_revert?id=<%=obj.id%>">恢复</a>
+</p>
+<%end%>

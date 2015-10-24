@@ -1,0 +1,14 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'sidebar'%>
+<% end %>
+
+<form action="/admin/user/info" method="post">
+  <p>姓名：<input type="text" name="name" value="<%=user.name%>"/></p>
+  <p>邮箱：<input type="text" name="email" value="<%=user.email%>"/></p>
+  <p>手机：<input type="text" name="mobile" value="<%=user.mobile%>"/></p>
+  <p>身份证：<input type="text" name="idcard" value="<%=user.idcard%>"/></p>
+  <p>支付宝：<input type="text" name="alipay" value="<%=user.alipay%>"/></p>
+
+  <%= token_tag %>
+  <input type="submit" value="提交" />
+</form>

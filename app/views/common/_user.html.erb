@@ -1,0 +1,48 @@
+  <input type="hidden" name="id" <%=if_value(@obj, :id) %>/>
+  <p>
+    账号：<input type="text" name="user" value="<%=@obj.user%>"/>
+    <%=if_has_error(@errors, :user)%>
+  </p>
+  <%if @obj.id.blank?%>
+  <p>
+    密码：<%=@obj.password%>
+    <input type="hidden" name="password" value="<%=@obj.password%>"/>
+  </p>
+  <%end%>
+
+  <%if @companys%>
+  <p>
+    角色：
+    <select name="role_id">
+      <%@roles.each do |z|%>
+          <option value="<%=z.id%>" <%=if_selected(@obj.role_id, z.id)%>><%=z.name%></option>
+      <%end%>
+    </select>
+  </p>
+
+  <p>
+    角色：
+    <select name="company_id">
+      <%@companys.each do |z|%>
+          <option value="<%=z.id%>" <%=if_selected(@obj.company_id, z.id)%>><%=z.name%></option>
+      <%end%>
+    </select>
+  </p>
+  <%end%>
+
+
+  <%= token_tag %>
+  <input type="submit" value="提交" />
+
+<script type="text/javascript">
+    function check_form(form){
+        var msg;
+        var name = form_field_value(form, 'user');
+        if((msg = form_check_string(name))){alert('账号' + msg);return false;}
+        <%if @companys%>
+        var zone_id = form_field_value(form, 'role_id');
+        if((msg = form_check(zone_id))){alert('角色' + msg);return false;}
+        <%end%>
+        return true;
+    }
+</script>

@@ -1,0 +1,9 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'system/role_sidebar'%>
+<% end %>
+
+<%@roles.each do |role|%>
+<p>
+  <a href="/admin/system/role?id=<%=role.id%>"><%=role.name%></a>
+</p>
+<%end%>

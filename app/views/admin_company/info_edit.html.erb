@@ -1,0 +1,46 @@
+<form action="/admin/company/info_edit" method="post">
+  <input type="text" name="name" value="<%=@company.name%>"/>
+
+  <p>
+    <select name="province_id">
+      <option value="330000">浙江省</option>
+    </select>
+    <select name="city_id">
+      <option value="330100">杭州市</option>
+    </select>
+    <select name="zone_id">
+      <option value=""></option>
+      <%CityZone.hzZones.each do |z|%>
+      <option value="<%=z.areaID%>" <%=if_selected(@company.zone_id, z.areaID)%>><%=z.area%></option>
+      <%end%>
+    </select>
+  </p>
+
+  <p>
+    简介：<textarea name="info" rows="5" cols="50"><%=@company.info%></textarea>
+  </p>
+  <p>
+    邮编：<input type="text" name="poster" value="<%=@company.poster%>"/>
+  </p>
+  <p>
+    联系人：<input type="text" name="contact" value="<%=@company.contact%>"/>
+  </p>
+  <p>
+    联系方式：<input type="text" name="contact_phone" value="<%=@company.contact_phone%>"/>
+  </p>
+  <p>
+    结佣账户：<input type="text" name="account" value="<%=@company.account%>"/>
+  </p>
+  <p>
+    结佣银行：<input type="text" name="bank" value="<%=@company.bank%>"/>
+  </p>
+  <p>
+    结佣卡号：<input type="text" name="card" value="<%=@company.card%>"/>
+  </p>
+
+
+  <%= token_tag %>
+  <input type="submit" value="提交" />
+</form>
+
+<%=back_link%>

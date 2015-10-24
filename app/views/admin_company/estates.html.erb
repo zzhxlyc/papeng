@@ -1,0 +1,12 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'estate_sidebar'%>
+<% end %>
+
+<%@list.each do |obj|%>
+<p>
+  <%=obj.id%>
+  <a href="/admin/company/estate?id=<%=obj.id%>"><%=obj.name%></a>
+  <a href="/admin/company/estate_image?id=<%=obj.id%>">图片管理</a>
+  <a href="/admin/company/estate_delete?id=<%=obj.id%>" onclick="return confirm_delete()">删除</a>
+</p>
+<%end%>

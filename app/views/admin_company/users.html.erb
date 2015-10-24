@@ -1,0 +1,12 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'user_sidebar'%>
+<% end %>
+
+<%@list.each do |obj|%>
+<p>
+  <%=obj.user%>【<%=obj.name%>】
+  <a href="/admin/company/person?id=<%=obj.id%>">详细信息</a>
+  <a href="/admin/company/usr?id=<%=obj.id%>">修改账号</a>
+  <a href="/admin/company/user_delete?id=<%=obj.id%>" onclick="return confirm_delete()">删除</a>
+</p>
+<%end%>

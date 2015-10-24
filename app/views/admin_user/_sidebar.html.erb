@@ -1,0 +1,5 @@
+<li><a href="/admin/user/pswd">修改密码</a></li>
+<li><a href="/admin/user/info">个人信息</a></li>
+<%if !user.is_system_admin?%>
+<li><a href="/admin/company/index">公司管理</a></li>
+<%end%>
