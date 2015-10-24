@@ -1,0 +1,173 @@
+/*
+*  common
+*/
+body {
+    color: #444;
+    background: #f1f1f1;
+	font-family: "Open Sans",sans-serif;
+    font-size: 13px;
+    line-height: 1.4em;
+    margin: 0;
+}
+
+input,p{
+	margin: 0;
+	padding: 0;
+}
+
+.btn{
+	display: block;
+	text-align: center;
+	cursor: pointer;
+	background: #2ea2cc;
+    -webkit-box-shadow: inset 0 1px 0 rgba(120,200,230,.5),0 1px 0 rgba(0,0,0,.15);
+    box-shadow: inset 0 1px 0 rgba(120,200,230,.5),0 1px 0 rgba(0,0,0,.15);
+    color: #fff;
+    text-decoration: none;
+    border:1px solid #0074a2;
+}
+
+
+/*
+*  login
+*/
+
+#login {
+    width: 320px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+#login h1{
+	text-align: center;
+}
+#login .login-form{
+	margin-top: 20px;
+    margin-left: 0;
+    padding: 26px 24px 46px;
+    font-weight: 400;
+    overflow: hidden;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    box-shadow: 0 1px 3px rgba(0,0,0,.13);
+}
+#login .login-form label{
+	display: block;
+	color: #777;
+    font-size: 14px;
+}
+#login .login-form input{
+	border:1px solid #eee;
+	background: #fbfbfb;
+	width: 100%;
+    margin: 2px 6px 16px 0;
+	line-height: 30px;
+}
+
+#login .login-form .btn{
+	background: #2ea2cc;
+	border:0;
+	line-height: 40px;
+	font-size: 14px;
+
+}
+
+#loginPage #header{
+	display: none;
+}
+#loginPage #body{
+	margin-left: 0;
+
+}
+
+/*
+*  header，导航等
+*/
+
+#header{
+	position: absolute;
+	left: 0;
+    top: 0;
+    bottom: 0;
+    width: 160px;
+    background-color: #222;
+}
+
+#header ul{
+	clear: left;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+#header ul li{
+	border: 0;
+    min-height: 34px;
+    position: relative;
+}
+
+#header ul li a{
+	font-size: 14px;
+    font-weight: 400;
+    padding-left: 10px;
+    text-decoration: none;
+    color:#eee;
+}
+
+
+#body{
+	margin-left: 180px;
+	padding-top: 20px;
+	height: 100%;
+}
+
+#body #left{
+	list-style: none;
+	height: 40px;
+	
+}
+#body #left li{
+	list-style: none;
+	float: left;
+	margin-right: 15px;
+}
+
+#body #left li a{
+	color: #0074a2;
+	font-size: 14px;
+	text-decoration: none;
+}
+#body #right{
+	margin-right: 20px;
+}
+#body #right p{
+	line-height:2;
+	padding: 5px 0;
+	border: 1px solid #e5e5e5;
+	border-bottom: 0;
+	padding-left: 10px;
+	background: #fff;
+}
+#body #right p:last-child{
+	border-bottom: 1px solid #e5e5e5;
+
+}
+#body #right p a{
+	color: #0074a2;
+	display: inline-block;
+	margin-right: 20px;
+}
+
+#body #right form{
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	padding: 15px;
+}
+#body #right form p{
+	border: none;
+
+}
+
+
+
+
