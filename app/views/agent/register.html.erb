@@ -1,0 +1,20 @@
+注册成为经纪人：
+
+<form action="/agent/do_register" method="post">
+<p>
+  <input type="text" name="name" placeholder="名称" />
+</p>
+<p>
+  <select name="company_id">
+    <option value=""></option>
+    <%@companys.each do |z|%>
+        <option value="<%=z.id%>"><%=z.name%></option>
+    <%end%>
+  </select>
+</p>
+
+<p>
+  <input type="hidden" name="openid" value="<%=@openid%>" />
+  <input type="submit" value="注册" />
+</p>
+</form>

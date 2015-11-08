@@ -1,0 +1,23 @@
+<form action="/admin/system/deal" method="post">
+  <p>
+    楼盘名称：<%=@obj.estate.name%>
+  </p>
+  <p>
+    经纪人姓名：<%=@obj.customer.created_by.name%>
+  </p>
+  <p>
+    客户姓名：<%=@obj.customer.name%>
+  </p>
+  <p>
+    客户联系方式：<%=@obj.customer.contact%>
+  </p>
+  <p>
+    带看备注：<textarea name="daikan_info" rows="5" cols="50" placeholder="选填"><%=@obj.daikan_info%></textarea>
+  </p>
+  <input type="hidden" name="daikan_status" value="<%=Deal::DaikanStatus::APPLY_CONFIRM%>"/>
+  <input type="hidden" name="step" value="daikan_jl_confirm"/>
+  <input type="hidden" name="id" value="<%=@obj.id%>"/>
+  <%= token_tag %>
+  <input type="submit" value="提交" />
+  <a href="javascript:void(0)" onclick="history.back()">返回</a>
+</form>
