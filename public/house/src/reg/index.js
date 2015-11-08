@@ -31,6 +31,10 @@ $(function(){
 				$('.J_RegConfirm').hide();
 
 			})
+			$('.J_Submit').on('click',function(){
+				$('#form')[0].submit();
+
+			})
 
 			$('.J_Suggest').delegate('.item','click',function(){
 				var id=$(this).attr('cid');
