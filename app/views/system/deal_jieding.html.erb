@@ -3,7 +3,7 @@
     楼盘名称：<%=@obj.estate.name%>
   </p>
   <p>
-    经纪人姓名：<%=@obj.customer.created_by.name%>
+    经纪人姓名：<%=@obj.agent.name%>
   </p>
   <p>
     客户姓名：<%=@obj.customer.name%>
@@ -23,6 +23,7 @@
     界定备注：<textarea name="bb_note" rows="5" cols="50" placeholder="选填"><%=@obj.bb_note%></textarea>
   </p>
   <input type="hidden" name="id" value="<%=@obj.id%>"/>
+  <input type="hidden" name="step" value="jieding"/>
   <%= token_tag %>
   <input type="submit" value="提交" />
   <a href="javascript:void(0)" onclick="history.back()">返回</a>

@@ -12,10 +12,10 @@
     客户联系方式：<%=@obj.customer.contact%>
   </p>
   <p>
-    佣金金额：<%=@obj.yongjin_price%>
+    带看备注：<textarea name="daikan_info" rows="5" cols="50" placeholder="选填"><%=@obj.daikan_info%></textarea>
   </p>
-  <input type="hidden" name="yongjin_status" value="<%=Deal::YongjinStatus::CONFIRM%>"/>
-  <input type="hidden" name="step" value="yongjin_confirm"/>
+  <input type="hidden" name="daikan_status" value="<%=Deal::DaikanStatus::APPLY_CONFIRM%>"/>
+  <input type="hidden" name="step" value="daikan_jl_confirm"/>
   <input type="hidden" name="id" value="<%=@obj.id%>"/>
   <%= token_tag %>
   <input type="submit" value="提交" />

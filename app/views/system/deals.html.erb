@@ -13,11 +13,17 @@
       <%end%>
     </select>
     工单状态：
-    <select name="state">
+    <select name="status">
       <option value=""></option>
-      <option value="bbjd" <%=if_selected('bbjd', if_nil(params[:state]))%>>报备界定</option>
-      <option value="bbjd" <%=if_selected('bbjd', if_nil(params[:state]))%>>报备界定</option>
+      <option value="bbjd" <%=if_selected('bbjd', if_nil(params[:status]))%>>报备界定中</option>
+      <option value="dk" <%=if_selected('dk', if_nil(params[:status]))%>>带看完成</option>
+      <option value="dkjl" <%=if_selected('dkjl', if_nil(params[:status]))%>>带看奖励申请中</option>
+      <option value="renchou" <%=if_selected('renchou', if_nil(params[:status]))%>>认筹申请中</option>
+      <option value="chengjiao" <%=if_selected('chengjiao', if_nil(params[:status]))%>>成交申请中</option>
     </select>
+  </p>
+  <p>
+    <input type="submit" value="搜索" />
   </p>
   </form>
 </div>
@@ -25,11 +31,25 @@
 <%@list.each do |obj|%>
 <p>
   <a href="/admin/system/deal?id=<%=obj.id%>"><%=obj.id%></a>
+  <a href="/admin/system/estate?id=<%=obj.estate.id%>"><%=obj.estate.name%></a>
+  <a href="/admin/system/usr?id=<%=obj.agent.id%>"><%=obj.agent.name%></a>
+  <a href="/admin/system/customer?id=<%=obj.customer.id%>"><%=obj.customer.name%></a>
+  <a href="/admin/system/customer?id=<%=obj.customer.id%>"><%=obj.customer.contact%></a>
+  <%if obj.is_bb_undo?%>
   <a href="/admin/system/deal_jieding?id=<%=obj.id%>">报备界定</a>
-  <a href="/admin/system/deal_chengjiao?id=<%=obj.id%>">成交确认</a>
+  <%elsif obj.is_dk_confirm?%>
   <a href="/admin/system/deal_daikan?id=<%=obj.id%>">带看确认</a>
-  <a href="/admin/system/deal_jieyong?id=<%=obj.id%>">结佣确认</a>
+  <%elsif obj.is_dkjl_apply?%>
+  <a href="/admin/system/deal_daikan_jl?id=<%=obj.id%>">带看奖励确认</a>
+  <%elsif obj.is_rc_apply?%>
   <a href="/admin/system/deal_renchou?id=<%=obj.id%>">认筹确认</a>
-  <a href="/admin/system/deal_delete?id=<%=obj.id%>" onclick="return confirm_delete()">删除</a>
+  <%elsif obj.is_chengjiao_apply?%>
+  <a href="/admin/system/deal_chengjiao?id=<%=obj.id%>">成交确认</a>
+  <%elsif obj.is_yj_apply?%>
+  <a href="/admin/system/deal_jieyong?id=<%=obj.id%>">结佣确认</a>
+  <%else%>
+  <%=obj.status_str%>
+  <%end%>
+  <!--<a href="/admin/system/deal_delete?id=<%=obj.id%>" onclick="return confirm_delete()">删除</a>-->
 </p>
 <%end%>

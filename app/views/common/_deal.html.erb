@@ -9,9 +9,11 @@
   <p>
     报备状态：
     <select name="bb_status">
-      <option value="0" <%=if_selected(@obj.bb_status, 0)%>>界定中</option>
-      <option value="1" <%=if_selected(@obj.bb_status, 1)%>>界定有效</option>
-      <option value="2" <%=if_selected(@obj.bb_status, 2)%>>界定无效</option>
+        <%=status_options(@obj.bb_status, [
+                {:k => Deal::BaobeiStatus::UNDO, :v => '界定中'},
+                {:k => Deal::BaobeiStatus::SUCC, :v => '界定有效'},
+                {:k => Deal::BaobeiStatus::FAIL, :v => '界定无效'},
+        ])%>
     </select>
   </p>
   <p>
@@ -20,31 +22,37 @@
   <p>
     带看状态：
     <select name="daikan_status">
-      <option value="0" <%=if_selected(@obj.daikan_status, 0)%>>未带看</option>
-      <option value="1" <%=if_selected(@obj.daikan_status, 1)%>>带看确认</option>
-      <option value="2" <%=if_selected(@obj.daikan_status, 2)%>>带看完成</option>
+      <%=status_options(@obj.daikan_status, [
+        {:k => Deal::DaikanStatus::UNDO, :v => '未带看'},
+        {:k => Deal::DaikanStatus::CONFIRM, :v => '带看确认'},
+        {:k => Deal::DaikanStatus::SUCC, :v => '带看确认完成'},
+        {:k => Deal::DaikanStatus::APPLY, :v => '带看奖励申请'},
+        {:k => Deal::DaikanStatus::APPLY_CONFIRM, :v => '带看奖励申请确认'},
+      ])%>
     </select>
   </p>
   <p>
-    带看奖励：<input type="checkbox" name="daikan_jl" value="1" <%=if_checked(@obj.daikan_jl)%>/>
+    是否带看：<%=@obj.estate_info.if_daikan ? '是' : '否'%>
   </p>
   <p>
-    带看奖励结算：<input type="checkbox" name="daikan_jljs" value="1" <%=if_checked(@obj.daikan_jljs)%>/>
+    带看有效时间：<input type="text" name="daikan_ddl" value="<%=time(@obj.daikan_ddl)%>"/>
   </p>
   <p>
-    带看备注：<textarea name="daikan_info" rows="5" cols="50"><%=@obj.daikan_info%></textarea>
+    是否有带看奖：<%=@obj.estate_info.if_daikan_reward ? '是' : '否'%>
   </p>
   <p>
-    带看有效时间：<input type="text" name="daikan_ddl" value="<%=@obj.daikan_ddl%>"/>
+    带看奖说明：<%=@obj.estate_info.daikan_reward_info%>
   </p>
   <p>
     认筹状态：
     <select name="renchou_status">
-      <option value="0" <%=if_selected(@obj.renchou_status, 0)%>>未认筹</option>
-      <option value="1" <%=if_selected(@obj.renchou_status, 1)%>>认筹确认</option>
-      <option value="2" <%=if_selected(@obj.renchou_status, 2)%>>认筹完成</option>
-      <option value="3" <%=if_selected(@obj.renchou_status, 3)%>>认筹退款确认</option>
-      <option value="4" <%=if_selected(@obj.renchou_status, 4)%>>认筹退款完成</option>
+      <%=status_options(@obj.renchou_status, [
+              {:k => Deal::RenchouStatus::UNDO, :v => '未认筹'},
+              {:k => Deal::RenchouStatus::APPLY, :v => '认筹申请中'},
+              {:k => Deal::RenchouStatus::CONFIRM, :v => '认筹确认'},
+              {:k => Deal::RenchouStatus::BACK_CONFIRM, :v => '认筹退款确认'},
+              {:k => Deal::RenchouStatus::BACK_DONE, :v => '认筹退款完成'},
+      ])%>
     </select>
   </p>
   <p>
@@ -56,16 +64,15 @@
   <p>
     成交状态：
     <select name="deal_status">
-      <option value="0" <%=if_selected(@obj.deal_status, 0)%>>未成交</option>
-      <option value="1" <%=if_selected(@obj.deal_status, 1)%>>成交确认</option>
-      <option value="2" <%=if_selected(@obj.deal_status, 2)%>>成交完成</option>
+      <%=status_options(@obj.deal_status, [
+               {:k => Deal::DealStatus::UNDO, :v => '未成交'},
+               {:k => Deal::DealStatus::APPLY, :v => '成交申请中'},
+               {:k => Deal::DealStatus::CONFIRM, :v => '成交确认'},
+       ])%>
     </select>
   </p>
   <p>
     成交金额：<input type="text" name="deal_price" value="<%=@obj.deal_price%>"/>
-  </p>
-  <p>
-    佣金结算：<input type="checkbox" name="if_yongjin" value="1" <%=if_checked(@obj.if_yongjin)%>/>
   </p>
   <p>
     佣金金额：<input type="text" name="yongjin_price" value="<%=@obj.yongjin_price%>"/>

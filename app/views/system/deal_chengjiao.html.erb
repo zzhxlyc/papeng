@@ -14,7 +14,8 @@
   <p>
     成交金额：<input type="text" name="deal_price" value="<%=@obj.deal_price%>"/>
   </p>
-  <input type="hidden" name="deal_status" value="1"/>
+  <input type="hidden" name="deal_status" value="<%=Deal::DealStatus::CONFIRM%>"/>
+  <input type="hidden" name="step" value="chengjiao_confirm"/>
   <input type="hidden" name="id" value="<%=@obj.id%>"/>
   <%= token_tag %>
   <input type="submit" value="提交" />
