@@ -5,33 +5,20 @@ $(function(){
 			this.bindEvents();
 		},
 		bindEvents:function(){
-			$('.check-field').on('click',function(){
-
-				if($(this).hasClass('checked-field')){
-					$(this).removeClass('checked-field');
-				}else{
-					$(this).addClass('checked-field');
-				}
-			})
-
-			$('.J_Reg').on('click',function(){
+			$('.J_Order').on('click',function(e){
 				$('.J_Mask').show();
-				$('.J_RegConfirm').show();
-
+				$('.J_OrderSelect').show();
+				e.stopPropagation();
 			})
-
-			$('.J_Cancel').on('click',function(){
+			$('.J_Mask').on('click',function(){
 				$('.J_Mask').hide();
-				$('.J_RegConfirm').hide();
-
+				$('.J_OrderSelect').hide();
 			})
 
-			$('.J_Submit').on('click',function(){
 
-
-			})
 
 		}
+
 
 
 

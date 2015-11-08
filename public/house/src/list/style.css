@@ -113,7 +113,33 @@
 
 
 
-
+.order-select-wrap{
+    position: fixed;
+    top:50px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #e8e8e8;
+    display: none;
+}
+.order-select-wrap .arrow-top{
+    position: absolute;
+    width: 13px;
+    height: 7px;
+    top: -7px;
+    left: 130px;
+    background: url(../../images/arrow-top.png) no-repeat 0 0;
+    background-size: contain;
+}
+.order-select-wrap .item{
+    float: left;
+    width: 25%;
+    line-height: 40px;
+    text-align: center;
+}
+.order-select-wrap .cur{
+    color: #fc3636;
+}
 
 
 
