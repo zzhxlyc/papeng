@@ -1,0 +1,162 @@
+.search-wrap{
+    width: 300px;
+    height: 30px;
+    margin: 20px auto;
+    margin-top: 70px;
+}
+
+.search-wrap input{
+    width: 262px;
+    border:1px solid #e93b59;
+    border-radius: 5px 0 0 5px;
+    border-right: 0;
+    line-height: 30px;
+    height: 30px;
+    float: left;
+}
+.search-wrap .search-btn{
+    float: left;
+    width: 38px;
+    height: 30px;
+    background: url(../../images/btn-search.png) no-repeat center center;
+    background-size: contain;
+}
+
+
+.house-list .item{
+    padding: 0 20px;
+    color: #909090;
+    border-bottom: 1px solid  #b7b7b7;
+    margin-bottom: 15px;
+}
+.house-list .item .top{
+    border-bottom: 1px solid  #b7b7b7;
+}
+.house-list .item .top img{
+    width: 90px;
+    height: 65px;
+    float: left;
+}
+.house-list .item .top .info{
+    margin-left: 100px;
+
+}
+.house-list .item .top .info h3{
+    color: #000;
+    font-size: 15px;
+    margin: 0 0 5px 0;
+}
+.house-list .item .top .info .icon-new{
+    display: inline-block;
+    width: 35px;
+    height: 18px;
+    background: url(../../images/icon-new.png) no-repeat center center;
+    background-size: contain;
+}
+.house-list .item .top .info .info-item{
+    color: #909090;
+    font-size: 12px;
+    height: 25px;
+}
+.house-list .item .top .info .info-item .icon-increase{
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    background: url(../../images/icon-increase.png) no-repeat center center;
+    background-size: contain;
+
+}
+.house-list .item .top .info .info-item label{
+    margin-right: 6px;
+    color: #909090;
+}
+.house-list .item .top .info .info-item .left{
+    float: left;
+
+}
+.house-list .item .top .info .info-item .right{
+    float: right;
+    width: 100px;
+}
+.house-list .item .top .info .info-item span{
+    color: #ea3a59;
+    line-height: 20px;
+}
+.house-list .item .top .info .info-item strong{
+    font-size: 18px;
+    color: #ea3a59;
+}
+.house-list .item .top .info .info-item .orange{
+    color: #ff8000;
+}
+
+
+.house-list .item .bottom{
+    padding-bottom: 20px;
+}
+
+.house-list .item .bottom table{
+    width: 100%;
+}
+.house-list .item .bottom i{
+    width: 12px;
+    height: 12px;
+    margin-right: 2px;
+    display: inline-block;
+    background: url(../../images/icon-radio.png) no-repeat 0 0;
+    background-size: contain;
+    vertical-align: middle;
+}
+.house-list .item .bottom .icon-checked{
+    background-image: url(../../images/icon-radio-checked.png);
+}
+
+
+
+.order-select-wrap{
+    position: fixed;
+    top:50px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #e8e8e8;
+    display: none;
+}
+.order-select-wrap .arrow-top{
+    position: absolute;
+    width: 13px;
+    height: 7px;
+    top: -7px;
+    left: 130px;
+    background: url(../../images/arrow-top.png) no-repeat 0 0;
+    background-size: contain;
+}
+.order-select-wrap .item{
+    float: left;
+    width: 25%;
+    line-height: 40px;
+    text-align: center;
+}
+.order-select-wrap .cur{
+    color: #fc3636;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
