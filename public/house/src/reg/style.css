@@ -1,0 +1,78 @@
+#logo{
+    width:140px;
+    height: 65px;
+    background: url(../../images/logo.png) no-repeat center 0;
+    background-size: contain;
+    margin: 45px auto;
+    margin-bottom: 35px;
+}
+
+
+.reg-form .field{
+    position: relative;
+    font-size: 15px;
+}
+.reg-form .check-field{
+    font-size: 12px;
+    font-weight: bold;
+}
+.reg-form .field input{
+    border: 1px solid #b7b7b7;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    width: 100%;
+    text-indent: 40px;
+    box-sizing: border-box;
+
+
+}
+.reg-form .check-field i{
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background: url(../../images/icon-radio.png) no-repeat 0 0;
+    background-size: contain;
+    vertical-align: middle;
+}
+.reg-form .checked-field i{
+    background-image: url(../../images/icon-radio-checked.png);
+}
+.reg-form .check-field span{
+    vertical-align: middle;
+
+}
+
+.reg-form .field .icon{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top:8px;
+    left: 10px;
+    background: url(../../images/icon-phone.png) no-repeat 0 0;
+    background-size: contain;
+}
+.reg-form .shop-field .icon{
+    background-image:url(../../images/icon-account.png);
+}
+.reg-form .code-field input{
+    width: 140px;
+    margin-right: 8px;
+    float: left;
+}
+.reg-form .code-field .btn{
+    width: 130px;
+    float: left;
+
+}
+
+.reg-form .field .btn-primary i{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(../../images/icon-yes.png) no-repeat 0 0;
+    background-size: contain;
+    vertical-align: middle;
+    margin-right: 10px;
+
+}
