@@ -1,4 +1,4 @@
-<form action="/agent/do_register" method="post">
+<form action="/agent/do_register" method="post" id="form">
 
 <div id="wrapper">
   <div id="logo"></div>
@@ -9,14 +9,17 @@
     </div>
     <div class="field shop-field">
       <i class="icon"></i>
-      <input type="text" placeholder="门店代码（即中介公司）">
+      <input type="text" class="J_Shop" placeholder="门店代码（即中介公司）">
+      <div class="suggestlist J_Suggest">
+          
+      </div>
     </div>
     <div class="field check-field checked-field">
       <i></i>
       <span>同意<a href="#">《趴碰网络科技微经纪系统服务》</a></span>
     </div>
     <div class="field">
-      <input type="hidden" name="company_id" value="" />
+      <input type="hidden" name="company_id" id="company_id" value="" />
       <input type="hidden" name="openid" value="<%=@openid%>" />
       <a href="javascript:;" class="btn btn-primary J_Reg" ><i></i>注册</a>
     </div>

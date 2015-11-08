@@ -12,6 +12,24 @@
     position: relative;
     font-size: 15px;
 }
+.reg-form .suggestlist{
+    position: absolute;
+    top:40px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border:1px solid #eee;
+    border-bottom: 0;
+    display: none;
+    z-index: 1;
+
+}
+.reg-form .suggestlist .item{
+    height: 40px;
+    line-height: 40px;
+    padding-left: 5px;
+    border-bottom: 1px solid #eee;
+}
 .reg-form .check-field{
     font-size: 12px;
     font-weight: bold;
