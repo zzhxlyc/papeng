@@ -5,22 +5,37 @@ $(function(){
 			this.bindEvents();
 		},
 		bindEvents:function(){
+			var self=this;
 			$('.J_Order').on('click',function(e){
 				$('.J_Mask').show();
 				$('.J_OrderSelect').show();
 				e.stopPropagation();
 			})
+			$('.J_OrderSelect .item').on('click',function(e){
+				var order=$(this).attr('order');
+				$('.J_OrderSelect .item').removeClass('cur');
+				$(this).addClass('cur');
+				self.renderHouseList({
+					order:order
+				});
+				self.hideOrderSelect();
+			})
 			$('.J_Mask').on('click',function(){
-				$('.J_Mask').hide();
-				$('.J_OrderSelect').hide();
+				self.hideOrderSelect();
 			})
 
 
 
 		},
-		renderHouseList:function(){
+		hideOrderSelect:function(){
+			$('.J_Mask').hide();
+			$('.J_OrderSelect').hide();
+
+
+		},
+		renderHouseList:function(param){
 			var domain='http://121.40.70.168';
-			$.get(domain+'/api/estate/list',function(data){
+			$.get(domain+'/api/estate/list',param,function(data){
 				var wrap=$('.J_Houselist');
 				var html=[];
 				$.each(data.data.list,function(i,t){
@@ -48,7 +63,7 @@ $(function(){
 					html.push('</div></div>');
         
 				});
-				wrap.append(html.join(''));
+				wrap.html(html.join(''));
 				
 			})
 
