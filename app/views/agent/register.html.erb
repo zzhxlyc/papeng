@@ -1,20 +1,38 @@
-注册成为经纪人：
-
 <form action="/agent/do_register" method="post">
-<p>
-  <input type="text" name="name" placeholder="名称" />
-</p>
-<p>
-  <select name="company_id">
-    <option value=""></option>
-    <%@companys.each do |z|%>
-        <option value="<%=z.id%>"><%=z.name%></option>
-    <%end%>
-  </select>
-</p>
 
-<p>
-  <input type="hidden" name="openid" value="<%=@openid%>" />
-  <input type="submit" value="注册" />
-</p>
+<div id="wrapper">
+  <div id="logo"></div>
+  <div class="form reg-form">
+    <div class="field phone-field">
+      <i class="icon"></i>
+      <input type="number" name="user" placeholder="手机号码">
+    </div>
+    <div class="field shop-field">
+      <i class="icon"></i>
+      <input type="text" placeholder="门店代码（即中介公司）">
+    </div>
+    <div class="field check-field checked-field">
+      <i></i>
+      <span>同意<a href="#">《趴碰网络科技微经纪系统服务》</a></span>
+    </div>
+    <div class="field">
+      <input type="hidden" name="company_id" value="" />
+      <input type="hidden" name="openid" value="<%=@openid%>" />
+      <a href="javascript:;" class="btn btn-primary J_Reg" ><i></i>注册</a>
+    </div>
+  </div>
+</div>
+
+<div class="mask J_Mask"></div>
+<div class="modal J_RegConfirm">
+  <div class="inner">
+    注册成功后佣金与<strong>【杭州天空和房地产代理有限公司滨江分店】</strong>结算，是否确定？
+  </div>
+  <div class="btn-wrap">
+    <a href="javascript:;" class="btn btn-gray J_Cancel">取消</a>
+    <a href="javascript:;" class="btn btn-primary J_Submit">确定</a>
+  </div>
+
+</div>
+
 </form>

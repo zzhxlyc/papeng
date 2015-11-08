@@ -14,7 +14,8 @@
   <p>
     佣金金额：<%=@obj.yongjin_price%>
   </p>
-  <input type="hidden" name="renchou_status" value="1"/>
+  <input type="hidden" name="yongjin_status" value="<%=Deal::YongjinStatus::CONFIRM%>"/>
+  <input type="hidden" name="step" value="yongjin_confirm"/>
   <input type="hidden" name="id" value="<%=@obj.id%>"/>
   <%= token_tag %>
   <input type="submit" value="提交" />
