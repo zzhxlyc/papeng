@@ -19,11 +19,21 @@ $(function(){
 				var name=$(this).val();
 				self.renderSuggest(name);
 			});
+			$('body').on('click',function(){
+				var dom=$('.J_Suggest');
+				dom.hide();
+			});
 
 			$('.J_Reg').on('click',function(){
-				$('.J_Mask').show();
-				$('.J_RegConfirm').show();
-
+				var shop=$('.J_Shop').val();
+				if(shop.length===0){
+					alert('请填写门店代码');
+					return;
+				}
+				self.checkPhone(function(){
+					$('.J_Mask').show();
+					$('.J_RegConfirm').show();
+				});	
 			})
 
 			$('.J_Cancel').on('click',function(){
@@ -32,6 +42,7 @@ $(function(){
 
 			})
 			$('.J_Submit').on('click',function(){
+
 				$('#form')[0].submit();
 
 			})
@@ -41,10 +52,26 @@ $(function(){
 				$('#company_id').val(id);
 				$('.J_Shop').val($(this).text());
 				$('.J_Suggest').hide();
+				$('.J_ModalShop').text('【'+$(this).text()+'】');
 
 			})
 
 		},
+
+		checkPhone:function(cb){
+			var cell=$('.J_Phone').val();
+			$.get(domain+'/api/base/check_agent',{cell:cell},function(data){
+				if(data.status){
+					if(cb) cb();
+				}else{
+					alert(data.message);
+				}
+			});
+
+
+		},
+
+
 		renderSuggest:function(name){
 			$.get(domain+'/api/base/search_company',{name:name},function(data){
 				var dom=$('.J_Suggest');

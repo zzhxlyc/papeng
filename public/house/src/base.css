@@ -86,6 +86,54 @@ a{
     border-radius: 3px;
 }
 
+/**
+ * loading
+ */
+
+#loading {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0);
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+}
+#loading span {
+  display: block;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+  color: #FFF;
+  font-size: 12px;
+  text-align: center;
+}
+#loading .loading-icon {
+  margin-right: 4px;
+  width: 14px;
+  height: 14px;
+    background: url(//img.alicdn.com/tps/i2/TB1sJiBKpXXXXbWXXXXEDhGGXXX-32-32.png) no-repeat 0 0;
+    background-size: contain;
+  font-size: 14px;
+  line-height: 14px;
+  display: inline-block;
+  -webkit-animation: rotate 1s linear infinite;
+  /*Safari and Chrome*/
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
 
 /**
  * header
