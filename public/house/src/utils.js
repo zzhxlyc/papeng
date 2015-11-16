@@ -13,7 +13,7 @@ var Utils={
 		
 
 	},
-	hideLoading = function () {
+	hideLoading :function () {
 		var loading = document.getElementById('loading') || $('<div id="loading"></div>').appendTo($('body'))[0];
 		loading.style.cssText = '';
 		$(loading).detach('touchstart');

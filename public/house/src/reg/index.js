@@ -26,10 +26,16 @@ $(function(){
 
 			$('.J_Reg').on('click',function(){
 				var shop=$('.J_Shop').val();
+				var cell=$('.J_Phone').val();
+				if(cell.length===0){
+					alert('请填写手机号');
+					return;
+				}
 				if(shop.length===0){
 					alert('请填写门店代码');
 					return;
 				}
+
 				self.checkPhone(function(){
 					$('.J_Mask').show();
 					$('.J_RegConfirm').show();
@@ -60,7 +66,9 @@ $(function(){
 
 		checkPhone:function(cb){
 			var cell=$('.J_Phone').val();
+			Utils.showLoading();
 			$.get(domain+'/api/base/check_agent',{cell:cell},function(data){
+				Utils.hideLoading();
 				if(data.status){
 					if(cb) cb();
 				}else{
