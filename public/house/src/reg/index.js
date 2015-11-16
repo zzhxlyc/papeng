@@ -27,8 +27,17 @@ $(function(){
 			$('.J_Reg').on('click',function(){
 				var shop=$('.J_Shop').val();
 				var cell=$('.J_Phone').val();
+				var name=$('.J_Name').val();
+				if(!$('.check-field').hasClass('checked-field')){
+					alert('注册前请先同意《趴碰网络科技微经纪系统服务》');
+				}
+
 				if(cell.length===0){
 					alert('请填写手机号');
+					return;
+				}
+				if(name.length===0){
+					alert('请填写姓名');
 					return;
 				}
 				if(shop.length===0){
@@ -48,8 +57,14 @@ $(function(){
 
 			})
 			$('.J_Submit').on('click',function(){
-
+				if($(this).hasClass('disabled')){
+					return;
+				}
 				$('#form')[0].submit();
+				$(this).addClass('disabled');
+				Utils.showLoading('注册中...');
+
+
 
 			})
 

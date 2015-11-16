@@ -22,7 +22,11 @@
     background-size: contain;
 }
 
-
+.house-list .nodata{
+    text-align: center;
+    padding: 50px 0;
+    color: #999;
+}
 .house-list .item{
     display: block;
     padding: 0 20px;

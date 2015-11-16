@@ -17,6 +17,7 @@ $(function(){
 			$('.J_Search').on('click',function(e){
 				var name=$('.J_SearchKey').val();
 				var order=$('.J_OrderSelect .cur').attr('order');
+
 				self.renderHouseList({
 					name:name
 				});
@@ -29,10 +30,12 @@ $(function(){
 				$('.J_ZoneSelect .item').removeClass('cur');
 				$(this).addClass('cur');
 				var zoneId=$(this).attr('zoneid');
-				self.renderBlockList(zoneId);
-				self.renderHouseList();
 				if(!zoneId){
 					self.hideAreaSelect();
+					self.renderHouseList();
+
+				}else{
+					self.renderBlockList(zoneId);
 				}
 			});
 			$('.J_BlockSelect').delegate('.item','click',function(){
@@ -56,7 +59,20 @@ $(function(){
 			})
 			$('.J_Mask').on('click',function(){
 				self.hideOrderSelect();
-			})
+				self.hideAreaSelect();
+			});
+
+			$(window).on('scroll', function () {
+		        var scrollTop = $(this).scrollTop(),
+		            scrollHeight = $(document).height(),
+		            windowHeight = $(this).height();
+
+		        if (scrollTop + windowHeight == scrollHeight) {
+
+
+		            getOrder( ++pageNum ,buyerId);
+		        }
+		    });
 
 
 
@@ -76,6 +92,7 @@ $(function(){
 		renderBlockList:function(zoneId){
 			var block=$('.J_BlockSelect');
 			var blockHtml=[];
+			blockHtml.push('<div class="item" blockid="">不限</div>');
 			for(var i=0;i<this.blockList.length;i++){
 				var t=this.blockList[i];
 				if(t.zone_id==zoneId){
@@ -84,7 +101,7 @@ $(function(){
 			}
 
 			block.html(blockHtml.join(''));
-			if(blockHtml.length>0){
+			if(this.blockList.length>0){
 				block.show();	
 			}else{
 				block.hide();
@@ -109,8 +126,8 @@ $(function(){
 
 
 		},
-		renderHouseList:function(){
-			var param={};
+		renderHouseList:function(param){
+			var param=param||{};
 			param.order=$('.J_OrderSelect .cur').attr('order');
 			param.zone_id=$('.J_ZoneSelect .cur').attr('zoneid');
 			param.block_id=$('.J_BlockSelect .cur').attr('blockid');
@@ -118,6 +135,10 @@ $(function(){
 			$.get(domain+'/api/estate/list',param,function(data){
 				var wrap=$('.J_Houselist');
 				var html=[];
+				if(data.data.list.length===0){
+					wrap.html('<div class="nodata">没有对应楼盘</div>');
+					return;
+				}
 				$.each(data.data.list,function(i,t){
 					html.push('<a href="#" class="item">');
 					html.push('<div class="top">');
@@ -125,7 +146,7 @@ $(function(){
 					html.push('<div class="info">');
 					html.push('<h3>'+t.name+'<i class="icon-new"></i></h3>');
 					html.push('<div class="info-item clearfix">');
-					html.push('<span class="left"><label>佣金</label><strong>'+t.yongjin_info+'</strong></span>');
+					html.push('<span class="left"><label>佣金</label><strong>'+(t.yongjin_kind===1?t.yongjin_info.replace('/套',''):t.yongjin_info)+'</strong></span>');
 					html.push('<span class="right"><label>界定</label><span>'+(t.jieding_time=='0'?'实时':t.jieding_time+'分钟')+'</span></span>');
 					html.push('</div>');
 					html.push('<div class="info-item clearfix">');
@@ -135,9 +156,9 @@ $(function(){
 					html.push('<div class="bottom">');
 					html.push('<table><tr>');
 					html.push('<td><i class="'+(t.if_daikan?'icon-checked':'icon-check')+'"></i>需带看</td>');
-					html.push('<td><i class="icon-checked"></i>须2天内带看</td>');
-					html.push('<td><i class="icon-checked"></i>代扣奖</td>');
-					html.push('<td><i class="icon-checked"></i>认筹奖</td>');
+					html.push('<td><i class="icon-checked"></i>须'+t.daikan_days+'天内带看</td>');
+					html.push('<td><i class="'+(t.if_daikan_reward?'icon-checked':'icon-check')+'"></i>带看奖</td>');
+					html.push('<td><i class="'+(t.if_renchou?'icon-checked':'icon-check')+'"></i>认筹奖</td>');
 					html.push('</tr></table>');
 					html.push('<p>有效期：'+t.start_at+' 至 '+t.end_at+'</p>');
 					html.push('</div></a>');
