@@ -69,8 +69,6 @@ $(function(){
 
 		        if (scrollTop + windowHeight == scrollHeight) {
 
-
-		            getOrder( ++pageNum ,buyerId);
 		        }
 		    });
 
@@ -128,15 +126,22 @@ $(function(){
 		},
 		renderHouseList:function(param){
 			var param=param||{};
+			param.page=param.page||1;
 			param.order=$('.J_OrderSelect .cur').attr('order');
 			param.zone_id=$('.J_ZoneSelect .cur').attr('zoneid');
 			param.block_id=$('.J_BlockSelect .cur').attr('blockid');
-
+			Utils.showLoading();
 			$.get(domain+'/api/estate/list',param,function(data){
 				var wrap=$('.J_Houselist');
 				var html=[];
+				Utils.hideLoading();
 				if(data.data.list.length===0){
-					wrap.html('<div class="nodata">没有对应楼盘</div>');
+					if(param.page===1){
+						wrap.html('<div class="nodata">没有对应楼盘</div>');
+					}else{
+						wrap.append('<div class="nodata">没有更多楼盘了</div>');
+
+					}
 					return;
 				}
 				$.each(data.data.list,function(i,t){
@@ -164,7 +169,12 @@ $(function(){
 					html.push('</div></a>');
         
 				});
-				wrap.html(html.join(''));
+				if(param.page===1){
+					wrap.html(html.join(''));
+				}else{
+					wrap.append(html.join(''));
+				}	
+				
 				
 			})
 
