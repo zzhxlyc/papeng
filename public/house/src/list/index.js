@@ -145,7 +145,7 @@ $(function(){
 					return;
 				}
 				$.each(data.data.list,function(i,t){
-					html.push('<a href="#" class="item">');
+					html.push('<a href="/detail?id='+t.id+'" class="item">');
 					html.push('<div class="top">');
 					html.push('<img src="/uploads/'+t.image.path+'" class="preview" alt="">');
 					html.push('<div class="info">');

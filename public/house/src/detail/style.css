@@ -1,0 +1,158 @@
+.detail-wrap{
+    margin: 70px 10px 0 10px;
+
+}
+
+
+.detail-wrap .top{
+    border-bottom: 1px solid  #b7b7b7;
+}
+.detail-wrap .top img{
+    width: 90px;
+    height: 65px;
+    float: left;
+}
+.detail-wrap .top .info{
+    margin-left: 100px;
+
+}
+.detail-wrap .top .info h3{
+    color: #000;
+    font-size: 15px;
+    margin: 0 0 5px 0;
+}
+.detail-wrap .top .info .icon-new{
+    display: inline-block;
+    width: 35px;
+    height: 18px;
+    background: url(../../images/icon-new.png) no-repeat center center;
+    background-size: contain;
+}
+.detail-wrap .top .info .info-item{
+    color: #909090;
+    font-size: 12px;
+    height: 25px;
+}
+.detail-wrap .top .info .info-item .icon-increase{
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    background: url(../../images/icon-increase.png) no-repeat center center;
+    background-size: contain;
+
+}
+.detail-wrap .top .info .info-item label{
+    margin-right: 6px;
+    color: #909090;
+}
+.detail-wrap .top .info .info-item .left{
+    float: left;
+
+}
+.detail-wrap .top .info .info-item .right{
+    float: right;
+    width: 100px;
+}
+.detail-wrap .top .info .info-item span{
+    color: #ea3a59;
+    line-height: 20px;
+}
+.detail-wrap .top .info .info-item strong{
+    font-size: 18px;
+    color: #ea3a59;
+}
+.detail-wrap .top .info .info-item .orange{
+    color: #ff8000;
+}
+
+
+
+.detail-wrap .bottom{
+    padding-bottom: 10px;
+    border-bottom: 1px solid  #b7b7b7;
+
+}
+
+.detail-wrap .bottom table{
+    width: 100%;
+}
+.detail-wrap .bottom i{
+    width: 12px;
+    height: 12px;
+    margin-right: 2px;
+    display: inline-block;
+    background: url(../../images/icon-radio.png) no-repeat 0 0;
+    background-size: contain;
+    vertical-align: middle;
+}
+.detail-wrap .bottom .icon-checked{
+    background-image: url(../../images/icon-radio-checked.png);
+}
+
+.detail-wrap .ext-info{
+
+}
+
+.detail-wrap .ext-info p{
+    padding: 10px 0;
+    border-bottom: 1px solid  #b7b7b7;
+        
+}
+
+.detail-wrap .ext-info p:last-child{
+    border: 0;
+
+}
+.detail-wrap .ext-info p label{
+    font-weight: bold;
+        
+}
+.detail-wrap .ext-info p .em{
+    color: #ea3a59;
+        
+}
+
+.take-flow{
+    border-top: 1px solid  #b7b7b7;
+    padding: 10px;
+}
+
+.take-flow h4{
+    font-weight: bold;
+    margin: 10px 0;
+    padding-bottom: 10px;
+    font-size: 15px;
+    border-bottom: 1px solid  #b7b7b7;
+}
+
+.fix-bottom{
+    background: #e8e8e8;
+    height: 44px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #999;
+}
+.fix-bottom a{
+    display: block;
+    float: left;
+    width: 50%;
+    border-right: 1px solid #999;
+    box-sizing:border-box;
+    text-align: center;
+    line-height: 44px;
+    font-size: 15px;
+    color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+

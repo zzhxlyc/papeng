@@ -181,6 +181,82 @@ a{
 }
 
 
+/*area select*/
+
+
+.order-select-wrap{
+    position: fixed;
+    top:50px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #e8e8e8;
+    display: none;
+}
+.order-select-wrap .arrow-top{
+    position: absolute;
+    width: 13px;
+    height: 7px;
+    top: -7px;
+    left: 130px;
+    background: url(../../images/arrow-top.png) no-repeat 0 0;
+    background-size: contain;
+}
+.order-select-wrap .item{
+    float: left;
+    width: 25%;
+    line-height: 40px;
+    text-align: center;
+}
+.order-select-wrap .cur{
+    color: #fc3636;
+}
+
+
+
+.area-select-wrap{
+    position: fixed;
+    top:50px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    overflow: scroll;
+    background: #c4c4c4;
+    display: none;
+}
+.area-select-wrap .arrow-top{
+    position: absolute;
+    width: 13px;
+    height: 7px;
+    top: -7px;
+    right: 60px;
+    background: url(../../images/arrow-top.png) no-repeat 0 0;
+    background-size: contain;
+}
+.area-select-wrap .zonelist{
+    float: left;
+}
+.area-select-wrap .item{
+    height: 40px;
+    line-height: 40px;
+    width: 150px;
+    text-align: center;
+    background: #e8e8e8;
+    border-bottom: 1px solid #9d9d9d;
+}
+.area-select-wrap  .cur{
+    color: #fc3636;
+}
+.area-select-wrap .blocklist{
+    float: left;
+    margin-left: 2px;
+    display: none;
+}
+.area-select-wrap .blocklist .item{
+    background: #fff;
+}
+
+
 
 
 
