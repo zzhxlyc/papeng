@@ -7,7 +7,7 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
     <title>房产趴砰网</title>
 
     <link rel="stylesheet" type="text/css" href="./house/src/base.css"/>
-    <link rel="stylesheet" type="text/css" href="./house/src/addcustomer/style.css"/>
+    <link rel="stylesheet" type="text/css" href="./house/src/customerlist/style.css"/>
 
 
 </head>
@@ -25,32 +25,24 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
             
         </div>
 
-        <div class="title">
-          <a href="javascript:;" class="back"></a>
-          <span class="em">添加客户</span>
+        <div class="search-wrap">
+            <input type="search" class="J_SearchKey" placeholder="查找客户">
+            <a href="javascript:;" class="search-btn J_Search"></a>
+            
         </div>
-        <div class="form">
-          <div class="field name-field">
-            <i></i>
-            <input type="text" class="J_Name" placeholder="客户姓名">
-          </div>
-          <div class="check-field J_Sex">
-            <span class="item checked" sex="男">男士</span>
-            <span class="item" sex="女">女士</span>
-          </div>
-          <div class="field phone-field">
-            <i></i>
-            <input type="number" class="J_Contact" placeholder="客户手机">
-          </div>
-          <div class="field note-field">
-            <i></i>
-            <input type="text" class="J_Note" placeholder="在此输入备注">
-          </div>
-          
+        <a class="add-wrap" href="/addcustomer.html">
+          <i></i><span>新增客户</span>
+        </a>
+        <div class="list J_List">
+            <div class="item">
+              <i></i>
+              <span class="name">222</span>
+              <span class="more">222 2222</span>
+            </div>
+        </div>
 
-          <a href="javascript:;" class="btn btn-primary J_Save">保存</a>
-        </div>
-        
+
+        <a href="javascript:;" class="btn btn-primary fixed-btn">推荐</a>
 
 
         
@@ -78,13 +70,12 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
         
     </div>
 
-   
-   
+  
 
 <script src="./house/src/lib/jquery.js"></script>
 
 <script src="./house/src/utils.js"></script>
-<script src="./house/src/addcustomer/index.js"></script>
+<script src="./house/src/customerlist/index.js"></script>
 
 </body>
 </html>
