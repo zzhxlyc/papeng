@@ -73,6 +73,7 @@
 }
 .house-list .item{
     position: relative;
+    border: 0;
 }
 
 .house-list .item .btn{

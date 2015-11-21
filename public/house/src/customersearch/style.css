@@ -24,18 +24,18 @@
     background-size: contain;
 }
 
-.nav {
+.list-wrap {
     margin: 10px;
 }
-.nav .item{
+.title{
     border-bottom: 1px solid #b7b7b7;
     line-height: 40px;
     font-size: 14px;
 }
-.nav .selected{
+.selected .title{
     color: #ea3a5a;
 }
-.nav .item i{
+.title i{
     width: 26px;
     height: 26px;
     display: inline-block;
@@ -43,7 +43,10 @@
     background: url(../../images/icon-customer1.png) no-repeat center center;
     background-size: contain;
 }
-.nav .item i{
+.item2 .title i{
+    background-image: url(../../images/icon-customer2.png);
+}
+.title i{
     vertical-align: middle;
 }
 
@@ -53,23 +56,18 @@
     margin: 10px;
 }
 .list .item{
-    padding: 5px 0;
+    display: block;
+    padding: 10px 0;
 }
-.list .item i{
-    display: inline-block;
-    vertical-align: middle;
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-    background: url(../../images/icon-radio.png) no-repeat center center;
-    background-size: contain;
-}
-.list .item span{
-    vertical-align: middle;
-    
+
+.list .item .name{
+    padding-right: 10px;
+    font-size: 14px;
+    color: #000;
 }
 .list .item .more{
     color: #b7b7b7;
+    font-size: 12px;
 }
 .list .checked{
     color: #ea3a5a;
@@ -79,7 +77,11 @@
     
 }
 
-
+.no-data{
+    text-align: center;
+    color: #999;
+    padding: 10px;
+}
 
 
 

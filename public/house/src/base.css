@@ -124,6 +124,22 @@ a{
   /*Safari and Chrome*/
 }
 
+
+#successTip{
+  display: none;
+  width: 200px;
+  padding: 10px 0;
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: 999;
+  left: 50%;
+  margin-left: -100px;
+  top: 40%;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+}
+
 @-webkit-keyframes rotate {
   0% {
     -webkit-transform: rotate(0deg);
@@ -287,12 +303,26 @@ a{
     color: #000;
     font-size: 15px;
     margin: 0 0 5px 0;
+    position: relative;
+}
+.house-list .item .top .info h3 .radio{
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    background: url(../images/icon-radio.png) no-repeat 0 0;
+    background-size: contain;
+}
+.house-list .item.checked .top .info h3 .radio{
+    background-image: url(../images/icon-radio-checked.png);
+
 }
 .house-list .item .top .info .icon-new{
     display: inline-block;
     width: 35px;
     height: 18px;
-    background: url(../../images/icon-new.png) no-repeat center center;
+    background: url(../images/icon-new.png) no-repeat center center;
     background-size: contain;
 }
 .house-list .item .top .info .info-item{
@@ -304,7 +334,7 @@ a{
     display: inline-block;
     width: 20px;
     height: 15px;
-    background: url(../../images/icon-increase.png) no-repeat center center;
+    background: url(../images/icon-increase.png) no-repeat center center;
     background-size: contain;
 
 }

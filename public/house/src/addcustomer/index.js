@@ -13,6 +13,9 @@ $(function(){
 				var contact=$('.J_Contact').val();
 				var note=$('.J_Note').val();
 				var sex=$('.J_Sex .checked').attr('sex');
+				if($(this).hasClass('disabled')){
+					return;
+				}
 				if($.trim(name).length===0){
 					alert('请填写客户姓名');
 					return;
@@ -30,6 +33,10 @@ $(function(){
 
 			});
 
+			$('.J_Back').on('click',function(){
+				history.back();
+			})
+
 			$('.check-field .item').on('click',function(){
 				$('.check-field .item').removeClass('checked');
 				$(this).addClass('checked');
@@ -43,7 +50,13 @@ $(function(){
 		addCustomer:function(param){
 
 			$.post(domain+'/agent/add_customer',param,function(data){
-
+				if(data.status){
+					Utils.tip('添加成功');
+					$('.J_Save').addClass('disabled');
+					//history.back();
+				}else{
+					Utils.tip('添加失败，请稍后再试');
+				}
 
 			});
 

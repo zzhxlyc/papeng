@@ -1,7 +1,9 @@
+.before,.after{
+    margin-top: 70px;
+}
 .search-wrap{
     height: 30px;
     margin: 10px;
-    margin-top: 70px;
     position: relative;
 }
 
@@ -79,6 +81,27 @@
 
 .after{
     display: none;
+}
+
+.after .title{
+    text-align: center;
+    color: #ea3a5a;
+    font-size: 15px;
+    position: relative;
+    line-height: 45px;
+    height: 45px;
+    margin-top: 50px;
+    font-weight: bold;
+    border-bottom: 1px solid #b7b7b7;
+}
+.after .title .back{
+    position: absolute;
+    top:5px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    background: url(../../images/icon-back.png) no-repeat 0 0;
+    background-size: contain;
 }
 
 

@@ -17,6 +17,14 @@ var Utils={
 		var loading = document.getElementById('loading') || $('<div id="loading"></div>').appendTo($('body'))[0];
 		loading.style.cssText = '';
 		$(loading).detach('touchstart');
+	},
+	tip:function(msg,cb){
+		var success = document.getElementById('successTip') || $('<div id="successTip"></div>').appendTo($('body'))[0];
+		$(success).show().html(msg);
+		setTimeout(function(){
+			$(success).hide();
+			if(cb) cb();
+		},1600);
 	}
 
 	
