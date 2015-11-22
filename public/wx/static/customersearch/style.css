@@ -109,7 +109,17 @@
 }
 
 
-
+.loadmore,.no-more{
+    border-top: 1px solid #b7b7b7;
+    margin: 10px;
+    padding: 10px 0;
+    text-align: center;
+    color: #999;
+    
+}
+.loadmore{
+    display: none;
+}
 
 
 

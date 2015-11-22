@@ -3,6 +3,8 @@ $(function(){
 
 	var App={
 		init:function(){
+			this.page=1;
+			this.key='';
 			this.initUI();
 			this.getCustomerCount();
 			this.bindEvents();
@@ -22,24 +24,28 @@ $(function(){
 		},
 		bindEvents:function(){
 			var self=this;
+			$('.J_MoreList').on('click',function(){
+				self.page+=1;
+				self.getCustomerList({
+					page:self.page,
+					type:$('.list-wrap .item .selected').attr('type'),
+					name:self.key
+				});
+			})
 
 			$('.list-wrap .item .title').on('click',function(){
 				var dom=$(this).parent();
-				if(dom.hasClass('selected')){
-					dom.removeClass('selected');
-					dom.find('.list').hide();
-				}else{
-					var type=dom.attr('type');
-					var param={
-						type:type
-					};
-					if(self.hasEstate){
-						param.estate_id=self.estateid;
-					}
-					dom.addClass('selected');
-					self.getCustomerList(dom.find('.list'),param);
-
+				$('.list-wrap .item').removeClass('selected');
+				var type=dom.attr('type');
+				var param={
+					type:type
+				};
+				if(self.hasEstate){
+					param.estate_id=self.estateid;
 				}
+				dom.addClass('selected');
+				self.getCustomerList(param);
+
 				
 			
 
@@ -52,7 +58,8 @@ $(function(){
 
 
 			$('.J_Search').on('click',function(){
-				self.getCustomerList($('.list-wrap .selected .list'),{
+				self.key=$('.J_SearchKey').val();
+				self.getCustomerList({
 					type:$('.list-wrap .selected').attr('type'),
 					name:$('.J_SearchKey').val()
 				});
@@ -82,25 +89,35 @@ $(function(){
 
 		},
 		
-		getCustomerList:function(dom,param){
+		getCustomerList:function(param){
 			var html=[];
 			var url='/agent/search';
+			var dom=$('.J_List');
+			param.page=param.page||1;
 			Utils.showLoading();
 			$.get(domain+url,param,function(data){
 				Utils.hideLoading();
 				var list=data.data.list;
-				if(list.length===0){
-					dom.html('<div class="no-data">没有对应客户</div>');
-					return;
-				}
+				
 				$.each(list,function(i,t){
 					html.push('<a href="'+(t.id?'/wx/agent/detail.html?id='+t.id:'javascript:;')+'" class="item" cid="'+t.id+'">');
 					html.push('<span class="name">'+t.customer.name+'</span>');
 					html.push('<span class="more">'+(t.customer.sex==='男'?'先生':'女士')+' '+t.customer.contact+'</span>');
 					html.push('</a>')
 				})
-				dom.html(html.join('')).show();
-
+				if(param.page===1){
+					dom.html(html.join(''));
+					$('.J_MoreList').show();
+				}else{
+					if(list.length===0){
+						$('.J_MoreList').hide();
+						dom.append('<div class="no-more">没有更多了</div>');
+					}else{
+						dom.append(html.join(''));
+						$('.J_MoreList').show();
+					}
+				}
+				
 			});
 
 
