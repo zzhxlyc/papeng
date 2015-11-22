@@ -10,8 +10,15 @@ $(function(){
 		bindEvents:function(){
 			var self=this;
 			$('.J_Order').on('click',function(e){
-				$('.J_Mask').show();
-				$('.J_OrderSelect').show();
+				if($(this).hasClass('toggle')){
+					$(this).removeClass('toggle')
+					$('.J_Mask').hide();
+					$('.J_OrderSelect').hide();
+				}else{
+					$(this).addClass('toggle')
+					$('.J_Mask').show();
+					$('.J_OrderSelect').show();
+				}
 				e.stopPropagation();
 			})
 			$('.J_Search').on('click',function(e){
@@ -23,8 +30,16 @@ $(function(){
 				});
 			})
 			$('.J_Area').on('click',function(e){
-				$('.J_Mask').show();
-				$('.J_AreaSelect').show();
+				if($(this).hasClass('toggle')){
+					$(this).removeClass('toggle')
+					$('.J_Mask').hide();
+					$('.J_AreaSelect').hide();
+				}else{
+					$(this).addClass('toggle')
+					$('.J_Mask').show();
+					$('.J_AreaSelect').show();
+				}
+				
 			});
 			$('.J_ZoneSelect').delegate('.item','click',function(){
 				$('.J_ZoneSelect .item').removeClass('cur');

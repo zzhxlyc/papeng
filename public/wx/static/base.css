@@ -215,7 +215,7 @@ a{
     height: 7px;
     top: -7px;
     left: 130px;
-    background: url(../../images/arrow-top.png) no-repeat 0 0;
+    background: url(../images/arrow-top.png) no-repeat 0 0;
     background-size: contain;
 }
 .order-select-wrap .item{
@@ -246,7 +246,7 @@ a{
     height: 7px;
     top: -7px;
     right: 60px;
-    background: url(../../images/arrow-top.png) no-repeat 0 0;
+    background: url(../images/arrow-top.png) no-repeat 0 0;
     background-size: contain;
 }
 .area-select-wrap .zonelist{
@@ -375,12 +375,12 @@ a{
     height: 12px;
     margin-right: 2px;
     display: inline-block;
-    background: url(../../images/icon-radio.png) no-repeat 0 0;
+    background: url(../images/icon-radio.png) no-repeat 0 0;
     background-size: contain;
     vertical-align: middle;
 }
 .house-list .item .bottom .icon-checked{
-    background-image: url(../../images/icon-radio-checked.png);
+    background-image: url(../images/icon-radio-checked.png);
 }
 
 

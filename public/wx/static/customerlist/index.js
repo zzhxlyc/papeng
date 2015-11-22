@@ -22,8 +22,16 @@ $(function(){
 				if($(this).hasClass('checked')){
 					$(this).removeClass('checked');
 				}else{
-					$(this).addClass('checked');
-					self.addBaobei($(this).attr('hid'));
+					var hid=$(this).attr('hid');
+					if(confirm('确定对'+$('.J_Selected .name').text()+'推荐'+$(this).find('h3').text()+'楼盘？')){
+						self.checkBaobei(hid,function(){
+							$(this).addClass('checked');
+							self.addBaobei(hid);
+						});
+						
+
+					}
+					
 				}
 
 			
@@ -53,6 +61,26 @@ $(function(){
 
 
 		},
+		checkBaobei:function (hid,cb) {
+			var self=this;
+			Utils.showLoading('正在提交');
+			$.get(domain+'/agent/deal_baobei_check',{
+				customer_id:self.selectedCustomer,
+				estate_id:hid
+			},function(data){
+
+				Utils.hideLoading();
+				if(data.status===1){
+					if(cb) cb();
+
+				}else{
+					Utils.tip(data.message);
+				}
+				
+
+			});
+
+		},
 		addBaobei:function (hid) {
 			var self=this;
 			Utils.showLoading('正在推荐');
@@ -78,7 +106,7 @@ $(function(){
 		getCustomerList:function(key){
 			var dom=$('.J_List');
 			var html=[];
-			var url='/agent/search';
+			var url='/agent/search_customer';
 			var param={};
 			Utils.showLoading();
 			param.name=key;
@@ -88,10 +116,10 @@ $(function(){
 
 				$.each(list,function(i,t){
 			
-					html.push('<div class="item" cid="'+t.id+'">');
+					html.push('<div class="item" cid="'+t.customer.id+'">');
 					html.push('<i></i>');
-					html.push('<span class="name">'+t.name+'</span>');
-					html.push('<span class="more">'+(t.sex==='男'?'先生':'女士')+' '+t.contact+'</span>');
+					html.push('<span class="name">'+t.customer.name+'</span>');
+					html.push('<span class="more">'+(t.customer.sex==='男'?'先生':'女士')+' '+t.customer.contact+'</span>');
 					html.push('</div>')
 				})
 				dom.html(html.join(''));

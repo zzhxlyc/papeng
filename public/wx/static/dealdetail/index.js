@@ -20,6 +20,10 @@ $(function(){
 
 			});
 
+			$('.J_Back').on('click',function(){
+				history.back();
+			})
+
 			
 
 

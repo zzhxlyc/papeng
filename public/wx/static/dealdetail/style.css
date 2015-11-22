@@ -8,6 +8,15 @@
     margin-top: 50px;
     font-weight: bold;
 }
+.title .back{
+    position: absolute;
+    top:5px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    background: url(../../images/icon-back.png) no-repeat 0 0;
+    background-size: contain;
+}
 .info{
     border-top: 1px solid #b7b7b7;
     border-bottom: 1px solid #b7b7b7;
