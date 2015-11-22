@@ -72,6 +72,10 @@ $(function(){
 
 
 			$('.J_Recommend').on('click',function(){
+				if($('.J_List .checked').length===0){
+					alert('请选择客户');
+					return;
+				}
 				var cid=$('.J_List .checked').attr('cid');
 				self.checkBaobei(cid,function(data){
 					if(data){
