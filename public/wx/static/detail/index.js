@@ -4,6 +4,8 @@ $(function(){
 	var App={
 		init:function(){
 			var id=location.search.substring(location.search.indexOf('id=')+3);
+			this.id=id;
+			this.name='';
 			this.renderHouseDetail(id);
 			this.bindEvents();
 		},
@@ -14,7 +16,6 @@ $(function(){
 				$('.J_OrderSelect').show();
 				e.stopPropagation();
 			});
-			
 
 
 		},
@@ -27,7 +28,7 @@ $(function(){
 
 			$.get(domain+'/api/estate/show',{id:id},function(data){
 				Utils.hideLoading();
-				dom.html(tpl(data.data.estate))
+				dom.html(tpl(data.data.estate));
 
 			})
 

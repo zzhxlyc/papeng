@@ -3,11 +3,26 @@ $(function(){
 
 	var App={
 		init:function(){
+			this.initUI();
 			this.getCustomerCount();
 			this.bindEvents();
+
+		},
+		initUI:function() {
+			if(location.search.indexOf('estateid')>=0){
+				var estateid=location.search.substring(location.search.indexOf('estateid=')+9,location.search.indexOf('&'));
+				var estatename=location.search.substring(location.search.indexOf('estatename=')+11);
+				$('.estate-wrap span').text(decodeURIComponent(estatename));
+				$('.estate-wrap').show();
+				this.hasEstate=true;
+				this.estateid=estateid;
+			}
+
+
 		},
 		bindEvents:function(){
 			var self=this;
+
 			$('.list-wrap .item .title').on('click',function(){
 				var dom=$(this).parent();
 				if(dom.hasClass('selected')){
@@ -15,14 +30,23 @@ $(function(){
 					dom.find('.list').hide();
 				}else{
 					var type=dom.attr('type');
-					dom.addClass('selected');
-					self.getCustomerList(dom.find('.list'),{
+					var param={
 						type:type
-					})
+					};
+					if(self.hasEstate){
+						param.estate_id=self.estateid;
+					}
+					dom.addClass('selected');
+					self.getCustomerList(dom.find('.list'),param);
 
 				}
 				
 			
+
+			});
+
+			$('.J_Back').on('click',function(){
+				history.back();
 
 			});
 
@@ -66,9 +90,9 @@ $(function(){
 					return;
 				}
 				$.each(list,function(i,t){
-					html.push('<a href="'+(t.deal_id?'/wx/agent/detail.html?id='+t.deal_id:'javascript:;')+'" class="item" cid="'+t.id+'">');
-					html.push('<span class="name">'+t.name+'</span>');
-					html.push('<span class="more">'+(t.sex==='男'?'先生':'女士')+' '+t.contact+'</span>');
+					html.push('<a href="'+(t.id?'/wx/agent/detail.html?id='+t.id:'javascript:;')+'" class="item" cid="'+t.id+'">');
+					html.push('<span class="name">'+t.customer.name+'</span>');
+					html.push('<span class="more">'+(t.customer.sex==='男'?'先生':'女士')+' '+t.customer.contact+'</span>');
 					html.push('</a>')
 				})
 				dom.html(html.join('')).show();
