@@ -1,5 +1,5 @@
 $(function(){
-	var domain='http://121.40.70.168';
+	var domain='';
 
 	var App={
 		init:function(){
@@ -65,8 +65,12 @@ $(function(){
 		},
 
 		getCustomerCount:function(){
-
-			$.get(domain+'/agent/deal_status',{},function(data){
+			var self=this;
+			var param={};
+			if(self.hasEstate){
+				param.estate_id=self.estateid;
+			}
+			$.get(domain+'/agent/deal_status',param,function(data){
 				
 				for(var key in data.data){
 					$('.'+key).text(data.data[key]);

@@ -1,5 +1,5 @@
 $(function(){
-	var domain='http://121.40.70.168';
+	var domain='';
 	var App={
 		init:function(){
 
