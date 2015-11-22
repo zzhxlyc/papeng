@@ -10,7 +10,7 @@
 .search-wrap input{
     width: 100%;
     border:1px solid #d4d4d4;
-    border-radius: 5px;
+    border-radius: 5px !important;
     border-right: 0;
     line-height: 30px;
     height: 30px;

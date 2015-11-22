@@ -144,7 +144,12 @@ $(function(){
 					html.push('</div>')
 				})
 				if(page===1){
-					dom.html(html.join(''));
+					if(list.length===0){
+						dom.html('<div class="nodata">没有对应客户</div>');
+					}else{
+						dom.html(html.join(''));
+					}
+					
 				}else{
 					if(list.length===0){
 						dom.append('<div class="no-more">没有更多了</div>');
