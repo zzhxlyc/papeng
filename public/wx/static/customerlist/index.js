@@ -131,6 +131,7 @@ $(function(){
 			Utils.showLoading();
 			param.name=key;
 			param.page=page;
+			param.ts=new Date().getTime();
 			$.get(domain+url,param,function(data){
 				Utils.hideLoading();
 				var list=data.data.list;
