@@ -123,10 +123,14 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
 
 
         </div>
-        <div class="fix-bottom">
-            <a href="/wx/agent/search.html?estateid=<%= id %>&estatename=<%= name %>">推荐客户</a>
-            <a href="tel:0571-1234567">联系客服</a>
-        </div>
+        <%if(agent){%>  
+          <div class="fix-bottom">
+
+            <a href="/wx/agent/select.html?estateid=<%= id %>&estatename=<%= name %>">推荐客户</a>
+            <a href="/wx/agent/search.html?estateid=<%= id %>&estatename=<%= name %>">客户情况</a>
+          </div>
+          
+        <%}%>  
 
         
     </script>
