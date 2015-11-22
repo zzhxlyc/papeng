@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"
+content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>房产趴砰网</title>
+
+    <link rel="stylesheet" type="text/css" href="../static/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/addcustomer/style.css"/>
+
+
+</head>
+
+<body id="add-customer">
+    <div id="wrapper">
+        <div id="header">
+            <a href="#" class="logo"></a>
+            <div class="nav">
+                <a href="javascript:;" class="J_Order">排序</a>
+                <a href="">楼盘</a>
+                <a href="">杭州</a>
+                <a href="javascript:;" class="J_Area">区域</a>
+            </div>
+            
+        </div>
+
+        <div class="title">
+          <a href="javascript:;" class="back J_Back"></a>
+          <span class="em">添加客户</span>
+        </div>
+        <div class="form">
+          <div class="field name-field">
+            <i></i>
+            <input type="text" class="J_Name" placeholder="客户姓名">
+          </div>
+          <div class="check-field J_Sex">
+            <span class="item checked" sex="男">男士</span>
+            <span class="item" sex="女">女士</span>
+          </div>
+          <div class="field phone-field">
+            <i></i>
+            <input type="number" class="J_Contact" placeholder="客户手机">
+          </div>
+          <div class="field note-field">
+            <i></i>
+            <input type="text" class="J_Note" placeholder="在此输入备注">
+          </div>
+          
+
+          <a href="javascript:;" class="btn btn-primary J_Save">保存</a>
+        </div>
+        
+
+
+        
+    </div>
+    <div class="mask J_Mask"></div>
+    <div class="order-select-wrap J_OrderSelect">
+        <i class="arrow-top"></i>
+        <div class="item cur" order="">位置距离</div>
+        <div class="item" order="yjje">佣金金额</div>
+        <div class="item" order="jjbl">佣金比例</div>
+        <div class="item" order="jjbl">界定时间</div>
+        
+    </div>
+    <div class="area-select-wrap J_AreaSelect">
+        <i class="arrow-top"></i>
+        <div class="zonelist J_ZoneSelect">
+            <div class="item"></div>
+        </div>
+        <div class="blocklist J_BlockSelect">
+            <div class="item">
+                
+            </div>
+        </div>
+
+        
+    </div>
+
+   
+   
+
+<script src="../static/lib/jquery.js"></script>
+
+<script src="../static/utils.js"></script>
+<script src="../static/addcustomer/index.js"></script>
+
+</body>
+</html>

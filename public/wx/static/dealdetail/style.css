@@ -1,0 +1,244 @@
+.title{
+    text-align: center;
+    color: #ea3a5a;
+    font-size: 15px;
+    position: relative;
+    line-height: 45px;
+    height: 45px;
+    margin-top: 50px;
+    font-weight: bold;
+}
+.info{
+    border-top: 1px solid #b7b7b7;
+    border-bottom: 1px solid #b7b7b7;
+    margin: 20px 0;
+    position: relative;
+}
+
+.info .name{
+    padding: 20px 10px;
+
+}
+.info .name h3{
+    font-size: 18px;
+    
+}
+.info .name p{
+    color: #b7b7b7;
+    
+}
+
+
+.info .phone{
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    padding-left: 20px;
+    background: url(../../images/btn-phone.png) no-repeat center center;
+    background-size: contain;
+    border-left: 1px solid #b7b7b7;
+}
+
+.intention{
+    border-top: 1px solid #b7b7b7;
+    border-bottom: 1px solid #b7b7b7;
+    margin: 20px 0;
+    padding: 20px 10px;
+    position: relative;
+}
+.intention h4{
+    font-size: 15px;
+}
+.intention p{
+    font-size: 14px;
+}
+
+
+.add-house{
+    border-top: 1px solid #b7b7b7;
+    border-bottom: 1px solid #b7b7b7;
+    margin: 20px 0;
+    font-size: 15px;
+    padding: 10px;
+    color: #ea3a5a;
+}
+
+
+.house-list{
+    padding: 20px 10px;
+    border-top: 1px solid #b7b7b7;
+    border-bottom: 1px solid #b7b7b7;
+}
+.house-list .item{
+    position: relative;
+    border: 0;
+}
+
+.house-list .item .btn{
+    position: absolute;
+    top:0;
+    right: 0;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 5px;
+    padding: 0 5px;
+    font-size: 14px;
+}
+
+
+.house-list .item h4{
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: #000;
+}
+.house-list .item .status{
+    color: #666;
+    font-size: 12px;
+    font-weight: normal;
+    
+}
+.process-wrap{
+    position: relative;
+    margin: 10px 25px 0 0;
+    height: 40px;
+}
+.process-wrap .line{
+    position: absolute;
+    width: 25%;
+    height: 5px;
+    top: 9px;
+    background: #b7b7b7;
+}
+.process-wrap .line2{
+    left: 25%;
+
+}
+.process-wrap .line3{
+    left: 50%;
+    
+}
+.process-wrap .line4{
+    left: 75%;
+    
+}
+
+.process-wrap .process{
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 22px;
+    border:1px solid #b7b7b7;
+    background: #fff;
+}
+.process-wrap .process2{
+    left: 25%;
+}
+.process-wrap .process3{
+    left: 50%;
+}
+.process-wrap .process4{
+    left: 75%;
+}
+.process-wrap .process5{
+    left: 100%;
+}
+.process-wrap .process i{
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background: #b7b7b7;
+    display: block;
+    margin:6px;
+}
+
+.process-wrap .process span{
+    position: absolute;
+    width: 30px;
+    font-size: 12px;
+}
+.step1 .process1{
+    border-color: #ea3a5a;
+    color: #ea3a5a;
+}
+.step1 .process1 i{
+    background: #ea3a5a;
+}
+
+.step2 .process1{
+    border-color: #ea3a5a;
+    color: #ea3a5a;
+}
+.step2 .process1 i{
+    background: #ea3a5a;
+}
+.step2 .line1{
+    background: #ea3a5a;
+}
+
+.step3 .process1,.step3 .process2{
+    border-color: #ea3a5a;
+    color: #ea3a5a;
+}
+.step3 .process1 i,.step3 .process2 i{
+    background: #ea3a5a;
+}
+.step3 .line1,.step3 .line2{
+    background: #ea3a5a;
+}
+
+
+.step4 .process1,.step4 .process2,.step4 .process3{
+    border-color: #ea3a5a;
+    color: #ea3a5a;
+}
+.step4 .process1 i,.step4 .process2 i,.step4 .process3 i{
+    background: #ea3a5a;
+}
+.step4 .line1,.step4 .line2,.step4 .line3{
+    background: #ea3a5a;
+}
+
+
+.step5 .process1,.step5 .process2,.step5 .process3,.step5 .process4{
+    border-color: #ea3a5a;
+    color: #ea3a5a;
+}
+.step5 .process1 i,.step5 .process2 i,.step5 .process3 i,.step5 .process4 i{
+    background: #ea3a5a;
+}
+.step5 .line1,.step5 .line2,.step5 .line3,.step5 .line4{
+    background: #ea3a5a;
+}
+
+
+.finished .process1,.finished .process2,.finished .process3,.finished .process4,.finished .process5{
+    border-color: #ea3a5a;
+    color: #ea3a5a;
+}
+.finished .process1 i,.finished .process2 i,.finished .process3 i,.finished .process4 i,.finished .process5 i{
+    background: #ea3a5a;
+}
+.finished .line1,.finished .line2,.finished .line3,.finished .line4{
+    background: #ea3a5a;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

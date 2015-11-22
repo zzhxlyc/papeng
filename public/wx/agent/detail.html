@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"
+content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>房产趴砰网</title>
+
+    <link rel="stylesheet" type="text/css" href="../static/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/dealdetail/style.css"/>
+
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <a href="#" class="logo"></a>
+            <div class="nav">
+                <a href="javascript:;" class="J_Order">排序</a>
+                <a href="">楼盘</a>
+                <a href="">杭州</a>
+                <a href="javascript:;" class="J_Area">区域</a>
+            </div>
+            
+        </div>
+
+        <div class="title">
+            <span>客户详情</span>
+            
+        </div>
+
+        <div class="info J_Customer">
+            
+        </div>
+        <div class="intention">
+            <h4>购房意向</h4>
+            <p class="J_Note"></p>
+        </div>
+        <div class="add-house">
+            + 报备楼盘
+        </div>
+
+        <div class="house-list J_Process">
+            
+        </div>
+        
+
+
+
+        
+    </div>
+    <div class="mask J_Mask"></div>
+    <div class="order-select-wrap J_OrderSelect">
+        <i class="arrow-top"></i>
+        <div class="item cur" order="">位置距离</div>
+        <div class="item" order="yjje">佣金金额</div>
+        <div class="item" order="jjbl">佣金比例</div>
+        <div class="item" order="jjbl">界定时间</div>
+        
+    </div>
+    <div class="area-select-wrap J_AreaSelect">
+        <i class="arrow-top"></i>
+        <div class="zonelist J_ZoneSelect">
+            <div class="item"></div>
+        </div>
+        <div class="blocklist J_BlockSelect">
+            <div class="item">
+                
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script id="process-tpl" type="text/template">
+            <div class="item">
+                <h4><%= name %>  <span class="status"><%= text %></span>  </h4>
+                <%if(process<5){%>  
+                <a href="javascript:;" class="btn J_Oper"><%= oper %></a>
+                <%}%>  
+                <div class="process-wrap step<%= process %>">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                    <div class="line line3"></div>
+                    <div class="line line4"></div>
+                    <div class="process process1"><i></i><span>报备</span></div>
+                    <div class="process process2"><i></i><span>带看</span></div>
+                    <div class="process process3"><i></i><span>认筹</span>  </div>
+                    <div class="process process4"><i></i><span>成交</span></div>
+                    <div class="process process5"><i></i><span>结佣</span></div>
+                </div>
+
+            </div>
+
+
+    </script>
+
+    <script id="customer-tpl" type="text/template">
+        <div class="name">
+            <h3 class="J_Name"><%= name %></h3>
+            <p class="J_Phone"><%= contact %></p>
+        </div>
+        <a href="tel:<%= contact %>" class="phone"></a>
+    </script>
+  
+
+<script src="../static/lib/jquery.js"></script>
+<script src="../static/lib/underscore.js"></script>
+
+<script src="../static/utils.js"></script>
+<script src="../static/dealdetail/index.js"></script>
+
+</body>
+</html>

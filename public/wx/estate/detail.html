@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"
+content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>房产趴砰网</title>
+
+    <link rel="stylesheet" type="text/css" href="../static/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/detail/style.css"/>
+
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <a href="#" class="logo"></a>
+            <div class="nav">
+                <a href="javascript:;" class="J_Order">排序</a>
+                <a href="">楼盘</a>
+                <a href="">杭州</a>
+                <a href="javascript:;" class="J_Area">区域</a>
+            </div>
+            
+        </div>
+        <div id="house-detail">
+          
+
+        </div>
+        
+        <div class="fix-bottom">
+            <a href="javascript:;">推荐客户</a>
+            <a href="javascript:;">联系客户</a>
+        </div>
+
+        
+    </div>
+    <div class="mask J_Mask"></div>
+    <div class="order-select-wrap J_OrderSelect">
+        <i class="arrow-top"></i>
+        <div class="item cur" order="">位置距离</div>
+        <div class="item" order="yjje">佣金金额</div>
+        <div class="item" order="jjbl">佣金比例</div>
+        <div class="item" order="jjbl">界定时间</div>
+        
+    </div>
+    <div class="area-select-wrap J_AreaSelect">
+        <i class="arrow-top"></i>
+        <div class="zonelist J_ZoneSelect">
+            <div class="item"></div>
+        </div>
+        <div class="blocklist J_BlockSelect">
+            <div class="item">
+                
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script id="detail-tpl" type="text/template">
+        <div class="detail-wrap">
+          <div class="top">
+              <img src="/uploads/<%= image.path %>" class="preview" alt="">
+              <div class="info">
+                  <h3><%= name %><i class="icon-new"></i></h3>
+                  <div class="info-item clearfix">
+                      <span class="left"><label>佣金</label><strong><%= yongjin_kind===1?yongjin_info.replace('/套',''):yongjin_info %></strong></span>
+                      <span class="right"><label>界定</label><span><%= jieding_time==='0'?'实时':jieding_time+'分钟' %></span></span>
+                  </div>
+                  <div class="info-item clearfix">
+                      <span class="left"><i class="icon-increase"></i></span>
+                      <span class="right"><label>结佣</label><span class="orange"><<%= jieyong_time %>工作日</span></span>
+                  </div>
+              </div>
+          </div>
+          <div class="bottom">
+              <table>
+                  <tr>
+                      <td><i class="<%= if_daikan?'icon-checked':'icon-check' %>"></i>需带看</td>
+                      <td><i class="icon-checked"></i>须<%= daikan_days %>天内带看</td>
+                      <td><i class="<%= if_daikan_reward?'icon-checked':'icon-check' %>"></i>代扣奖</td>
+                      <td><i class="<%= if_renchou?'icon-checked':'icon-check' %>"></i>认筹奖</td>
+                  </tr>
+              </table>
+              <p>有效期：<%= start_at %> 至 <%= end_at %></p>
+          </div>
+          <div class="ext-info">
+            <p>
+                <label for="">电话：</label><a class="em" href="tel:<%= contact %>"><%= contact %></a>
+            </p>
+            <p>
+                <label for="">地址：</label><span><%= address %></span>
+            </p>
+            
+          </div>
+
+
+            
+        </div>
+        <div class="take-flow">
+          <h4>推荐客户描述：</h4>
+          <p><%= step1 %></p>
+          <h4>客户带看描述：</h4>
+          <p><%= step2 %></p>
+          <h4>客户认筹描述：</h4>
+          <p><%= step3 %></p>
+          <h4>客户成交描述：</h4>
+          <p><%= step4 %></p>
+
+
+          <h4>地段描述：</h4>
+          <p><%= info1 %></p>
+
+          <h4>配套描述：</h4>
+          <p><%= info2 %></p>
+          <h4>教育描述：</h4>
+          <p><%= info3 %></p>
+          <h4>环境描述：</h4>
+          <p><%= info4 %></p>
+          <h4>交通描述：</h4>
+          <p><%= info5 %></p>
+          <h4>简介描述：</h4>
+          <p><%= info6 %></p>
+
+
+        </div>
+    </script>
+   
+
+<script src="../static/lib/jquery.js"></script>
+<script src="../static/lib/underscore.js"></script>
+
+<script src="../static/utils.js"></script>
+<script src="../static/detail/index.js"></script>
+
+</body>
+</html>
