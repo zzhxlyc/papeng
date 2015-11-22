@@ -160,16 +160,8 @@ $(function(){
 				var wrap=$('.J_Houselist');
 				var html=[];
 				Utils.hideLoading();
-				if(data.data.list.length===0){
-					$('.J_MoreList').hide();
-					if(param.page===1){
-						wrap.html('<div class="nodata">没有对应楼盘</div>');
-					}else{
-						wrap.append('<div class="no-more">没有更多楼盘了</div>');
-
-					}
-					return;
-				}
+				var list=data.data.list;
+				
 				$.each(data.data.list,function(i,t){
 					html.push('<a href="/wx/estate/detail?id='+t.id+'" class="item">');
 					html.push('<div class="top">');
@@ -195,11 +187,22 @@ $(function(){
 					html.push('</div></a>');
         
 				});
+				
 				if(param.page===1){
 					wrap.html(html.join(''));
 				}else{
-					wrap.append(html.join(''));
-				}	
+					if(list.length===0){
+						wrap.append('<div class="no-more">没有更多了</div>');
+						$('.J_MoreList').hide();
+					}else{
+						wrap.append(html.join(''));
+
+					}
+					
+				}
+				if(list.length<10){
+					$('.J_MoreList').hide();
+				}
 				
 				
 			})

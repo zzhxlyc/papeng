@@ -155,6 +155,9 @@ $(function(){
 					}
 					
 				}
+				if(list.length<10){
+					$('.J_MoreList').hide();
+				}
 				
 
 			});

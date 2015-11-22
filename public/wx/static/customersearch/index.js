@@ -117,6 +117,9 @@ $(function(){
 						$('.J_MoreList').show();
 					}
 				}
+				if(list.length<5){
+					$('.J_MoreList').hide();
+				}
 				
 			});
 
