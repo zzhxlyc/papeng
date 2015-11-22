@@ -24,6 +24,7 @@ $(function(){
 					alert('请填写客户手机');
 					return;
 				}
+				$('.J_Save').addClass('disabled');
 				self.addCustomer({
 					name:name,
 					sex:sex,
@@ -52,8 +53,9 @@ $(function(){
 			$.post(domain+'/agent/add_customer',param,function(data){
 				if(data.status){
 					Utils.tip('添加成功');
-					$('.J_Save').addClass('disabled');
-					//history.back();
+					
+
+					history.back();
 				}else{
 					Utils.tip('添加失败，请稍后再试');
 				}

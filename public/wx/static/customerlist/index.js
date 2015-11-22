@@ -4,6 +4,8 @@ $(function(){
 	var App={
 		init:function(){
 			this.selectedCustomer=0;
+			this.key='';
+			this.page=1;
 			this.getCustomerList();
 			this.bindEvents();
 		},
@@ -17,6 +19,10 @@ $(function(){
 			
 
 			});
+			$('.J_MoreList').on('click',function(){
+				self.page+=1;
+				self.getCustomerList(self.key,self.page);
+			})
 
 			$('.J_Houselist').delegate('.item','click',function(){
 				var dom=$(this);
@@ -48,6 +54,10 @@ $(function(){
 
 
 			$('.J_Recommend').on('click',function(){
+				if($('.J_List .checked').length===0){
+					alert('请选择客户');
+					return;
+				}
 				$('.before').hide();
 				self.renderHouseList();
 				$('.J_Selected').html('<div class="item checked">'+$('.J_List .checked').html()+'</div>');
@@ -61,7 +71,8 @@ $(function(){
 			});
 
 			$('.J_Search').on('click',function(){
-				self.getCustomerList($('.J_SearchKey').val());
+				self.key=$('.J_SearchKey').val();
+				self.getCustomerList(self.key);
 
 			});
 
@@ -111,13 +122,15 @@ $(function(){
 			});
 
 		},
-		getCustomerList:function(key){
+		getCustomerList:function(key,page){
 			var dom=$('.J_List');
 			var html=[];
 			var url='/agent/search_customer';
 			var param={};
+			page=page||1;
 			Utils.showLoading();
 			param.name=key;
+			param.page=page;
 			$.get(domain+url,param,function(data){
 				Utils.hideLoading();
 				var list=data.data.list;
@@ -130,7 +143,19 @@ $(function(){
 					html.push('<span class="more">'+(t.customer.sex==='男'?'先生':'女士')+' '+t.customer.contact+'</span>');
 					html.push('</div>')
 				})
-				dom.html(html.join(''));
+				if(page===1){
+					dom.html(html.join(''));
+				}else{
+					if(list.length===0){
+						dom.append('<div class="no-more">没有更多了</div>');
+						$('.J_MoreList').hide();
+					}else{
+						dom.append(html.join(''));
+
+					}
+					
+				}
+				
 
 			});
 

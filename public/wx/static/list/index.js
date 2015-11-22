@@ -3,12 +3,20 @@ $(function(){
 
 	var App={
 		init:function(){
+			this.page=1;
 			this.renderZoneList();
 			this.renderHouseList();
 			this.bindEvents();
 		},
 		bindEvents:function(){
 			var self=this;
+			$('.J_MoreList').on('click',function(){
+				self.page+=1;
+				self.renderHouseList({
+					page:self.page
+				});
+			})
+
 			$('.J_Order').on('click',function(e){
 				if($(this).hasClass('toggle')){
 					$(this).removeClass('toggle')
@@ -48,6 +56,7 @@ $(function(){
 				if(!zoneId){
 					self.hideAreaSelect();
 					self.renderHouseList();
+					$('.J_Area').removeClass('toggle');
 
 				}else{
 					self.renderBlockList(zoneId);
@@ -59,7 +68,7 @@ $(function(){
 				var blockId=$(this).attr('blockid');
 				self.hideAreaSelect();
 				self.renderHouseList();
-
+				$('.J_Area').removeClass('toggle');
 
 			});
 
@@ -70,6 +79,7 @@ $(function(){
 				$(this).addClass('cur');
 				self.renderHouseList();
 				self.hideOrderSelect();
+				$('.J_Order').removeClass('toggle');
 
 			})
 			$('.J_Mask').on('click',function(){
@@ -151,10 +161,11 @@ $(function(){
 				var html=[];
 				Utils.hideLoading();
 				if(data.data.list.length===0){
+					$('.J_MoreList').hide();
 					if(param.page===1){
 						wrap.html('<div class="nodata">没有对应楼盘</div>');
 					}else{
-						wrap.append('<div class="nodata">没有更多楼盘了</div>');
+						wrap.append('<div class="no-more">没有更多楼盘了</div>');
 
 					}
 					return;

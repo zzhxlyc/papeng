@@ -22,7 +22,10 @@
     background-size: contain;
 }
 
-
+.loadmore,.no-more{
+    text-align: center;
+    color: #999;
+}
 
 
 
