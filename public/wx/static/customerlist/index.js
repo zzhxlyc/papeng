@@ -19,18 +19,26 @@ $(function(){
 			});
 
 			$('.J_Houselist').delegate('.item','click',function(){
-				if($(this).hasClass('checked')){
-					$(this).removeClass('checked');
+				var dom=$(this);
+				if(dom.hasClass('checked')){
+					dom.removeClass('checked');
 				}else{
-					var hid=$(this).attr('hid');
-					if(confirm('确定对'+$('.J_Selected .name').text()+'推荐'+$(this).find('h3').text()+'楼盘？')){
-						self.checkBaobei(hid,function(){
-							$(this).addClass('checked');
-							self.addBaobei(hid);
-						});
-						
+					var hid=dom.attr('hid');
 
-					}
+					self.checkBaobei(hid,function(data){
+						if(data){
+							if(confirm('在'+data.deal.created_at+'已有相同的订单，是否继续下单')){
+								dom.addClass('checked');
+								self.addBaobei(hid);
+							}
+						}else{
+							if(confirm('确定对'+$('.J_Selected .name').text()+'推荐'+dom.find('h3').text()+'楼盘？')){
+								dom.addClass('checked');
+								self.addBaobei(hid);
+							}
+						}
+						
+					});
 					
 				}
 
@@ -71,7 +79,7 @@ $(function(){
 
 				Utils.hideLoading();
 				if(data.status===1){
-					if(cb) cb();
+					if(cb) cb(data.data);
 
 				}else{
 					Utils.tip(data.message);
