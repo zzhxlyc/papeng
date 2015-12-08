@@ -22,20 +22,20 @@
     </td>
   </tr>
   <tr>
-    <td>/api/base/base_data</td>
-    <td>返回城市（仅杭州）、所有区、所有房产区块信息</td>
+    <td>/api/base/province_city</td>
+    <td>返回省、城市</td>
+  </tr>
+  <tr>
+    <td>/api/base/zone_block?city_id=?</td>
+    <td>返回区、区块</td>
   </tr>
   <tr>
     <td>/api/base/check_agent?cell=?</td>
-    <td>检查此手机号是否已注册经纪人</td>
+    <td>检查此手机号是否已注册经纪人，若还未注册status=1，否则带错误信息</td>
   </tr>
   <tr>
-    <td>/api/base/search_company?name=?</td>
+    <td>/api/base/search_company?name=?&city_id=?</td>
     <td>搜索名称对应的公司，最多返回3个结果，若搜索结果为空返回默认3个</td>
-  </tr>
-  <tr>
-    <td>/api/base/base_data</td>
-    <td>返回城市（仅杭州）、所有区、所有房产区块信息</td>
   </tr>
   <tr>
     <td>/api/estate/list</td>
@@ -44,5 +44,62 @@
   <tr>
     <td>/api/estate/show?id=?</td>
     <td>楼盘detail信息</td>
+  </tr>
+  <tr>
+    <td colspan="2">经纪人部分，需要微信登录</td>
+  </tr>
+  <tr>
+    <td>post: /agent/add_customer?name=?&contact=?&sex=[男,女]&amp;note=?</td>
+    <td>添加客户</td>
+  </tr>
+  <tr>
+    <td>/agent/search?name=?&type=[valid,invalid,undo,overtime]&estate_id=?</td>
+    <td>搜索订单（name是客户的姓名）</td>
+  </tr>
+  <tr>
+    <td>/agent/search_customer?name=?</td>
+    <td>搜索客户</td>
+  </tr>
+  <tr>
+    <td>/agent/deal_status?estate_id=?</td>
+    <td>报备数(正在界定)、有效、失效、即将失效数</td>
+  </tr>
+  <tr>
+    <td>/agent/deal_detail?deal_id=?</td>
+    <td>一个订单的详细信息</td>
+  </tr>
+  <tr>
+    <td>/agent/deal_baobei?customer_id=?&estate_id=?</td>
+    <td>报备，订单的形成</td>
+  </tr>
+  <tr>
+    <td>/agent/deal_daikan_confrim?deal_id=?</td>
+    <td>带看确认完成</td>
+  </tr>
+  <tr>
+    <td>/agent/deal_daikan_apply?deal_id=?</td>
+    <td>带看奖励申请</td>
+  </tr>
+  <tr>
+    <td>/agent/deal_renchou_apply?deal_id=?</td>
+    <td>带看认筹申请</td>
+  </tr>
+  <tr>
+    <td>/agent/deal_chengjiao_apply?deal_id=?</td>
+    <td>带看成交申请</td>
+  </tr>
+  <tr>
+    <td>/agent/deal_jieyong_apply?deal_id=?</td>
+    <td>带看结佣申请</td>
+  </tr>
+  <tr>
+    <td>deal status</td>
+    <td>
+      0：报备审核中 1：报备通过 2：报备不通过 <br />
+      10：未带看 11：带看超时 12：客户带看申请 13：带看无效 14：带看有效 15：带看奖励申请 16：带看奖励结算确认 17：带看完成 <br />
+      20：未认筹 21：客户认筹确认 22：客户认筹完成 23：认筹完成 <br />
+      30：未成交 31：成交确认 32：确认完成 33：成交完成 <br />
+      40：未结佣 31：结佣申请 32：结佣完成 33：工单完成
+    </td>
   </tr>
 </table>

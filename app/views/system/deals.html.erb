@@ -53,3 +53,5 @@
   <!--<a href="/admin/system/deal_delete?id=<%=obj.id%>" onclick="return confirm_delete()">删除</a>-->
 </p>
 <%end%>
+
+<%= render :partial => 'common/pager', :locals => {:paginate_list => @list}%>

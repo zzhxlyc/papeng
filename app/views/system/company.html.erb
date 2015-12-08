@@ -1,20 +1,27 @@
-<form action="/admin/system/company" method="post">
-  <input type="hidden" name="id" <%=if_value(@obj, :id) %>/>
-  <input type="text" name="name" value="<%=@obj.name%>"/>
+<% content_for :sidebar do%>
+    <%= render :partial => 'system/company_sidebar'%>
+<% end %>
+
+<form action="/admin/system/company_add" method="post" onsubmit="return check_form(this)">
+  <p>
+    名称：<input type="text" name="name" value="<%=@obj.name%>"/>
+    <%=if_has_error(@errors, :name)%>
+  </p>
 
   <p>
-    <select name="province_id">
-      <option value="330000">浙江省</option>
-    </select>
-    <select name="city_id">
-      <option value="330100">杭州市</option>
-    </select>
-    <select name="zone_id">
-      <option value=""></option>
-      <%CityZone.hzZones.each do |z|%>
-      <option value="<%=z.areaID%>" <%=if_selected(@obj.zone_id, z.areaID)%>><%=z.area%></option>
+    <select id="province_select" name="province_id" onchange="load_citys()">
+      <%@provinces.each do |prov|%>
+          <option value="<%=prov.provinceID%>" <%=if_selected(@obj.province_id, prov.provinceID)%>><%=prov.province%></option>
       <%end%>
     </select>
+    <span id="city_span"></span>
+    <input type="hidden" id="the_city_id" value="<%=@obj.city_id%>" />
+    <span id="zone_span">
+      <select>
+        <option></option>
+      </select>
+    </span>
+    <input type="hidden" id="the_zone_id" value="<%=@obj.zone_id%>" />
   </p>
 
   <p>
@@ -30,18 +37,57 @@
     联系方式：<input type="text" name="contact_phone" value="<%=@obj.contact_phone%>"/>
   </p>
   <p>
-    account：<input type="text" name="account" value="<%=@obj.account%>"/>
+    结佣账户：<input type="text" name="account" value="<%=@obj.account%>"/>
   </p>
   <p>
-    银行：<input type="text" name="bank" value="<%=@obj.bank%>"/>
+    结佣银行：<input type="text" name="bank" value="<%=@obj.bank%>"/>
   </p>
   <p>
-    银行卡号：<input type="text" name="card" value="<%=@obj.card%>"/>
+    结佣卡号：<input type="text" name="card" value="<%=@obj.card%>"/>
   </p>
 
 
   <%= token_tag %>
   <input type="submit" value="提交" />
+    <a href="#" onclick="history.back()">返回</a>
 </form>
 
-<a href="/admin/system/companys">返回</a>
+
+<script type="text/javascript">
+function check_form(form){
+    var msg;
+    var name = form_field_value(form, 'name');
+    if((msg = form_check_string(name))){alert('名称' + msg);return false;}
+    var zone_id = form_field_value(form, 'zone_id');
+    if((msg = form_check(zone_id))){alert('行政区' + msg);return false;}
+    var info = form_field_value(form, 'info');
+    if((msg = form_check_string(info, 1000))){alert('简介' + msg);return false;}
+    var contact = form_field_value(form, 'contact');
+    if((msg = form_check_string(contact, 100))){alert('联系人' + msg);return false;}
+    var contact_phone = form_field_value(form, 'contact_phone');
+    if((msg = form_check_string(contact_phone, 30))){alert('联系方式' + msg);return false;}
+    return true;
+}
+
+function load_citys(if_choose){
+    var province_id = $('#province_select').val();
+    var city_id = '';
+    if(if_choose) {
+        city_id = $('#the_city_id').val();
+    }
+    $('#city_span').load('/public/citys?onchange=1&province_id=' + province_id + "&city_id=" + city_id, function(){
+        load_zones(1);
+    });
+}
+function load_zones(if_choose){
+    var city_id = $('#city_select').val();
+    var zone_id = '';
+    if(if_choose) {
+        zone_id = $('#the_zone_id').val();
+    }
+    $('#zone_span').load('/public/zones?city_id=' + city_id + "&zone_id=" + zone_id);
+}
+$(document).ready(function(){
+    load_citys(1);
+});
+</script>

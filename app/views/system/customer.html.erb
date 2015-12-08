@@ -1,3 +1,7 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'customer_sidebar'%>
+<% end %>
+
 <form action="/admin/system/customer" method="post" onsubmit="return check_form(this)">
   <%= render :partial => 'common/customer'%>
 </form>

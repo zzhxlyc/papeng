@@ -1,0 +1,5 @@
+<select id="city_select" name="city_id" <%if params[:onchange]%>onchange="load_zones()"<%end%>>
+    <%@citys.each do |city|%>
+    <option value="<%=city.cityID%>" <%=if_selected(city.cityID, params[:city_id])%>><%=city.city%></option>
+    <%end%>
+</select>

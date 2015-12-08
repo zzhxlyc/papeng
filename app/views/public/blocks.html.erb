@@ -1,0 +1,6 @@
+<select name="city_block_id">
+    <option value="">未选择</option>
+    <%@blocks.each do |block|%>
+    <option value="<%=block.id%>" <%=if_selected(block.id, params[:block_id])%>><%=block.name%></option>
+    <%end%>
+</select>
