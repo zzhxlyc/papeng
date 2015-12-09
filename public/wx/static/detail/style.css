@@ -149,6 +149,10 @@
     font-size: 15px;
     color: #000;
 }
+.one-btn a{
+    width: 100%;
+    border: 0;
+}
 
 
 

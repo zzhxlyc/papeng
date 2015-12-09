@@ -75,7 +75,7 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
                   <tr>
                       <td><i class="<%= if_daikan?'icon-checked':'icon-check' %>"></i>需带看</td>
                       <td><i class="icon-checked"></i>须<%= daikan_days %>天内带看</td>
-                      <td><i class="<%= if_daikan_reward?'icon-checked':'icon-check' %>"></i>代扣奖</td>
+                      <td><i class="<%= if_daikan_reward?'icon-checked':'icon-check' %>"></i>带看奖</td>
                       <td><i class="<%= if_renchou?'icon-checked':'icon-check' %>"></i>认筹奖</td>
                   </tr>
               </table>
@@ -123,10 +123,14 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
 
 
         </div>
-        <div class="fix-bottom">
-            <a href="/wx/agent/search.html?estateid=<%= id %>&estatename=<%= name %>">推荐客户</a>
-            <a href="tel:0571-1234567">联系客服</a>
-        </div>
+        <%if(agent){%>  
+          <div class="fix-bottom">
+
+            <a href="/wx/agent/select.html?estateid=<%= id %>&estatename=<%= name %>">推荐客户</a>
+            <a href="/wx/agent/search.html?estateid=<%= id %>&estatename=<%= name %>">客户情况</a>
+          </div>
+          
+        <%}%>  
 
         
     </script>

@@ -1,0 +1,152 @@
+#wrapper{
+    padding: 60px 0;
+}
+
+
+.selected-wrap{
+    text-align: center;
+    color: #ea3a5a;
+    font-size: 15px;
+    position: relative;
+    line-height: 45px;
+    height: 45px;
+    font-weight: bold;
+}
+
+.selected-wrap .back{
+    position: absolute;
+    top:5px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    background: url(../../images/icon-back.png) no-repeat 0 0;
+    background-size: contain;
+}
+
+.search-wrap{
+    height: 30px;
+    margin: 10px;
+    position: relative;
+}
+
+.search-wrap input{
+    width: 100%;
+    border:1px solid #d4d4d4;
+    border-radius: 5px !important;
+    border-right: 0;
+    line-height: 30px;
+    height: 30px;
+    float: left;
+}
+.search-wrap .search-btn{
+    position: absolute;
+    top:0;
+    right: 0px;
+    width: 38px;
+    height: 30px;
+    background: url(../../images/btn-search-gray.png) no-repeat center center;
+    background-size: contain;
+}
+.add-wrap{
+    display: block;
+    margin: 20px 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #b7b7b7;
+}
+.add-wrap i{
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    background: url(../../images/icon-add.png) no-repeat center center;
+    background-size: contain;
+
+}
+.add-wrap span{
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.loadmore,.no-more{
+    border-top: 1px solid #b7b7b7;
+    margin: 10px;
+    padding: 10px 0;
+    text-align: center;
+    color: #999;
+}
+.loadmore{
+    display: none;
+}
+.list{
+    margin: 10px;
+}
+.list .item{
+    padding: 5px 0;
+    font-size: 14px;
+}
+.list .item i{
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    background: url(../../images/icon-radio.png) no-repeat center center;
+    background-size: contain;
+}
+.list .item span{
+    vertical-align: middle;
+    
+}
+.list .item .more{
+    color: #b7b7b7;
+    padding-left: 10px;
+}
+.list .checked{
+    color: #ea3a5a;
+}
+.list .checked i{
+    background-image: url(../../images/icon-radio-checked.png);
+    
+}
+
+
+.after{
+    display: none;
+}
+
+.after .title{
+    text-align: center;
+    color: #ea3a5a;
+    font-size: 15px;
+    position: relative;
+    line-height: 45px;
+    height: 45px;
+    font-weight: bold;
+    border-bottom: 1px solid #b7b7b7;
+}
+.after .title .back{
+    position: absolute;
+    top:5px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    background: url(../../images/icon-back.png) no-repeat 0 0;
+    background-size: contain;
+}
+
+
+
+
+
+
+
+
+
+
+.fixed-btn{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
