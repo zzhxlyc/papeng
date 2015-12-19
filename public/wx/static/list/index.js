@@ -4,8 +4,10 @@ $(function(){
 	var App={
 		init:function(){
 			this.page=1;
-			this.cid='';
+			this.city_id='';
 			this.cityList=null;
+			this.zone_id='';
+			this.block_id='';
 			this.renderProvinceList();
 			this.renderZoneList();
 			this.renderHouseList();
@@ -41,6 +43,7 @@ $(function(){
 				});
 			})
 			$('.J_Area').on('click',function(e){
+				self.hideCitySelect();
 				if($(this).hasClass('toggle')){
 					$(this).removeClass('toggle')
 					$('.J_Mask').hide();
@@ -53,6 +56,7 @@ $(function(){
 				
 			});
 			$('.J_City').on('click',function(e){
+				self.hideAreaSelect();
 				if($(this).hasClass('toggle')){
 					$(this).removeClass('toggle')
 					$('.J_Mask').hide();
@@ -67,7 +71,7 @@ $(function(){
 			$('.J_ProvinceSelect').delegate('.item','click',function(){
 				$('.J_ProvinceSelect .item').removeClass('cur');
 				$(this).addClass('cur');
-				var cityData=$(this).attr('cities');
+				var cityData=$(this).find('textarea').val();
 				self.renderCityList(cityData);
 			});
 
@@ -75,10 +79,13 @@ $(function(){
 				$('.J_CityList .item').removeClass('cur');
 				$(this).addClass('cur');
 				var cid=$(this).attr('cid');
-				self.cid=cid;
+				self.city_id=cid;
+				self.zone_id='';
+				self.block_id='';
 				self.hideCitySelect();
-				self.renderHouseList();
+				self.renderZoneList();
 				$('.J_City').removeClass('toggle').text($(this).text());
+				self.renderHouseList();
 
 			});
 
@@ -87,19 +94,22 @@ $(function(){
 				$('.J_ZoneSelect .item').removeClass('cur');
 				$(this).addClass('cur');
 				var zoneId=$(this).attr('zoneid');
-				if(!zoneId){
+				var blocklist=$(this).find('textarea').val();
+				self.zone_id=zoneId;
+				if($(this).hasClass('noblock')){
 					self.hideAreaSelect();
 					self.renderHouseList();
 					$('.J_Area').removeClass('toggle');
 
 				}else{
-					self.renderBlockList(zoneId);
+					self.renderBlockList(blocklist);
 				}
 			});
 			$('.J_BlockSelect').delegate('.item','click',function(){
 				$('.J_BlockSelect .item').removeClass('cur');
 				$(this).addClass('cur');
 				var blockId=$(this).attr('blockid');
+				self.block_id=blockId;
 				self.hideAreaSelect();
 				self.renderHouseList();
 				$('.J_Area').removeClass('toggle');
@@ -141,30 +151,32 @@ $(function(){
 
 		},
 		hideAreaSelect:function(){
+			$('.J_Area').removeClass('toggle');
 			$('.J_Mask').hide();
 			$('.J_AreaSelect').hide();
 
 
 		},
 		hideCitySelect:function(){
+			$('.J_City').removeClass('toggle');
 			$('.J_Mask').hide();
 			$('.J_CitySelect').hide();
 
 
 		},
-		renderBlockList:function(zoneId){
+		renderBlockList:function(data){
 			var block=$('.J_BlockSelect');
 			var blockHtml=[];
+			var blockList=JSON.parse(data);
 			blockHtml.push('<div class="item" blockid="">不限</div>');
-			for(var i=0;i<this.blockList.length;i++){
-				var t=this.blockList[i];
-				if(t.zone_id==zoneId){
-					blockHtml.push('<div class="item" blockid="'+t.id+'">'+t.name+'</div>');
-				}
+			for(var i=0;i<blockList.length;i++){
+				var t=blockList[i];
+				console.log(t)
+				blockHtml.push('<div class="item" blockid="'+t.id+'">'+t.name+'</div>');
 			}
 
 			block.html(blockHtml.join(''));
-			if(this.blockList.length>0){
+			if(blockList.length>0){
 				block.show();	
 			}else{
 				block.hide();
@@ -177,7 +189,7 @@ $(function(){
 				var province=$('.J_ProvinceSelect');
 				var html=[];
 				$.each(data.data.list,function(i,t){
-					html.push('<div class="item" cities="'+JSON.stringify(t.cities)+'" pid="'+t.id+'">'+t.name+'</div>');
+					html.push('<div class="item" pid="'+t.id+'">'+t.name+'<textarea style="display:none;">'+JSON.stringify(t.cities)+'</textarea></div>');
 				})
 				province.html(html.join(''));
 
@@ -193,21 +205,23 @@ $(function(){
 			$.each(list,function(i,t){
 				html.push('<div class="item" cid="'+t.id+'">'+t.name+'</div>');
 			})
-			city.html(html.join(''));
+			city.html(html.join('')).show();
 
 		},
 		renderZoneList:function(){
 			var self=this;
-			$.get(domain+'/api/base/zone_block',{city_id:self.cid},function(data){
+			var param={};
+			if(self.city_id){
+				param.city_id=self.city_id;
+			}
+			$.get(domain+'/api/base/zone_block',param,function(data){
 				var zone=$('.J_ZoneSelect');
 				var zoneHtml=[];
 				zoneHtml.push('<div class="item" zoneid="">不限</div>');
-				$.each(data.data.zones,function(i,t){
-					zoneHtml.push('<div class="item" zoneid="'+t.id+'">'+t.name+'</div>');
+				$.each(data.data.list,function(i,t){
+					zoneHtml.push('<div class="item '+(t.blocks?'':'noblock')+'" zoneid="'+t.id+'">'+t.name+'<textarea style="display:none;">'+(t.blocks?JSON.stringify(t.blocks):'[]')+'</textarea></div>');
 
 				})
-				self.blockList=data.data.blocks;
-
 				zone.html(zoneHtml.join(''));
 
 			});
@@ -215,11 +229,25 @@ $(function(){
 
 		},
 		renderHouseList:function(param){
+			var self=this;
 			var param=param||{};
 			param.page=param.page||1;
 			param.order=$('.J_OrderSelect .cur').attr('order');
-			param.zone_id=$('.J_ZoneSelect .cur').attr('zoneid');
-			param.block_id=$('.J_BlockSelect .cur').attr('blockid');
+			if(self.zone_id){
+				param.zone_id=self.zone_id;
+
+			}
+
+			if(self.block_id){
+				param.block_id=self.block_id;
+
+			}
+			if(self.city_id){
+				param.city_id=self.city_id;
+
+			}
+			
+			
 			Utils.showLoading();
 			$.get(domain+'/api/estate/list',param,function(data){
 				var wrap=$('.J_Houselist');
@@ -254,7 +282,13 @@ $(function(){
 				});
 				
 				if(param.page===1){
-					wrap.html(html.join(''));
+					if(list.length===0){
+						wrap.html('<div class="no-more">没有对应楼盘</div>');
+					}else{
+						wrap.html(html.join(''));
+
+					}
+					
 				}else{
 					if(list.length===0){
 						wrap.append('<div class="no-more">没有更多了</div>');
