@@ -4,6 +4,9 @@ $(function(){
 	var App={
 		init:function(){
 			this.page=1;
+			this.cid='';
+			this.cityList=null;
+			this.renderProvinceList();
 			this.renderZoneList();
 			this.renderHouseList();
 			this.bindEvents();
@@ -49,6 +52,37 @@ $(function(){
 				}
 				
 			});
+			$('.J_City').on('click',function(e){
+				if($(this).hasClass('toggle')){
+					$(this).removeClass('toggle')
+					$('.J_Mask').hide();
+					$('.J_CitySelect').hide();
+				}else{
+					$(this).addClass('toggle')
+					$('.J_Mask').show();
+					$('.J_CitySelect').show();
+				}
+				
+			});
+			$('.J_ProvinceSelect').delegate('.item','click',function(){
+				$('.J_ProvinceSelect .item').removeClass('cur');
+				$(this).addClass('cur');
+				var cityData=$(this).attr('cities');
+				self.renderCityList(cityData);
+			});
+
+			$('.J_CityList').delegate('.item','click',function(){
+				$('.J_CityList .item').removeClass('cur');
+				$(this).addClass('cur');
+				var cid=$(this).attr('cid');
+				self.cid=cid;
+				self.hideCitySelect();
+				self.renderHouseList();
+				$('.J_City').removeClass('toggle').text($(this).text());
+
+			});
+
+
 			$('.J_ZoneSelect').delegate('.item','click',function(){
 				$('.J_ZoneSelect .item').removeClass('cur');
 				$(this).addClass('cur');
@@ -112,6 +146,12 @@ $(function(){
 
 
 		},
+		hideCitySelect:function(){
+			$('.J_Mask').hide();
+			$('.J_CitySelect').hide();
+
+
+		},
 		renderBlockList:function(zoneId){
 			var block=$('.J_BlockSelect');
 			var blockHtml=[];
@@ -131,9 +171,34 @@ $(function(){
 			}
 
 		},
+		renderProvinceList:function(){
+			var self=this;
+			$.get(domain+'/api/base/province_city',{},function(data){
+				var province=$('.J_ProvinceSelect');
+				var html=[];
+				$.each(data.data.list,function(i,t){
+					html.push('<div class="item" cities="'+JSON.stringify(t.cities)+'" pid="'+t.id+'">'+t.name+'</div>');
+				})
+				province.html(html.join(''));
+
+			});
+
+
+		},
+		renderCityList:function(data){
+			var self=this;
+			var list=JSON.parse(data);
+			var city=$('.J_CityList');
+			var html=[];
+			$.each(list,function(i,t){
+				html.push('<div class="item" cid="'+t.id+'">'+t.name+'</div>');
+			})
+			city.html(html.join(''));
+
+		},
 		renderZoneList:function(){
 			var self=this;
-			$.get(domain+'/api/base/base_data',{},function(data){
+			$.get(domain+'/api/base/zone_block',{city_id:self.cid},function(data){
 				var zone=$('.J_ZoneSelect');
 				var zoneHtml=[];
 				zoneHtml.push('<div class="item" zoneid="">不限</div>');
