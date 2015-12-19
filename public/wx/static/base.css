@@ -15,6 +15,10 @@ h1,h2,h3,h4,h5,p{
 
 .clearfix { *zoom:1; }
 
+input{
+    padding: 0;
+}
+
 #wrapper{
     background: #fff;
     width: 100%;
@@ -273,6 +277,49 @@ a{
 }
 
 
+.city-select-wrap{
+    position: fixed;
+    top:50px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    overflow: scroll;
+    background: #c4c4c4;
+    display: none;
+}
+.city-select-wrap .arrow-top{
+    position: absolute;
+    width: 13px;
+    height: 7px;
+    top: -7px;
+    right: 60px;
+    background: url(../images/arrow-top.png) no-repeat 0 0;
+    background-size: contain;
+}
+.city-select-wrap .provincelist{
+    float: left;
+}
+.city-select-wrap .item{
+    height: 40px;
+    line-height: 40px;
+    width: 150px;
+    text-align: center;
+    background: #e8e8e8;
+    border-bottom: 1px solid #9d9d9d;
+}
+.city-select-wrap  .cur{
+    color: #fc3636;
+}
+.city-select-wrap .citylist{
+    float: left;
+    margin-left: 2px;
+    display: none;
+}
+.city-select-wrap .citylist .item{
+    background: #fff;
+}
+
+
 
 
 .house-list .nodata{
@@ -282,7 +329,7 @@ a{
 }
 .house-list .item{
     display: block;
-    padding: 0 20px;
+    padding: 0 10px;
     color: #909090;
     border-bottom: 1px solid  #b7b7b7;
     margin-bottom: 15px;
