@@ -156,9 +156,66 @@
 
 
 
+.house-type{
+    margin: 20px 10px;
+    border-top: 1px solid  #b7b7b7;
+}
+.house-type h4{
+    margin: 10px 0;
+    font-size: 15px;
+}
+.image-list{
+    position: relative;
+}
 
+.image-list .prev{
+    position: absolute;
+    top:50%;
+    margin-top:-10px;
+    left: 0;
+    width: 15px;
+    height: 20px;
+    background: url(../../images/arrow-left.png) no-repeat center center;
+    background-size: contain;
+    display: none;
+}
 
-
+.image-list .next{
+    position: absolute;
+    top:50%;
+    margin-top:-10px;
+    right: 0;
+    width: 15px;
+    height: 20px;
+    background: url(../../images/arrow-right.png) no-repeat center center;
+    background-size: contain;
+}
+.image-list .item{
+    display: none;
+    margin: 0 50px;
+    text-align: center;
+}
+.image-list .item img{
+    max-width: 100%;
+}
+.preview-mask{
+    display: none;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.preview{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: none;
+}
 
 
 

@@ -97,6 +97,7 @@ $(function(){
 				var blocklist=$(this).find('textarea').val();
 				self.zone_id=zoneId;
 				if($(this).hasClass('noblock')){
+					$('.J_BlockSelect').hide();
 					self.hideAreaSelect();
 					self.renderHouseList();
 					$('.J_Area').removeClass('toggle');
@@ -168,10 +169,8 @@ $(function(){
 			var block=$('.J_BlockSelect');
 			var blockHtml=[];
 			var blockList=JSON.parse(data);
-			blockHtml.push('<div class="item" blockid="">不限</div>');
 			for(var i=0;i<blockList.length;i++){
 				var t=blockList[i];
-				console.log(t)
 				blockHtml.push('<div class="item" blockid="'+t.id+'">'+t.name+'</div>');
 			}
 
@@ -217,8 +216,8 @@ $(function(){
 			$.get(domain+'/api/base/zone_block',param,function(data){
 				var zone=$('.J_ZoneSelect');
 				var zoneHtml=[];
-				zoneHtml.push('<div class="item" zoneid="">不限</div>');
 				$.each(data.data.list,function(i,t){
+					console.log(t)
 					zoneHtml.push('<div class="item '+(t.blocks?'':'noblock')+'" zoneid="'+t.id+'">'+t.name+'<textarea style="display:none;">'+(t.blocks?JSON.stringify(t.blocks):'[]')+'</textarea></div>');
 
 				})

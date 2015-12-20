@@ -94,6 +94,21 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
 
             
         </div>
+        <div class="house-type">
+          <h4>户型图：</h4>
+          <div class="image-list">
+            <a href="javascript:;" class="prev"></a>
+            <a href="javascript:;" class="next"></a>
+            <div class="image-wrap">
+                <% _.each(images, function(item){ %>
+                <div class="item"><img src="/uploads/<%= item.path %>" /></div>
+                <% }); %>
+              
+            </div>
+
+          </div>
+
+        </div>
         <div class="take-flow">
           <div style="display:none;">
           <h4>推荐客户描述：</h4>
@@ -134,13 +149,16 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
 
         
     </script>
-   
-
+<div class="preview-mask"></div>
+<img class="preview" />
+  
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="../static/lib/jquery.js"></script>
 <script src="../static/lib/underscore.js"></script>
 
 <script src="../static/utils.js"></script>
 <script src="../static/detail/index.js"></script>
+
 
 </body>
 </html>
