@@ -57,7 +57,7 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
     <script id="detail-tpl" type="text/template">
         <div class="detail-wrap">
           <div class="top">
-              <img src="/uploads/<%= image.path %>" class="preview" alt="">
+              <img src="/uploads/<%= image.path %>" class="thumb" alt="">
               <div class="info">
                   <h3><%= name %><i class="icon-new"></i></h3>
                   <div class="info-item clearfix">
@@ -79,7 +79,9 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
                       <td><i class="<%= if_renchou?'icon-checked':'icon-check' %>"></i>认筹奖</td>
                   </tr>
               </table>
-              <p>有效期：<%= start_at %> 至 <%= end_at %></p>
+              <%if(start_at&&end_at){%>  
+                <p>有效期：<%= start_at %> 至 <%= end_at %></p>
+              <%}%>  
           </div>
           <div class="ext-info">
             <p>

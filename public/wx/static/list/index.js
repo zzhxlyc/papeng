@@ -217,7 +217,6 @@ $(function(){
 				var zone=$('.J_ZoneSelect');
 				var zoneHtml=[];
 				$.each(data.data.list,function(i,t){
-					console.log(t)
 					zoneHtml.push('<div class="item '+(t.blocks?'':'noblock')+'" zoneid="'+t.id+'">'+t.name+'<textarea style="display:none;">'+(t.blocks?JSON.stringify(t.blocks):'[]')+'</textarea></div>');
 
 				})
@@ -275,7 +274,9 @@ $(function(){
 					html.push('<td><i class="'+(t.if_daikan_reward?'icon-checked':'icon-check')+'"></i>带看奖</td>');
 					html.push('<td><i class="'+(t.if_renchou?'icon-checked':'icon-check')+'"></i>认筹奖</td>');
 					html.push('</tr></table>');
-					html.push('<p>有效期：'+t.start_at+' 至 '+t.end_at+'</p>');
+					if(t.start_at&&t.end_at){
+						html.push('<p>有效期：'+t.start_at+' 至 '+t.end_at+'</p>');
+					}
 					html.push('</div></a>');
         
 				});

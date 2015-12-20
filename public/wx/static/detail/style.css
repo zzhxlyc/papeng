@@ -190,13 +190,18 @@
     background: url(../../images/arrow-right.png) no-repeat center center;
     background-size: contain;
 }
+.image-list .image-wrap{
+    height: 100px;
+}
 .image-list .item{
     display: none;
     margin: 0 50px;
     text-align: center;
+    max-height: 100px;
 }
 .image-list .item img{
     max-width: 100%;
+    max-height: 100px;
 }
 .preview-mask{
     display: none;

@@ -1,11 +1,12 @@
-<form action="/admin/login" method="post">
+<h1>登录</h1>
+<form action="/admin/login" class="login-form" method="post">
 
-  <p>
-    账户：<input type="text" name="username"/>
-  </p>
-  <p>
-    密码：<input type="text" name="password"/>
-  </p>
+  <div class="item">
+    <label for="username">账户：</label><input type="text" name="username"/>
+  </div>
+  <div class="item">
+    <label for="password">密码：</label><input type="text" name="password"/>
+  </div>
 
-  <input type="submit" value="登陆" />
+  <input type="submit" class="btn" value="登陆" />
 </form>
