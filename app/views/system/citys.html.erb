@@ -1,0 +1,20 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'system/citys_sidebar'%>
+<% end %>
+
+<table>
+<%@provinces.each do |obj|%>
+<tr>
+  <td>
+    <%=obj.province%>
+  </td>
+  <td>
+    <%if @city_group[obj.provinceID]%>
+    <%@city_group[obj.provinceID].each do |city|%>
+    <%=city.city%> <br />
+    <%end%>
+    <%end%>
+  </td>
+</tr>
+<%end%>
+</table>

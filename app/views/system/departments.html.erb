@@ -6,5 +6,7 @@
 <a href="/admin/system/department?id=<%=obj.id%>&company_id=<%=obj.company_id%>"><%=obj.name%></a>
 <%end%>
 
+<%= render :partial => 'common/pager', :locals => {:paginate_list => @list}%>
+
 <a href="/admin/system/department?company_id=<%=@father.id%>">新增</a>
 <a href="javascript:void(0)" onclick="history.back()">返回</a>

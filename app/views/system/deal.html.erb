@@ -1,3 +1,7 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'deal_sidebar'%>
+<% end %>
+
 <form action="/admin/system/deal" method="post" onsubmit="return check_form(this)">
   <%= render :partial => 'common/deal'%>
 </form>

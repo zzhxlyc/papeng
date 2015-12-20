@@ -5,6 +5,9 @@
 <%@list.each do |obj|%>
 <p>
   <a href="/admin/system/usr?id=<%=obj.id%>"><%=obj.user%></a>
+  <%=obj.name%>
   <a href="/admin/system/user_delete?id=<%=obj.id%>" onclick="return confirm_delete()">删除</a>
 </p>
 <%end%>
+
+<%= render :partial => 'common/pager', :locals => {:paginate_list => @list}%>

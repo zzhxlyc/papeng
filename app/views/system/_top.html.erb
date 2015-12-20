@@ -1,5 +1,6 @@
 <ul>
     <li><a href="/admin/system/index" <%=add_class('current', params[:action] == 'index')%>>首页</a></li>
+    <li><a href="/admin/system/citys" <%=add_class('current', params[:action].starts_with?('citys'))%>>城市管理</a></li>
     <li><a href="/admin/system/city_blocks" <%=add_class('current', params[:action].starts_with?('city_block'))%>>区域管理</a></li>
     <li><a href="/admin/system/roles" <%=add_class('current', params[:action].starts_with?('role'))%>>角色管理</a></li>
     <li><a href="/admin/system/users" <%=add_class('current', params[:action].starts_with?('user'))%>>员工管理</a></li>

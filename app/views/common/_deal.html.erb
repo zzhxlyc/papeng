@@ -50,8 +50,6 @@
               {:k => Deal::RenchouStatus::UNDO, :v => '未认筹'},
               {:k => Deal::RenchouStatus::APPLY, :v => '认筹申请中'},
               {:k => Deal::RenchouStatus::CONFIRM, :v => '认筹确认'},
-              {:k => Deal::RenchouStatus::BACK_CONFIRM, :v => '认筹退款确认'},
-              {:k => Deal::RenchouStatus::BACK_DONE, :v => '认筹退款完成'},
       ])%>
     </select>
   </p>
@@ -82,6 +80,7 @@
   <input type="hidden" name="id" value="<%=@obj.id%>"/>
   <%= token_tag %>
   <input type="submit" value="提交" />
+  <a href="#" onclick="history.back()">返回</a>
 
 <script type="text/javascript">
 function check_form(form){

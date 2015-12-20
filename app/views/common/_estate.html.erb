@@ -17,28 +17,25 @@
   <%end%>
 
   <p>区域：
-    <select name="province_id">
-      <option value="330000">浙江省</option>
-    </select>
-    <select name="city_id">
-      <option value="330100">杭州市</option>
-    </select>
-    <select name="zone_id">
-      <option value=""></option>
-      <%CityZone.hzZones.each do |z|%>
-      <option value="<%=z.areaID%>" <%=if_selected(@obj.zone_id, z.areaID)%>><%=z.area%></option>
+    <select id="province_select" name="province_id" onchange="load_citys()">
+      <%@provinces.each do |prov|%>
+          <option value="<%=prov.provinceID%>" <%=if_selected(@obj.province_id, prov.provinceID)%>><%=prov.province%></option>
       <%end%>
     </select>
-  </p>
-
-  <p>
-    区块：
-    <select name="city_block_id">
-      <option value=""></option>
-      <%@blocks.each do |z|%>
-          <option value="<%=z.id%>" <%=if_selected(@obj.city_block_id, z.id)%>><%=z.name%></option>
-      <%end%>
-    </select>
+    <span id="city_span"></span>
+    <input type="hidden" id="the_city_id" value="<%=@obj.city_id%>" />
+    <span id="zone_span">
+      <select>
+            <option></option>
+      </select>
+    </span>
+    <input type="hidden" id="the_zone_id" value="<%=@obj.zone_id%>" />
+    <span id="block_span">
+      <select>
+            <option></option>
+      </select>
+    </span>
+    <input type="hidden" id="the_block_id" value="<%=@obj.city_block_id%>" />
   </p>
 
   <p>
@@ -119,6 +116,7 @@
   <input type="hidden" name="id" value="<%=@obj.id%>"/>
   <%= token_tag %>
   <input type="submit" value="提交" />
+  <a href="#" onclick="history.back()">返回</a>
 
 <script type="text/javascript">
 function check_form(form){
@@ -141,5 +139,37 @@ $('#jd_t').focus(function(){
         this.value = '';
     }
     $('#jd_ss')[0].checked = false;
+});
+
+function load_citys(if_choose){
+    var province_id = $('#province_select').val();
+    var city_id = '';
+    if(if_choose) {
+        city_id = $('#the_city_id').val();
+    }
+    $('#city_span').load('/public/citys?onchange=1&province_id=' + province_id + "&city_id=" + city_id, function(){
+        load_zones(1);
+    });
+}
+function load_zones(if_choose){
+    var city_id = $('#city_select').val();
+    var zone_id = '';
+    if(if_choose) {
+        zone_id = $('#the_zone_id').val();
+    }
+    $('#zone_span').load('/public/zones?onchange=1&city_id=' + city_id + "&zone_id=" + zone_id, function(){
+        load_blocks(1);
+    });
+}
+function load_blocks(if_choose){
+    var zone_id = $('#zone_select').val();
+    var block_id = '';
+    if(if_choose) {
+        block_id = $('#the_block_id').val();
+    }
+    $('#block_span').load('/public/blocks?zone_id=' + zone_id + "&block_id=" + block_id);
+}
+$(document).ready(function(){
+    load_citys(1);
 });
 </script>

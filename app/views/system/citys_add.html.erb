@@ -1,0 +1,56 @@
+<% content_for :sidebar do%>
+    <%= render :partial => 'system/citys_sidebar'%>
+<% end %>
+
+<table>
+<%@provinces.each do |obj|%>
+<tr>
+  <td>
+    <%=obj.province%>
+    <a href="javascript:void(0)" onclick="click_province(<%=obj.provinceID%>)">展开</a>
+  </td>
+  <td>
+    <div id="citys_<%=obj.provinceID%>" style="display: none">
+      <%if @city_group[obj.provinceID]%>
+        <%
+           @city_group[obj.provinceID].each do |city|
+              next if city.city == '县'
+        %>
+          <%=city.city%>
+          <input type="checkbox" value="<%=city.cityID%>" <%=if_checked(city.validflag, 1)%> onclick="add_city(this)" />
+              <br />
+        <%end%>
+      <%end%>
+    </div>
+  </td>
+</tr>
+<%end%>
+</table>
+
+<script>
+function click_province(pid){
+    $('#citys_'+pid).toggle();
+}
+function add_city(dom){
+    var cid = dom.value;
+    var op;
+    if(dom.checked){
+        op = 'add';
+    }
+    else{
+        op = 'remove';
+    }
+    $.ajax({
+        url : '/admin/system/citys_add',
+        type : 'post',
+        data : {
+            op : op,
+            cityID : cid
+        },
+        success : function (ret){
+            if(op == 'add') alert('添加成功');
+            else alert('删除成功');
+        }
+    });
+}
+</script>
