@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"
+content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>房产趴砰网</title>
+
+    <link rel="stylesheet" type="text/css" href="../static/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/userdetail/style.css"/>
+
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <a href="/wx/estate/list.html" class="logo"></a>
+            <div class="nav">
+                <a href="/wx/estate/userlist.html" class="J_Order">排序</a>
+                <a href="/wx/estate/userlist.html">楼盘</a>
+                <a href="/wx/estate/userlist.html">杭州</a>
+                <a href="/wx/estate/userlist.html" class="J_Area">区域</a>
+            </div>
+            
+        </div>
+        <div id="house-detail">
+          
+
+        </div>
+        
+        
+    </div>
+    <div class="mask J_Mask"></div>
+    <div class="order-select-wrap J_OrderSelect">
+        <i class="arrow-top"></i>
+        <div class="item cur" order="">位置距离</div>
+        <div class="item" order="yjje">佣金金额</div>
+        <div class="item" order="jjbl">佣金比例</div>
+        <div class="item" order="jjbl">界定时间</div>
+        
+    </div>
+    <div class="area-select-wrap J_AreaSelect">
+        <i class="arrow-top"></i>
+        <div class="zonelist J_ZoneSelect">
+            <div class="item"></div>
+        </div>
+        <div class="blocklist J_BlockSelect">
+            <div class="item">
+                
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script id="detail-tpl" type="text/template">
+        <div class="detail-wrap">
+          <div class="top clearfix">
+              <img src="/uploads/<%= image.path %>" class="thumb" alt="">
+              <div class="info">
+                  <h3><%= name %><i class="icon-new"></i></h3>
+                  <div class="info-item clearfix">
+                      <span class="left"><label><%= address %></label></span>
+                      <span class="right"><span><%= avg_price %></span><label>元/㎡</label></span>
+                  </div>
+                  <div class="info-item more-info clearfix">
+                      <label><%= note %></label>
+                  </div>
+              </div>
+          </div>
+      
+            
+        </div>
+        <div class="house-info">
+          <div class="section">
+            <h3>楼盘信息<i></i></h3>
+            <div class="detail">
+              <%= info1 %>
+              
+            </div>
+          </div>
+          <div class="section">
+            <h3>楼盘配套<i></i></h3>
+            <div class="detail">
+              <%= info2 %>
+              <%= info3 %>
+              <%= info4 %>
+              <%= info5 %>
+              <%= info6 %>
+            </div>
+          </div>
+          <div class="section">
+            <h3>户型图<i></i></h3>
+            <div class="detail">
+              <div class="house-type">
+                <div class="image-list">
+                  <a href="javascript:;" class="prev"></a>
+                  <a href="javascript:;" class="next"></a>
+                  <div class="image-wrap">
+                      <% _.each(images, function(item){ %>
+                      <div class="item"><img src="/uploads/<%= item.path %>" /></div>
+                      <% }); %>
+                    
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          
+
+
+        </div>
+        <div class="fix-bottom">
+
+          <a href="javascript:;" class="visit J_Visit">预约带看</a>
+        </div>
+          
+        
+    </script>
+<div class="preview-mask"></div>
+<img class="preview" />
+
+
+<div class="mask J_ModalMask"></div>
+  <div class="modal visit-modal J_VisitModal">
+      <h3>预约看房</h3>
+      <a href="javascript:;" class="close"></a>
+      <div class="form">
+          <p class="tip">请先预留您的手机号码，爬砰客户经理将尽快与您联系！</p>
+          <div class="field shop-field">
+            <i class="icon"></i>
+            <input type="text" class="J_Name" name="name" placeholder="姓名">
+          </div>
+          <div class="field phone-field">
+            <i class="icon"></i>
+            <input type="number" class="J_Phone" name="user" placeholder="手机号码">
+          </div>
+          <a href="javascript:;" class="btn btn-primary J_Submit" >提交</a>
+
+        
+      </div>
+
+
+  </div>
+
+  
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="../static/lib/jquery.js"></script>
+<script src="../static/lib/underscore.js"></script>
+
+<script src="../static/utils.js"></script>
+<script src="../static/userdetail/index.js"></script>
+
+
+</body>
+</html>

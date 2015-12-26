@@ -61,6 +61,7 @@ input,p{
 	width: 100%;
     margin: 2px 6px 16px 0;
 	line-height: 30px;
+	text-indent: 5px;
 }
 
 #login .login-form .btn{

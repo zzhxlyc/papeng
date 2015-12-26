@@ -1,0 +1,347 @@
+#house-detail{
+    margin-bottom: 60px;
+}
+
+.detail-wrap{
+    margin: 70px 10px 0 10px;
+
+}
+
+
+.detail-wrap .top{
+    border-bottom: 1px solid  #eee;
+}
+.detail-wrap .top img{
+    width: 90px;
+    height: 65px;
+    float: left;
+}
+.detail-wrap .top .info{
+    margin-left: 100px;
+
+}
+.detail-wrap .top .info h3{
+    color: #000;
+    font-size: 15px;
+    margin: 0 0 5px 0;
+}
+.detail-wrap .top .info .icon-new{
+    display: inline-block;
+    width: 35px;
+    height: 18px;
+    background: url(../../images/icon-new.png) no-repeat center center;
+    background-size: contain;
+}
+.detail-wrap .top .info .info-item{
+    color: #909090;
+    font-size: 12px;
+    position: relative;
+}
+.detail-wrap .top .info .more-info{
+    font-size: 10px;
+}
+.detail-wrap .top .info .info-item .icon-increase{
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    background: url(../../images/icon-increase.png) no-repeat center center;
+    background-size: contain;
+
+}
+.detail-wrap .top .info .info-item label{
+    color: #909090;
+}
+.detail-wrap .top .info .info-item .left{
+    float: left;
+    max-width: 120px;
+
+}
+.detail-wrap .top .info .info-item .right{
+    position: absolute;
+    text-align: right;
+    right: 10px;
+}
+.detail-wrap .top .info .info-item span{
+    color: #ea3a59;
+    line-height: 20px;
+}
+.detail-wrap .top .info .info-item strong{
+    font-size: 18px;
+    color: #ea3a59;
+}
+.detail-wrap .top .info .info-item .orange{
+    color: #ff8000;
+}
+
+
+
+.detail-wrap .bottom{
+    padding-bottom: 10px;
+    border-bottom: 1px solid  #b7b7b7;
+
+}
+
+.detail-wrap .bottom table{
+    width: 100%;
+}
+.detail-wrap .bottom i{
+    width: 12px;
+    height: 12px;
+    margin-right: 2px;
+    display: inline-block;
+    background: url(../../images/icon-radio.png) no-repeat 0 0;
+    background-size: contain;
+    vertical-align: middle;
+}
+.detail-wrap .bottom .icon-checked{
+    background-image: url(../../images/icon-radio-checked.png);
+}
+
+.detail-wrap .ext-info{
+
+}
+
+.detail-wrap .ext-info p{
+    padding: 10px 0;
+    border-bottom: 1px solid  #b7b7b7;
+        
+}
+
+.detail-wrap .ext-info p:last-child{
+    border: 0;
+
+}
+.detail-wrap .ext-info p label{
+    font-weight: bold;
+        
+}
+.detail-wrap .ext-info p .em{
+    color: #ea3a59;
+        
+}
+
+.take-flow{
+    border-top: 1px solid  #b7b7b7;
+    padding: 10px;
+}
+
+.take-flow h4{
+    font-weight: bold;
+    margin: 10px 0;
+    padding-bottom: 10px;
+    font-size: 15px;
+    border-bottom: 1px solid  #b7b7b7;
+}
+
+.fix-bottom{
+    height: 44px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.fix-bottom a{
+    display: block;
+    width: 100%;
+    background: #ea3a59;
+    text-align: center;
+    line-height: 44px;
+    font-size: 15px;
+    color: #fff;
+}
+.one-btn a{
+    width: 100%;
+    border: 0;
+}
+
+
+
+.house-type{
+    margin: 20px 10px;
+}
+.house-type h4{
+    margin: 10px 0;
+    font-size: 15px;
+}
+.image-list{
+    position: relative;
+}
+
+.image-list .prev{
+    position: absolute;
+    top:50%;
+    margin-top:-10px;
+    left: 0;
+    width: 15px;
+    height: 20px;
+    background: url(../../images/arrow-left.png) no-repeat center center;
+    background-size: contain;
+    display: none;
+}
+
+.image-list .next{
+    position: absolute;
+    top:50%;
+    margin-top:-10px;
+    right: 0;
+    width: 15px;
+    height: 20px;
+    background: url(../../images/arrow-right.png) no-repeat center center;
+    background-size: contain;
+}
+.image-list .image-wrap{
+    height: 100px;
+}
+.image-list .item{
+    display: none;
+    margin: 0 50px;
+    text-align: center;
+    max-height: 100px;
+}
+.image-list .item img{
+    max-width: 100%;
+    max-height: 100px;
+}
+.preview-mask{
+    display: none;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.preview{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: none;
+}
+
+.house-info .section{
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin: 10px 0;
+}
+
+.house-info .section h3{
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+}
+.house-info .section h3 i{
+    position: absolute;
+    top:8px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    background: url(../../images/arrow-down.png) no-repeat center center;
+    background-size: contain;
+}
+
+.house-info .section h3.toggle i{
+    background-image:url(../../images/arrow-up.png);
+}
+
+.house-info .section .detail{
+    display: none;
+    margin: 10px;
+    margin-top: 0;
+    border-top: 1px solid #eee;
+}
+
+
+.J_ModalMask{
+    z-index: 10;
+}
+.visit-modal{
+    z-index: 11;
+    width: 300px;
+    margin-left: -150px;
+}
+.visit-modal h3{
+    margin: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+.visit-modal .tip{
+    text-align: center;
+    color: #e71c41;
+}
+.visit-modal .close{
+    position: absolute;
+    top:10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: url(../../images/icon-close.png) no-repeat center center;
+    background-size: contain;
+}
+
+.visit-modal .form{
+    padding-bottom: 10px;
+}
+
+.visit-modal .form .field input{
+    border: 1px solid #b7b7b7;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    width: 100%;
+    text-indent: 40px;
+    box-sizing: border-box;
+
+
+}
+.visit-modal .form .check-field i{
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background: url(../../images/icon-radio.png) no-repeat 0 0;
+    background-size: contain;
+    vertical-align: middle;
+}
+.visit-modal .form .checked-field i{
+    background-image: url(../../images/icon-radio-checked.png);
+}
+.visit-modal .form .check-field span{
+    vertical-align: middle;
+    
+
+}
+.visit-modal .form .field{
+    position: relative;
+
+}
+.visit-modal .form .field .icon{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top:8px;
+    left: 10px;
+    background: url(../../images/icon-phone.png) no-repeat 0 0;
+    background-size: contain;
+}
+.visit-modal .form .shop-field .icon{
+    background-image:url(../../images/icon-account.png);
+}
+.visit-modal .form .code-field input{
+    width: 140px;
+    margin-right: 8px;
+    float: left;
+}
+.visit-modal .form .code-field .btn{
+    width: 130px;
+    float: left;
+
+}
+
+
+
+

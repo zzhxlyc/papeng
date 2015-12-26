@@ -1,0 +1,150 @@
+.search-wrap{
+    width: 300px;
+    height: 30px;
+    margin: 20px auto;
+    margin-top: 70px;
+}
+
+.search-wrap input{
+    width: 262px;
+    border:1px solid #e93b59;
+    border-radius: 5px 0 0 5px;
+    border-right: 0;
+    line-height: 30px;
+    height: 30px;
+    float: left;
+    text-indent: 10px;
+}
+.search-wrap .search-btn{
+    float: left;
+    width: 38px;
+    height: 30px;
+    background: url(../../images/btn-search.png) no-repeat center center;
+    background-size: contain;
+}
+
+.loadmore,.no-more{
+    text-align: center;
+    color: #999;
+}
+
+.house-list .item .top {
+    border-bottom: 0;
+}
+.house-list .item .top .info .info-item{
+    position: relative;
+}
+.house-list .item .top .info .more-item{
+    font-size: 10px;
+}
+.house-list .item .top .info .info-item .right{
+    position: absolute;
+    top:0;
+    right: 0;
+    text-align: right;
+}
+.house-list .item .top .info .info-item .visit{
+    position: absolute;
+    top:0;
+    right: 0;
+    border:1px solid #e93b59;
+    border-radius: 5px;
+    padding: 0 5px;
+}
+.house-list .item .top .info .info-item label{
+
+    margin-right: 0;
+}
+.J_ModalMask{
+    z-index: 10;
+}
+.visit-modal{
+    z-index: 11;
+    width: 300px;
+    margin-left: -150px;
+}
+.visit-modal h3{
+    margin: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+.visit-modal .tip{
+    text-align: center;
+    color: #e71c41;
+}
+.visit-modal .close{
+    position: absolute;
+    top:10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: url(../../images/icon-close.png) no-repeat center center;
+    background-size: contain;
+}
+
+.visit-modal .form{
+    padding-bottom: 10px;
+}
+
+.visit-modal .form .field input{
+    border: 1px solid #b7b7b7;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    width: 100%;
+    text-indent: 40px;
+    box-sizing: border-box;
+
+
+}
+.visit-modal .form .check-field i{
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background: url(../../images/icon-radio.png) no-repeat 0 0;
+    background-size: contain;
+    vertical-align: middle;
+}
+.visit-modal .form .checked-field i{
+    background-image: url(../../images/icon-radio-checked.png);
+}
+.visit-modal .form .check-field span{
+    vertical-align: middle;
+    
+
+}
+.visit-modal .form .field{
+    position: relative;
+
+}
+.visit-modal .form .field .icon{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top:8px;
+    left: 10px;
+    background: url(../../images/icon-phone.png) no-repeat 0 0;
+    background-size: contain;
+}
+.visit-modal .form .shop-field .icon{
+    background-image:url(../../images/icon-account.png);
+}
+.visit-modal .form .code-field input{
+    width: 140px;
+    margin-right: 8px;
+    float: left;
+}
+.visit-modal .form .code-field .btn{
+    width: 130px;
+    float: left;
+
+}
+
+
+
+
+
+
+
+
+

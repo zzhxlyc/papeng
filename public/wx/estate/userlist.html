@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"
+content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>房产趴砰网</title>
+
+    <link rel="stylesheet" type="text/css" href="../static/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/userlist/style.css"/>
+
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <a href="/wx/estate/userlist.html" class="logo"></a>
+            <div class="nav">
+                <a href="javascript:;" class="J_Order">排序</a>
+                <a href="/wx/estate/userlist.html">楼盘</a>
+                <a href="javascript:;" class="J_City">杭州</a>
+                <a href="javascript:;" class="J_Area">区域</a>
+            </div>
+            
+        </div>
+        <div class="search-wrap">
+            <input type="search" class="J_SearchKey" placeholder="查找楼盘">
+            <a href="javascript:;" class="search-btn J_Search"></a>
+            
+        </div>
+        <div class="house-list J_Houselist">
+            
+
+        </div>    
+        <div class="loadmore J_MoreList">
+                加载更多
+        </div>
+
+        
+    </div>
+    <div class="mask J_Mask"></div>
+    <div class="order-select-wrap J_OrderSelect">
+        <i class="arrow-top"></i>
+        <div class="item cur" order="priceup">价格从低到高</div>
+        <div class="item" order="pricedown">价格从高到低</div>
+        <div class="item" order="openup">开盘时间顺序</div>
+        <div class="item" order="opendown">开盘时间倒序</div>
+        
+    </div>
+    <div class="city-select-wrap J_CitySelect">
+        <i class="arrow-top"></i>
+        <div class="provincelist J_ProvinceSelect">
+            <div class="item"></div>
+        </div>
+        <div class="citylist J_CityList">
+            <div class="item">
+                
+            </div>
+        </div>
+
+        
+    </div>
+    <div class="area-select-wrap J_AreaSelect">
+        <i class="arrow-top"></i>
+        <div class="zonelist J_ZoneSelect">
+            <div class="item"></div>
+        </div>
+        <div class="blocklist J_BlockSelect">
+            <div class="item">
+                
+            </div>
+        </div>
+
+        
+    </div>
+    <div class="mask J_ModalMask"></div>
+    <div class="modal visit-modal J_VisitModal">
+        <h3>预约看房</h3>
+        <a href="javascript:;" class="close"></a>
+        <div class="form">
+            <p class="tip">请先预留您的手机号码，爬砰客户经理将尽快与您联系！</p>
+            <div class="field shop-field">
+              <i class="icon"></i>
+              <input type="text" class="J_Name" name="name" placeholder="姓名">
+            </div>
+            <div class="field phone-field">
+              <i class="icon"></i>
+              <input type="number" class="J_Phone" name="user" placeholder="手机号码">
+            </div>
+            <a href="javascript:;" class="btn btn-primary J_Submit" >提交</a>
+
+          
+        </div>
+
+
+    </div>
+   
+
+<script src="../static/lib/jquery.js"></script>
+
+<script src="../static/utils.js"></script>
+<script src="../static/userlist/index.js"></script>
+
+</body>
+</html>
