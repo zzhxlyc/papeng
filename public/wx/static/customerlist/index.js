@@ -103,7 +103,7 @@ $(function(){
 		addBaobei:function (hid) {
 			var self=this;
 			Utils.showLoading('正在推荐');
-			$.get(domain+'/agent/deal_baobei',{
+			$.post(domain+'/agent/deal_baobei',{
 				customer_id:self.selectedCustomer,
 				estate_id:hid
 			},function(data){

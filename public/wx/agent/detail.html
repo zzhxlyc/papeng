@@ -37,7 +37,7 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
             <h4>购房意向</h4>
             <p class="J_Note"></p>
         </div>
-        <div class="add-house">
+        <div class="add-house J_GoHouse">
             + 报备楼盘
         </div>
 
@@ -76,19 +76,19 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
     <script id="process-tpl" type="text/template">
             <div class="item">
                 <h4><%= name %>  <span class="status"><%= text %></span>  </h4>
-                <%if(process<5){%>  
-                <a href="javascript:;" class="btn J_Oper"><%= oper %></a>
+                <%if(status===1||status===14||status===22||status===32){%>  
+                <a href="javascript:;" class="btn J_Oper" step="<%= process %>"><%= oper %></a>
                 <%}%>  
                 <div class="process-wrap step<%= process %>">
                     <div class="line line1"></div>
                     <div class="line line2"></div>
                     <div class="line line3"></div>
                     <div class="line line4"></div>
-                    <div class="process process1"><i></i><span>报备</span></div>
-                    <div class="process process2"><i></i><span>带看</span></div>
-                    <div class="process process3"><i></i><span>认筹</span>  </div>
-                    <div class="process process4"><i></i><span>成交</span></div>
-                    <div class="process process5"><i></i><span>结佣</span></div>
+                    <div class="process process1 <%if(status===1){%>selected<%}%>"><i></i><span>报备</span></div>
+                    <div class="process process2 <%if(status===14){%>selected<%}%>"><i></i><span>带看</span></div>
+                    <div class="process process3 <%if(status===22){%>selected<%}%>"><i></i><span>认筹</span>  </div>
+                    <div class="process process4 <%if(status===32){%>selected<%}%>"><i></i><span>成交</span></div>
+                    <div class="process process5 <%if(status===42){%>selected<%}%>"><i></i><span>结佣</span></div>
                 </div>
 
             </div>
@@ -104,6 +104,18 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
         <a href="tel:<%= contact %>" class="phone"></a>
     </script>
   
+
+<div class="mask J_ConfirmMask"></div>
+<div class="modal J_Confirm">
+  <div class="inner">
+    xxxxx
+  </div>
+  <div class="btn-wrap">
+    <a href="javascript:;" class="btn btn-gray J_Cancel">取消</a>
+    <a href="javascript:;" class="btn btn-primary J_Submit">确定</a>
+  </div>
+
+</div>
 
 <script src="../static/lib/jquery.js"></script>
 <script src="../static/lib/underscore.js"></script>

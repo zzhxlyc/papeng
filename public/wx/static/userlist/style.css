@@ -59,6 +59,7 @@
     z-index: 10;
 }
 .visit-modal{
+    position: fixed;
     z-index: 11;
     width: 300px;
     margin-left: -150px;
@@ -71,6 +72,8 @@
 .visit-modal .tip{
     text-align: center;
     color: #e71c41;
+    font-size: 10px;
+    margin: 10px 0;
 }
 .visit-modal .close{
     position: absolute;

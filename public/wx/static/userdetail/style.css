@@ -252,6 +252,7 @@
 .house-info .section .detail{
     display: none;
     margin: 10px;
+    padding-top: 5px;
     margin-top: 0;
     border-top: 1px solid #eee;
 }
@@ -261,6 +262,7 @@
     z-index: 10;
 }
 .visit-modal{
+    position: fixed;
     z-index: 11;
     width: 300px;
     margin-left: -150px;
@@ -273,6 +275,9 @@
 .visit-modal .tip{
     text-align: center;
     color: #e71c41;
+    font-size: 10px;
+    margin: 10px 0;
+
 }
 .visit-modal .close{
     position: absolute;

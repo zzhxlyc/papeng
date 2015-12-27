@@ -222,6 +222,7 @@
 }
 
 
+
 .finished .process1,.finished .process2,.finished .process3,.finished .process4,.finished .process5{
     border-color: #ea3a5a;
     color: #ea3a5a;
@@ -233,9 +234,22 @@
     background: #ea3a5a;
 }
 
+.process-wrap .selected{
+    border-color: #ea3a5a;
+    color: #ea3a5a;
 
+}
 
+.process-wrap .selected i{
+   background: #ea3a5a; 
+}
+.J_ConfirmMask{
+    z-index: 10;
+}
 
+.modal{
+    z-index: 10;
+}
 
 
 
