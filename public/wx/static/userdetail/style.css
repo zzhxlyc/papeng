@@ -256,6 +256,18 @@
     margin-top: 0;
     border-top: 1px solid #eee;
 }
+.house-info .section .detail table{
+    width: 100%;
+}
+
+.house-info .section .detail table td{
+    width: 50%;
+    vertical-align: top;
+    padding-bottom: 10px;
+}
+.house-info .section .detail table label{
+    font-weight: bold;
+}
 
 
 .J_ModalMask{

@@ -221,17 +221,14 @@ $(function(){
 			var block=$('.J_BlockSelect');
 			var blockHtml=[];
 			var blockList=JSON.parse(data);
+			blockHtml.push('<div class="item" blockid="">全部</div>');
 			for(var i=0;i<blockList.length;i++){
 				var t=blockList[i];
 				blockHtml.push('<div class="item" blockid="'+t.id+'">'+t.name+'</div>');
 			}
 
 			block.html(blockHtml.join(''));
-			if(blockList.length>0){
-				block.show();	
-			}else{
-				block.hide();
-			}
+			block.show();
 
 		},
 		renderProvinceList:function(){
@@ -269,7 +266,7 @@ $(function(){
 				var zone=$('.J_ZoneSelect');
 				var zoneHtml=[];
 				$.each(data.data.list,function(i,t){
-					zoneHtml.push('<div class="item '+(t.blocks?'':'noblock')+'" zoneid="'+t.id+'">'+t.name+'<textarea style="display:none;">'+(t.blocks?JSON.stringify(t.blocks):'[]')+'</textarea></div>');
+					zoneHtml.push('<div class="item" zoneid="'+t.id+'">'+t.name+'<textarea style="display:none;">'+(t.blocks?JSON.stringify(t.blocks):'[]')+'</textarea></div>');
 
 				})
 				zone.html(zoneHtml.join(''));
@@ -324,7 +321,7 @@ $(function(){
 					html.push('<label class="left">'+t.address+'</label>');
 					html.push('<span class="right"><span>'+t.avg_price+'</span><label>元/㎡</label></span>');
 					html.push('</div>');
-					html.push('<div class="info-item more-item clearfix">'+t.note+'<a href="javascript:;" hid="'+t.id+'" class="visit J_Visit">预约看房</a></div>');
+					html.push('<div class="info-item more-item clearfix"><label for="">'+t.note+'</label><a href="javascript:;" hid="'+t.id+'" class="visit J_Visit">预约看房</a></div>');
 					html.push('</div></div>');
 					html.push('</div>');
         

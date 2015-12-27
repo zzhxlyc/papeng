@@ -15,7 +15,7 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
 <body>
     <div id="wrapper">
         <div id="header">
-            <a href="/wx/estate/list.html" class="logo"></a>
+            <a href="/wx/estate/userlist.html" class="logo"></a>
             <div class="nav">
                 <a href="/wx/estate/userlist.html" class="J_Order">排序</a>
                 <a href="/wx/estate/userlist.html">楼盘</a>
@@ -76,18 +76,59 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
           <div class="section">
             <h3>楼盘信息<i></i></h3>
             <div class="detail">
-              <%= info1 %>
+              <table>
+                <tr>
+                  <td><label>开盘时间：</label><%= online_at %></td>
+                  <td><label>车位数：</label><%= car_num %></td>
+                </tr>
+                <tr>
+                  <td><label>楼盘均价：</label><%= avg_price %></td>
+                  <td><label>规划户数：</label><%= guihua_hushu %></td>
+                </tr>
+                <tr>
+                  <td><label>建筑装修：</label><%= decoration %></td>
+                  <td><label>物业公司：</label><%= wuye %></td>
+                </tr>
+                <tr>
+                  <td><label>建筑面积：</label><%= area %></td>
+                  <td><label>物业费：</label><%= wuye_fee %></td>
+                </tr>
+                <tr>
+                  <td><label>规划面积：</label><%= guihua_area %></td>
+                  <td><label>容积率：</label><%= rongji %></td>
+                </tr>
+                <tr>
+                  <td><label>绿化率：</label><%= green_rate %></td>
+                  <td><label>交房时间：</label><%= submit_at %></td>
+                </tr>
+              </table>
               
             </div>
           </div>
           <div class="section">
             <h3>楼盘配套<i></i></h3>
             <div class="detail">
-              <p><%= info2 %></p>
-              <p><%= info3 %></p>
-              <p><%= info4 %></p>
-              <p><%= info5 %></p>
-              <p><%= info6 %></p>
+              <table>
+                <tr>
+                  <td><label>地段描述：</label><%= info1 %></td>
+                </tr>
+                <tr>
+                  <td><label>配套描述：</label><%= info2 %></td>
+                </tr>
+                <tr>
+                  <td><label>教育描述：</label><%= info3 %></td>
+                </tr>
+                <tr>
+                  <td><label>环境描述：</label><%= info4 %></td>
+                </tr>
+                <tr>
+                  <td><label>交通描述：</label><%= info5 %></td>
+                </tr>
+                <tr>
+                  <td><label>环境描述：</label><%= info6 %></td>
+                </tr>
+              </table>
+             
             </div>
           </div>
           <div class="section">
@@ -130,7 +171,7 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
       <h3>预约看房</h3>
       <a href="javascript:;" class="close"></a>
       <div class="form">
-          <p class="tip">请先预留您的手机号码，爬砰客户经理将尽快与您联系！</p>
+          <p class="tip">请先预留您的手机号码，趴砰客户经理将尽快与您联系！</p>
           <div class="field shop-field">
             <i class="icon"></i>
             <input type="text" class="J_Name" name="name" placeholder="姓名">
