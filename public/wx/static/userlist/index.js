@@ -48,6 +48,10 @@ $(function(){
 					alert('请填写手机号哦')
 					return;
 				}
+				if(!/^1[34578]\d{9}$/.test(tel)){
+					alert('手机号格式不正确')
+					return;
+				}
 				btn.addClass('disabled');
 				self.reserve({
 					estate_id:hid,
@@ -319,7 +323,7 @@ $(function(){
 					html.push('<h3>'+t.name+'<i class="icon-new"></i></h3>');
 					html.push('<div class="info-item clearfix">');
 					html.push('<label class="left">'+t.address+'</label>');
-					html.push('<span class="right"><span>'+t.avg_price+'</span><label>元/㎡</label></span>');
+					html.push('<span class="right"><span class="em">'+t.avg_price+'</span>元/㎡</span>');
 					html.push('</div>');
 					html.push('<div class="info-item more-item clearfix"><label for="">'+t.note+'</label><a href="javascript:;" hid="'+t.id+'" class="visit J_Visit">预约看房</a></div>');
 					html.push('</div></div>');

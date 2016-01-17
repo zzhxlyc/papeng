@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"
+content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>房产趴砰网</title>
+
+    <link rel="stylesheet" type="text/css" href="./static/base.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/newhouse/style.css"/>
+
+
+</head>
+
+<body>
+    <div id="header">
+        <div class="inner">
+            <a href="javascript:;" class="logo"></a>
+            <div class="nav">
+                <span class="split"></span>
+                <a class="item" href="index.html">首页</a>
+                <span class="split"></span>
+                <a class="item selected" href="newhouse.html">新房</a>
+                <span class="split"></span>
+                <a class="item" href="oldhouse.html">二手房</a>
+                <span class="split"></span>
+                <a class="item" href="finance.html">金融</a>
+                <span class="split"></span>
+                <a class="item" href="contact.html">联系我们</a>
+                <span class="split"></span>
+            </div>
+        </div>        
+            
+    </div>
+    <div id="wrapper">
+        <div class="search-wrap clearfix">
+            <input type="text" class="key J_SearchKey">
+            <a class="search-btn J_Search" href="javascript:;">搜索</a>
+            <div class="city-select">
+                <span class="selected">杭州<i class="arrow-down"></i></span>
+                <div class="city-list">
+                    <div class="top">
+                        <label for="">热门城市</label>
+                        <span class="item">上海</span>
+                        <span class="item">南京</span>
+                        <span class="item">苏州</span>
+                        <span class="item">杭州</span>
+                        <span class="item">深圳</span>
+                        <span class="item">广州</span>
+                    </div>
+                    <div class="bottom">
+                        <h4>城市选择</h4>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb">
+            房产趴砰网<span>></span>新房
+        </div>
+        <div class="filter-wrap">
+            <div class="filter-item clearfix">
+                <label for="">区域：</label>
+                <div class="list J_ZoneSelect">
+                    
+                </div>
+            </div>
+            <div class="filter-item clearfix">
+                <label for="">户型：</label>
+                <div class="list">
+                    <a href="javascript:;" class="item selected">不限</a>
+                    <a href="javascript:;" class="item disabled">一室</a>
+                    <a href="javascript:;" class="item disabled">二室</a>
+                    <a href="javascript:;" class="item disabled">三室</a>
+                    <a href="javascript:;" class="item disabled">四室</a>
+                    <a href="javascript:;" class="item disabled">五室</a>
+                    <a href="javascript:;" class="item disabled">五室以上</a>
+                </div>
+            </div>
+            <div class="filter-item clearfix">
+                <label for="">总价：</label>
+                <div class="list">
+                    <a href="javascript:;" class="item selected">不限</a>
+                    <a href="javascript:;" class="item disabled">100万以下</a>
+                    <a href="javascript:;" class="item disabled">100-150万</a>
+                    <a href="javascript:;" class="item disabled">150-200万</a>
+                    <a href="javascript:;" class="item disabled">200-250万</a>
+                    <a href="javascript:;" class="item disabled">250-300万</a>
+                    <a href="javascript:;" class="item disabled">300-500万</a>
+                    <a href="javascript:;" class="item disabled">500-800万</a>
+                    <a href="javascript:;" class="item disabled">800-1000万</a>
+                    <a href="javascript:;" class="item disabled">1000万以上</a>
+                </div>
+            </div>
+            <div class="filter-item clearfix">
+                <label for="">类型：</label>
+                <div class="list">
+                    <a href="javascript:;" class="item selected">不限</a>
+                    <a href="javascript:;" class="item disabled">住宅</a>
+                    <a href="javascript:;" class="item disabled">别墅</a>
+                    <a href="javascript:;" class="item disabled">商住两用</a>
+                    <a href="javascript:;" class="item disabled">写字楼</a>
+                    <a href="javascript:;" class="item disabled">商铺</a>
+                </div>
+            </div>
+            <div class="filter-item clearfix">
+                <label for="">装修：</label>
+                <div class="list">
+                    <a href="javascript:;" class="item selected">不限</a>
+                    <a href="javascript:;" class="item disabled">精装</a>
+                    <a href="javascript:;" class="item disabled">简装</a>
+                    <a href="javascript:;" class="item disabled">毛坯</a>
+                </div>
+            </div>
+        </div>
+        <div class="order-wrap clearfix">
+            <div class="type-select">
+                <a href="javascript:;">全部楼盘</a>
+                <a href="javascript:;">优惠楼盘</a>
+                <a href="javascript:;">新盘推荐</a>
+            </div>
+            <div class="order-select clearfix J_OrderSelect">
+                <div class="item" order="">
+                    默认排序
+                </div>
+                <div class="item select-item">
+                    <span class="select">
+                        <span>开盘时间排序：</span>
+                        <i class="arrow-down"></i>
+                    </span>
+                    <div class="list">
+                        <a href="javascript:;" class="order" order="openup">开盘时间顺序</a>
+                        <a href="javascript:;" class="order" order="opendown">开盘时间倒序</a>
+                    </div>
+                </div>
+                <div class="item select-item" style="width:190px;">
+                    <span class="select">
+                        <span>均价排序：</span>
+                        <i class="arrow-down"></i>
+                    </span>
+                    <div class="list">
+                        <a href="javascript:;" class="order" order="priceup">均价由低到高排序</a>
+                        <a href="javascript:;" class="order" order="pricedown">均价由高到低排序</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="house-list J_Houselist">
+            
+
+        </div>
+        <div class="page J_Page"></div>
+        
+        
+        
+    </div>
+    <div id="footer">
+        <p>Copyright © 2015 www.papong.net All Rights Reserved </p>
+        <p>版权所有：趴砰网络科技（杭州）有限公司    浙ICP备15041301号-1</p>
+    </div>
+    <div class="sidebar">
+        <div class="item contact ">
+            <i></i>
+            <p>房产趴砰网</p>
+            <div class="weixin">
+                
+            </div>
+        </div>
+        <div class="item gotop J_Top">
+            <i></i>
+            <p>TOP</p>
+        </div>
+    </div>
+   
+   
+   
+
+<script src="./static/lib/jquery.js"></script>
+<script src="./static/lib/jquery.pagination.js"></script>
+
+<script src="./static/utils.js"></script>
+<script src="./static/newhouse/index.js"></script>
+
+</body>
+</html>

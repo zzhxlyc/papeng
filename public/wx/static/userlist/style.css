@@ -51,15 +51,33 @@
     border-radius: 5px;
     padding: 0 5px;
 }
-.house-list .item .top .info .info-item label{
 
-    margin-right: 0;
+.house-list .item .top .info .info-item label{
+    float: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    margin-right: 60px;
 }
+.house-list .item .top .info .info-item label.left{
+    float: none;
+
+}
+
+.house-list .item .top .info .info-item span {
+    color: #909090;
+}
+.house-list .item .top .info .info-item span.em {
+    color: #ea3a59;
+}
+
+
 .J_ModalMask{
     z-index: 10;
 }
 .visit-modal{
-    position: fixed;
+    position: absolute;
     z-index: 11;
     width: 300px;
     margin-left: -150px;
@@ -97,6 +115,7 @@
     width: 100%;
     text-indent: 40px;
     box-sizing: border-box;
+    font-size: 14px;
 
 
 }

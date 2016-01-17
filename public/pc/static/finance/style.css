@@ -1,0 +1,51 @@
+#header{
+	background: url('../../images/bg-finance.jpg') no-repeat center 0;
+	height: 900px;
+}
+
+#header .nav .selected {
+    border-bottom: 4px solid #e71c41;
+}
+
+.section{
+	margin: 50px 0;
+	font-size: 12px;
+	color: #5c5c5c;
+}
+.section p{
+	line-height: 1.6;
+
+}
+.section h2{
+	margin-bottom: 30px;
+	font-size: 25px;
+}
+.section1 .content{
+	width: 600px;
+	float: left;
+}
+.section1 img{
+	float: right;
+}
+
+.section2 .content{
+	width: 780px;
+	float: right;
+}
+.section2 .content .top{
+	margin-bottom: 30px;
+}
+.section2 .content .bottom .item{
+	margin-bottom: 20px;
+}
+.section2 .content .bottom .left{
+	width: 50%;
+	float: left;
+}
+.section2 .content .bottom .right{
+	width: 50%;
+	float: right;
+}
+.section2 img{
+	float: left;
+}

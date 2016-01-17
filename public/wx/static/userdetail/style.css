@@ -76,9 +76,8 @@
 
 
 .detail-wrap .bottom{
-    padding-bottom: 10px;
-    border-bottom: 1px solid  #b7b7b7;
-
+    padding: 10px 0;
+    border-bottom: 1px solid  #ddd;
 }
 
 .detail-wrap .bottom table{
@@ -274,7 +273,7 @@
     z-index: 10;
 }
 .visit-modal{
-    position: fixed;
+    position: absolute;
     z-index: 11;
     width: 300px;
     margin-left: -150px;

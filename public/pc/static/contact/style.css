@@ -1,0 +1,39 @@
+.map{
+	text-align:center;
+	border-top: 1px dashed #bfbfbf;
+	padding-top: 20px;
+	margin-top: 45px;
+}
+
+.weixin{
+	text-align:center;
+	border-bottom: 1px dashed #bfbfbf;
+	padding: 20px;
+}
+
+.contact{
+	padding: 40px 0;
+	text-align: center;
+
+}
+.contact .item{
+	display: inline-block;
+	padding: 0 20px;
+}
+.contact .item i{
+	display: inline-block;
+	vertical-align: middle;
+	width: 42px;
+	height: 42px;
+	background: url('../../images/icon-phone.png') no-repeat 0 0;
+
+}
+.contact .item span{
+	vertical-align: middle;
+}
+.contact .item2 i{
+	background-image: url('../../images/icon-location.png');
+}
+.contact .item3 i{
+	background-image: url('../../images/icon-email.png');
+}

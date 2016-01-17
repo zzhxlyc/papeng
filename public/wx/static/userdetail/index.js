@@ -37,6 +37,10 @@ $(function(){
 					alert('请填写手机号哦')
 					return;
 				}
+				if(!/^1[34578]\d{9}$/.test(tel)){
+					alert('手机号格式不正确')
+					return;
+				}
 				btn.addClass('disabled');
 				self.reserve({
 					estate_id:hid,
