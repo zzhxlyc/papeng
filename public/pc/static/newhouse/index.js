@@ -107,6 +107,11 @@ $(function(){
 
 			}
 
+			if(self.order){
+				param.order=self.order;
+
+			}
+
 			param.name=$('.J_SearchedKey').val();
 			
 			
