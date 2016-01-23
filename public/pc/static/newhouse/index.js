@@ -60,6 +60,11 @@ $(function(){
 				$(this).parent().parent().addClass('cur');
 
 			});
+
+			$('.J_Houselist').delegate('.go-view','click',function(){
+				var hid=$(this).attr('hid');
+				Utils.showDaikanModal(hid)
+			});
 			
 
 
