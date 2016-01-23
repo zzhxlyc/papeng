@@ -1,51 +1,62 @@
-var Utils={
-	showLoading:function(msg){
+var Utils = {
+	showLoading: function(msg) {
 		msg = msg || "加载中...";
 
 		var loading = document.getElementById('loading') || $('<div id="loading"></div>').appendTo($('body'))[0];
 
 		$(loading).css({
-		  top    : $(window).scrollTop(),
-		  display: "-webkit-box",
-		  opacity: 1
+			top: $(window).scrollTop(),
+			display: "-webkit-box",
+			opacity: 1
 		});
 		loading.innerHTML = '<span><i class="loading-icon icon iconfont"></i>' + (msg.join ? msg.join('<br>') : msg) + '</span>';
-		
+
 
 	},
-	hideLoading :function () {
+	hideLoading: function() {
 		var loading = document.getElementById('loading') || $('<div id="loading"></div>').appendTo($('body'))[0];
 		loading.style.cssText = '';
 		$(loading).detach('touchstart');
 	},
-	tip:function(msg,cb){
+	tip: function(msg, cb) {
 		var success = document.getElementById('successTip') || $('<div id="successTip"></div>').appendTo($('body'))[0];
 		$(success).show().html(msg);
-		setTimeout(function(){
+		setTimeout(function() {
 			$(success).hide();
-			if(cb) cb();
-		},1600);
+			if (cb) cb();
+		}, 1600);
+	},
+	getQueryString: function(name) {
+		var result = location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+		if (result == null || result.length < 1) {
+
+			return "";
+
+		}
+
+		return result[1];
 	}
-
-	
-
 
 
 
 }
-$(function(){
-	$(window).on('scroll',function(){
-		var top=$(this).scrollTop();
+$(function() {
+	$(window).on('scroll', function() {
+		var top = $(this).scrollTop();
 
-		if(top<=0){
-			$('.J_Top').animate({'opacity':0});
-		}else{
-			$('.J_Top').css('opacity',1);
+		if (top <= 0) {
+			$('.J_Top').animate({
+				'opacity': 0
+			});
+		} else {
+			$('.J_Top').css('opacity', 1);
 		}
 	})
 
-	$('.J_Top').on('click',function(){
-		$('html, body').animate({scrollTop:0},300);
+	$('.J_Top').on('click', function() {
+		$('html, body').animate({
+			scrollTop: 0
+		}, 300);
 
 	});
 

@@ -12,6 +12,11 @@ $(function(){
 				$('.J_Qrcode').toggle();
 			})
 
+			$('.J_Search').on('click',function(){
+				var key=$('.key').val();
+				location='newhouse.html?name='+key
+			});
+
 
 		}
 

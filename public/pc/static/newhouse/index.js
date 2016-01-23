@@ -8,7 +8,11 @@ $(function(){
 			this.zone_id='';
 			this.order='';
 			this.renderZoneList();
+			var name=decodeURIComponent(Utils.getQueryString('name'));
+			$('.J_SearchKey').val(name);
+			$('.J_SearchedKey').val(name);
 			this.renderHouseList();
+			
 			this.bindEvents();
 
 
@@ -17,6 +21,7 @@ $(function(){
 			var self=this;
 			$('.J_Search').on('click',function(e){
 				var name=$('.J_SearchKey').val();
+				$('.J_SearchedKey').val(name);
 				self.renderHouseList({
 					name:name
 				});
@@ -91,6 +96,7 @@ $(function(){
 			var param=param||{};
 			param.page=param.page||1;
 
+
 			if(self.zone_id){
 				param.zone_id=self.zone_id;
 
@@ -100,6 +106,8 @@ $(function(){
 				param.city_id=self.city_id;
 
 			}
+
+			param.name=$('.J_SearchedKey').val();
 			
 			
 			Utils.showLoading();
