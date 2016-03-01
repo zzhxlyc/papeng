@@ -306,6 +306,7 @@ table{
 .search-wrap .city-select .city-list{
 	display: none;
 	position: absolute;
+	z-index: 1;
 	top:40px;
 	left: 0;
 	width: 400px;
@@ -326,12 +327,25 @@ table{
 }
 .search-wrap .city-select .city-list .item{
 	color: #545454;
-	padding-right: 5px;
+	cursor: pointer;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+.search-wrap .city-select .city-list .item:hover{
+	color: #e71c41;
 }
 .search-wrap .city-select .city-list h4{
 	color: #000;
 	font-weight: bold;
 	padding-bottom: 10px;
+}
+.J_ProvinceWrap .J_SelectedProvince{
+	font-weight: bold;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.J_ProvinceWrap a{
+	color: #e71c41;
 }
 
 
@@ -491,8 +505,21 @@ table{
 	font-size: 18px;
 }
 
-
-
+.page{
+	text-align: center;
+}
+.page .item{
+	display: inline-block;
+	margin: 5px;
+	padding: 5px 10px;
+	border: 1px solid #e61e40;
+	color: #e61e40;
+	font-size: 14px;
+}
+.page .cur{
+	background: #e61e40;
+	color: #fff;
+}
 
 
 /* Preload images */

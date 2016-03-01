@@ -51,7 +51,7 @@ var Utils = {
 
 }
 $(function() {
-	var domain='http://121.40.70.168';
+	var domain='http://www.papong.net';
 
 	$(window).on('scroll', function() {
 		var top = $(this).scrollTop();
@@ -98,7 +98,7 @@ $(function() {
 				alert('提交成功');
 				Utils.hideDaikanModal();
 			}else{
-				alert('提交失败，请稍后再试');
+				alert(data.message||'提交失败，请稍后再试');
 			}
 			
 			btn.removeClass('disabled');

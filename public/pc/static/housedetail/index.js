@@ -1,10 +1,11 @@
 $(function(){
-	var domain='http://121.40.70.168';
+	var domain='http://www.papong.net';
 
 	var App={
 		init:function(){
 
 			var id=decodeURIComponent(Utils.getQueryString('id'));
+			this.id=id;
 			this.renderHouseInfo(id);
 			this.bindEvents();
 
@@ -17,7 +18,39 @@ $(function(){
 				location='newhouse.html?name='+key
 			});
 
-			
+			$('.J_SelectedCity').on('click',function(){
+				$('.J_CitySelect').toggle();
+
+			});
+
+			$('.J_ProvinceList').delegate('.item','click',function(){
+				var pid=$(this).attr('pid');
+				var cities=$(this).find('textarea').val();
+				self.renderCityList(JSON.parse(cities));
+				$('.J_ProvinceWrap').show();
+				$('.J_SelectedProvince').text($(this).find('span').text());
+			});
+			$('.J_CityList').delegate('.item','click',function(){
+				var cid=$(this).attr('cid');
+				self.city_id=cid;
+				$('.J_CitySelect').hide();
+				self.renderZoneList();
+				self.renderHouseList();
+				$('.J_ProvinceWrap').hide();
+
+				$('.J_SelectedCity span').text($(this).text());
+				$('.J_ProvinceList').show();
+				$('.J_CityList').hide();
+			});
+			$('.J_ProvinceWrap .J_Back').on('click',function(){
+				$('.J_ProvinceList').show();
+				$('.J_CityList').hide();
+				$('.J_ProvinceWrap').hide();
+			});
+
+			$('.J_Overview').delegate('.go-view','click',function(){
+				Utils.showDaikanModal(self.id)
+			});
 			
 
 
@@ -57,17 +90,17 @@ $(function(){
 			html.push('<td class="field">'+t.submit_at+'</td>');
 			html.push('</tr><tr>');
 			html.push('<td class="label">楼盘地址</td>');
-			html.push('<td class="field">'+t.online_at+'</td>');
+			html.push('<td class="field">'+t.address+'</td>');
 			html.push('<td class="label">售楼处地址</td>');
-			html.push('<td class="field">'+t.submit_at+'</td>');
+			html.push('<td class="field">'+''+'</td>');
 			html.push('</tr><tr>');
 			html.push('<td class="label">占地面积</td>');
-			html.push('<td class="field">'+t.online_at+'</td>');
+			html.push('<td class="field">'+''+'</td>');
 			html.push('<td class="label">建筑面积</td>');
-			html.push('<td class="field">'+t.submit_at+'</td>');
+			html.push('<td class="field">'+t.area+'</td>');
 			html.push('</tr><tr>');
 			html.push('<td class="label">开发商</td>');
-			html.push('<td class="field">'+t.online_at+'</td>');
+			html.push('<td class="field">'+''+'</td>');
 			html.push('<td class="label">容积率</td>');
 			html.push('<td class="field">'+t.rongji+'</td>');
 			html.push('</tr><tr>');
@@ -79,15 +112,15 @@ $(function(){
 			html.push('<td class="label">车位数</td>');
 			html.push('<td class="field">'+t.car_num+'</td>');
 			html.push('<td class="label">车位比</td>');
-			html.push('<td class="field">'+t.rongji+'</td>');
+			html.push('<td class="field">'+''+'</td>');
 			html.push('</tr><tr>');
 			html.push('<td class="label">产权年限</td>');
-			html.push('<td class="field">'+t.online_at+'</td>');
+			html.push('<td class="field">'+t.chanquan+'</td>');
 			html.push('<td class="label">装修情况</td>');
-			html.push('<td class="field">'+t.rongji+'</td>');
+			html.push('<td class="field">'+t.decoration+'</td>');
 			html.push('</tr><tr>');
 			html.push('<td class="label">装修标准</td>');
-			html.push('<td class="field">'+t.online_at+'</td>');
+			html.push('<td class="field">'+''+'</td>');
 			html.push('<td class="label">物业公司</td>');
 			html.push('<td class="field">'+t.wuye+'</td>');
 			html.push('</tr><tr>');
@@ -110,12 +143,12 @@ $(function(){
 			html.push('<td class="field">'+t.info2+'</td>');
 			html.push('</tr><tr>');
 			html.push('<td class="label">医疗配套</td>');
-			html.push('<td class="field">'+t.info3+'</td>');
+			html.push('<td class="field">'+t.info6+'</td>');
 			html.push('<td class="label">环境描述</td>');
 			html.push('<td class="field">'+t.info4+'</td>');
 			html.push('</tr><tr>');
 			html.push('<td class="label">教育配套</td>');
-			html.push('<td class="field">'+t.info6+'</td>');
+			html.push('<td class="field">'+t.info3+'</td>');
 			html.push('<td class="label">交通配套</td>');
 			html.push('<td class="field">'+t.info5+'</td>');
 			html.push('</tr>');
@@ -135,7 +168,7 @@ $(function(){
 			html.push('<p></p>');
 			html.push('<p></p>');
 			html.push('<p>地址：'+t.address+'</p>');
-			html.push('<p>开盘时间：'+t.start_at+'</p>');
+			html.push('<p>开盘时间：'+t.online_at+'</p>');
 			html.push('</div>');
 			html.push('<div class="price">');
 			html.push('<span class="em">'+t.avg_price+'</span>元/平米');

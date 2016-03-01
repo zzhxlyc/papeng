@@ -11,18 +11,18 @@
     <body>
         <div id="header">
             <div class="inner">
-                <a href="javascript:;" class="logo"></a>
+                <a href="/" class="logo"></a>
                 <div class="nav">
                     <span class="split"></span>
-                    <a class="item" href="index.html">首页</a>
+                    <a class="item" href="/index.html">首页</a>
                     <span class="split"></span>
-                    <a class="item selected" href="newhouse.html">新房</a>
+                    <a class="item selected" href="/pc/newhouse.html">新房</a>
                     <span class="split"></span>
-                    <a class="item" href="oldhouse.html">二手房</a>
+                    <a class="item" href="/pc/oldhouse.html">二手房</a>
                     <span class="split"></span>
-                    <a class="item" href="finance.html">金融</a>
+                    <a class="item" href="/pc/finance.html">金融</a>
                     <span class="split"></span>
-                    <a class="item" href="contact.html">联系我们</a>
+                    <a class="item" href="/pc/contact.html">联系我们</a>
                     <span class="split"></span>
                 </div>
             </div>
@@ -33,9 +33,9 @@
                 <input type="text" class="key J_SearchKey">
                 <input type="hidden" class="J_SearchedKey">
                 <a class="search-btn J_Search" href="javascript:;">搜索</a>
-                <div class="city-select">
-                    <span class="selected">杭州<i class="arrow-down"></i></span>
-                    <div class="city-list">
+                <div class="city-select" style="display:none;">
+                    <span class="selected J_SelectedCity"><span>杭州</span><i class="arrow-down"></i></span>
+                    <div class="city-list J_CitySelect">
                         <div class="top">
                             <label for="">热门城市</label>
                             <span class="item">上海</span>
@@ -46,7 +46,14 @@
                             <span class="item">广州</span>
                         </div>
                         <div class="bottom">
-                            <h4>城市选择</h4>
+                            <h4>城市选择 <span class="J_ProvinceWrap" style="display:none;">|<span class="J_SelectedProvince"></span><a href="javascript:;" class="J_Back">返回</a></span></h4>
+                            <div class="J_ProvinceList">
+                                
+                            </div>
+                            <div class="J_CityList" style="display:none;">
+                                
+                            </div>
+
                         </div>
                         
                     </div>
@@ -107,7 +114,29 @@
             </div>
         </div>
         
+        <div class="mask"></div>
+<div class="modal J_DaikanModal">
+    <div class="title">
+        团购看房
+        <a href="javascript:;" class="close"></a>
+    </div>
+    <div class="content">
+        <p class="em">请先预留您的手机号码，趴砰客户经理将尽快与您联系！</p>
+        <div class="form">
+            <div class="field">
+                <i class="name-icon"></i>
+                <input type="text" class="name" placeholder="请输入您的姓名">
+            </div>
+            <div class="field">
+                <i class="phone-icon"></i>
+                <input type="number" class="phone" placeholder="请输入您的手机">
+            </div>
+            <a href="javascript:;" class="btn submit">提 交</a>
+            
+        </div>
         
+    </div>
+</div>
         
         <script src="./static/lib/jquery.js"></script>
         <script src="./static/lib/jquery.lightbox.min.js"></script>
