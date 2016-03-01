@@ -3,11 +3,25 @@ $(function(){
 
 	var App={
 		init:function(){
+			var self=this;
 			this.page=1;
 			this.city_id='';
 			this.cityList=null;
 			this.zone_id='';
 			this.block_id='';
+			this.initWX();
+			wx.ready(function(){
+				self.initWXShare({
+					title:'房产趴砰网',
+					desc:'中国房产一站式服务平台',
+					image:'http://www.papong.net/wx/images/logo.png'
+
+				})
+
+
+			});
+			
+
 			this.renderProvinceList();
 			this.renderZoneList();
 			this.renderHouseList();
@@ -197,6 +211,93 @@ $(function(){
 
 		        }
 		    });
+
+
+
+		},
+		initWX:function(){
+			$.get(domain+'/api/base/jsapi_data?url='+location.href,function(data){
+				data=data.data;
+				wx.config({
+				    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+				    appId: 'wxd70aeef4396af5a5', // 必填，公众号的唯一标识
+				    timestamp:data.timestamp, // 必填，生成签名的时间戳
+				    nonceStr: data.noncestr, // 必填，生成签名的随机串
+				    signature: data.signature,// 必填，签名，见附录1
+				    jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','onMenuShareQZone'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+				});
+
+			})
+			
+
+
+
+		},
+		initWXShare:function(data){
+			wx.onMenuShareTimeline({
+			    title:data.title, // 分享标题
+			    link: location.href, // 分享链接
+			    imgUrl:data.image, // 分享图标
+			    success: function () { 
+			        // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+
+			wx.onMenuShareAppMessage({
+			    title: data.title, // 分享标题
+			    desc: data.desc, // 分享描述
+			    link: location.href, // 分享链接
+			    imgUrl:data.image, // 分享图标
+			    success: function () { 
+			        // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+
+			wx.onMenuShareQQ({
+			    title: data.title, // 分享标题
+			   	desc: data.desc, // 分享描述
+			    link: location.href, // 分享链接
+			    imgUrl:data.image, // 分享图标
+			    success: function () { 
+			       // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			       // 用户取消分享后执行的回调函数
+			    }
+			});
+
+			wx.onMenuShareWeibo({
+			    title: data.title, // 分享标题
+			   	desc: data.desc, // 分享描述
+			    link: location.href, // 分享链接
+			    imgUrl:data.image, // 分享图标
+			    success: function () { 
+			       // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+
+			wx.onMenuShareQZone({
+			    title: data.title, // 分享标题
+			   	desc: data.desc, // 分享描述
+			    link: location.href, // 分享链接
+			    imgUrl:data.image, // 分享图标
+			    success: function () { 
+			       // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+
 
 
 

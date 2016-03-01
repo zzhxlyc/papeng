@@ -98,11 +98,80 @@ $(function(){
 				    timestamp:data.timestamp, // 必填，生成签名的时间戳
 				    nonceStr: data.noncestr, // 必填，生成签名的随机串
 				    signature: data.signature,// 必填，签名，见附录1
-				    jsApiList: ['previewImage','onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+				    jsApiList: ['previewImage','onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','onMenuShareQZone'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 				});
 
 			})
 			
+
+
+
+		},
+		initWXShare:function(data){
+			wx.onMenuShareTimeline({
+			    title:data.name, // 分享标题
+			    link: location.href, // 分享链接
+			    imgUrl:location.protocol+'//'+location.hostname+'/uploads/'+data.image.path, // 分享图标
+			    success: function () { 
+			        // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+
+			wx.onMenuShareAppMessage({
+			    title: data.name, // 分享标题
+			    desc: data.info1, // 分享描述
+			    link: location.href, // 分享链接
+			    imgUrl:location.protocol+'//'+location.hostname+'/uploads/'+data.image.path, // 分享图标
+			    success: function () { 
+			        // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+
+			wx.onMenuShareQQ({
+			    title: data.name, // 分享标题
+			    desc: data.info1, // 分享描述
+			    link: location.href, // 分享链接
+			    imgUrl:location.protocol+'//'+location.hostname+'/uploads/'+data.image.path, // 分享图标
+			    success: function () { 
+			       // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			       // 用户取消分享后执行的回调函数
+			    }
+			});
+
+			wx.onMenuShareWeibo({
+			    title: data.name, // 分享标题
+			    desc: data.info1, // 分享描述
+			    link: location.href, // 分享链接
+			    imgUrl:location.protocol+'//'+location.hostname+'/uploads/'+data.image.path, // 分享图标
+			    success: function () { 
+			       // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+
+			wx.onMenuShareQZone({
+			    title: data.name, // 分享标题
+			    desc: data.info1, // 分享描述
+			    link: location.href, // 分享链接
+			    imgUrl:location.protocol+'//'+location.hostname+'/uploads/'+data.image.path, // 分享图标
+			    success: function () { 
+			       // 用户确认分享后执行的回调函数
+			    },
+			    cancel: function () { 
+			        // 用户取消分享后执行的回调函数
+			    }
+			});
+
 
 
 
@@ -171,29 +240,9 @@ $(function(){
 				dom.html(tpl(data.data.estate));
 				self.initImagePreview();
 				dom.find('.house-info .section:first h3').trigger('click');
-				wx.onMenuShareTimeline({
-				    title:data.data.estate.title, // 分享标题
-				    link: location.href, // 分享链接
-				    imgUrl:location.protocol+'//'+location.hostname+'/uploads/'+data.data.estate.image.path, // 分享图标
-				    success: function () { 
-				        // 用户确认分享后执行的回调函数
-				    },
-				    cancel: function () { 
-				        // 用户取消分享后执行的回调函数
-				    }
-				});
+				wx.ready(function(){
+					self.initWXShare(data.data.estate);
 
-				wx.onMenuShareAppMessage({
-				    title: data.data.estate.title, // 分享标题
-				    desc: data.data.estate.info1, // 分享描述
-				    link: location.href, // 分享链接
-				    imgUrl:location.protocol+'//'+location.hostname+'/uploads/'+data.data.estate.image.path, // 分享图标
-				    success: function () { 
-				        // 用户确认分享后执行的回调函数
-				    },
-				    cancel: function () { 
-				        // 用户取消分享后执行的回调函数
-				    }
 				});
 
 			})
