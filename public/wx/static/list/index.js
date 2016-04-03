@@ -256,7 +256,11 @@ $(function(){
 				$.each(data.data.list,function(i,t){
 					html.push('<a href="/wx/estate/detail?id='+t.id+'" class="item">');
 					html.push('<div class="top">');
-					html.push('<img src="/uploads/'+t.image.path+'" class="preview" alt="">');
+					if(t.image&&t.image.path){
+						html.push('<img src="/uploads/'+t.image.path+'" class="preview" alt="">');
+					}else{
+						html.push('<img src="http://www.yupoo.com/img/spacer.gif" alt="" class="preview" />')
+					}
 					html.push('<div class="info">');
 					html.push('<h3>'+t.name+'<i class="icon-new"></i></h3>');
 					html.push('<div class="info-item clearfix">');

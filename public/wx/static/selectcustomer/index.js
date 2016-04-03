@@ -134,7 +134,7 @@ $(function(){
 		addBaobei:function (cid) {
 			var self=this;
 			Utils.showLoading('正在推荐');
-			$.get(domain+'/agent/deal_baobei',{
+			$.post(domain+'/agent/deal_baobei',{
 				customer_id:cid,
 				estate_id:self.estateid
 			},function(data){
