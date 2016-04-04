@@ -57,7 +57,11 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
     <script id="detail-tpl" type="text/template">
         <div class="detail-wrap">
           <div class="top">
-              <img src="/uploads/<%= image.path %>" class="thumb" alt="">
+              <%if(image&&image.path){%>  
+                <img src="/uploads/<%= image.path %>" class="thumb" alt="">
+              <%}else{%>  
+                <img src="/wx/images/spacer.gif" class="thumb" alt="">
+              <%}%>  
               <div class="info">
                   <h3><%= name %><i class="icon-new"></i></h3>
                   <div class="info-item clearfix">
