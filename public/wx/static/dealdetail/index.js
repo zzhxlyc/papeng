@@ -27,7 +27,7 @@ $(function(){
 				self.step=step;
 				$('.J_ConfirmMask').show();
 				$('.J_Confirm').show();
-				$('.J_Confirm .J_Text').text('确认提交'+$(this).text()+'申请?');
+				$('.J_Confirm .J_Text').text('确认'+$(this).text()+'申请?');
 				//self.setDealInfo(step);
 
 			});

@@ -23,6 +23,8 @@ $(function(){
 			})
 
 			$('.J_Order').on('click',function(e){
+				self.hideAreaSelect();
+				self.hideCitySelect();
 				if($(this).hasClass('toggle')){
 					$(this).removeClass('toggle')
 					$('.J_Mask').hide();
@@ -32,6 +34,7 @@ $(function(){
 					$('.J_Mask').show();
 					$('.J_OrderSelect').show();
 				}
+				
 				e.stopPropagation();
 			})
 			$('.J_Search').on('click',function(e){
@@ -44,6 +47,7 @@ $(function(){
 			})
 			$('.J_Area').on('click',function(e){
 				self.hideCitySelect();
+				self.hideOrderSelect();
 				if($(this).hasClass('toggle')){
 					$(this).removeClass('toggle')
 					$('.J_Mask').hide();
@@ -57,6 +61,7 @@ $(function(){
 			});
 			$('.J_City').on('click',function(e){
 				self.hideAreaSelect();
+				self.hideOrderSelect();
 				if($(this).hasClass('toggle')){
 					$(this).removeClass('toggle')
 					$('.J_Mask').hide();
@@ -96,6 +101,8 @@ $(function(){
 				var zoneId=$(this).attr('zoneid');
 				var blocklist=$(this).find('textarea').val();
 				self.zone_id=zoneId;
+				self.block_id='';
+				$('.J_AreaSelect').scrollTop(0);
 				if($(this).hasClass('noblock')){
 					$('.J_BlockSelect').hide();
 					self.hideAreaSelect();
@@ -130,6 +137,7 @@ $(function(){
 			$('.J_Mask').on('click',function(){
 				self.hideOrderSelect();
 				self.hideAreaSelect();
+				self.hideCitySelect();
 			});
 
 			$(window).on('scroll', function () {
@@ -146,6 +154,7 @@ $(function(){
 
 		},
 		hideOrderSelect:function(){
+			$('.J_Order').removeClass('toggle');
 			$('.J_Mask').hide();
 			$('.J_OrderSelect').hide();
 

@@ -98,6 +98,7 @@ $(function(){
 
 			$.get(domain+'/api/estate/show',{id:id},function(data){
 				Utils.hideLoading();
+				data.data.estate.image=data.data.estate.image||{path:''};
 				data.data.estate.agent=data.data.agent;
 				dom.html(tpl(data.data.estate));
 				self.initImagePreview();
