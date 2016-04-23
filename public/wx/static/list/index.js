@@ -260,35 +260,46 @@ $(function(){
 				var wrap=$('.J_Houselist');
 				var html=[];
 				Utils.hideLoading();
+				if(!data.data.agent){
+					location.href='/agent/go_estates';
+					return;
+				}
 				var list=data.data.list;
 				
 				$.each(data.data.list,function(i,t){
 					html.push('<a href="/wx/estate/detail?id='+t.id+'" class="item">');
 					html.push('<div class="top">');
 					if(t.image&&t.image.path){
-						html.push('<img src="/uploads/'+t.image.path+'" class="preview" alt="">');
+						html.push('<img src="'+t.image.path+'" class="preview" alt="">');
 					}else{
 						html.push('<img src="http://www.yupoo.com/img/spacer.gif" alt="" class="preview" />')
 					}
 					html.push('<div class="info">');
 					html.push('<h3>'+t.name+'<i class="icon-new"></i></h3>');
 					html.push('<div class="info-item clearfix">');
-					html.push('<span class="left"><label>佣金</label><strong>'+(t.yongjin_kind===1?t.yongjin_info.replace('/套',''):t.yongjin_info)+'</strong></span>');
+					if(t.yongjin_info){
+						html.push('<span class="left"><label>佣金</label><strong>'+(t.yongjin_kind===1?t.yongjin_info.replace('/套',''):t.yongjin_info)+'</strong></span>');
+
+					}else{
+						html.push('<span class="left"><label>佣金</label><strong>待定</strong></span>');
+					}
 					html.push('<span class="right"><label>界定</label><span>'+(t.jieding_time=='0'?'实时':t.jieding_time+'分钟')+'</span></span>');
 					html.push('</div>');
 					html.push('<div class="info-item clearfix">');
 					html.push('<span class="left"><i class="icon-increase"></i></span>');
-					html.push('<span class="right"><label>结佣</label><span class="orange">'+t.jieyong_time+'工作日</span></span>');
+					html.push('<span class="right"><label>结佣</label>'+(t.jieyong_time?'<span class="orange">'+t.jieyong_time+'工作日</span>':'时间待定')+'</span>');
 					html.push('</div></div></div>');
 					html.push('<div class="bottom">');
 					html.push('<table><tr>');
 					html.push('<td><i class="'+(t.if_daikan?'icon-checked':'icon-check')+'"></i>需带看</td>');
-					html.push('<td><i class="icon-checked"></i>须'+t.daikan_days+'天内带看</td>');
+					html.push('<td><i class="icon-checked"></i>须'+(t.daikan_days||1)+'天内带看</td>');
 					html.push('<td><i class="'+(t.if_daikan_reward?'icon-checked':'icon-check')+'"></i>带看奖</td>');
 					html.push('<td><i class="'+(t.if_renchou?'icon-checked':'icon-check')+'"></i>认筹奖</td>');
 					html.push('</tr></table>');
 					if(t.start_at&&t.end_at){
 						html.push('<p>有效期：'+t.start_at+' 至 '+t.end_at+'</p>');
+					}else{
+						html.push('<p>有效期待定</p>');
 					}
 					html.push('</div></a>');
         

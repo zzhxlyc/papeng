@@ -225,7 +225,7 @@ $(function(){
 				$.each(data.data.list,function(i,t){
 					html.push('<a href="javascript:;" hid="'+t.id+'" class="item">');
 					html.push('<div class="top">');
-					html.push('<img src="/uploads/'+t.image.path+'" class="preview" alt="">');
+					html.push('<img src="'+t.image.path+'" class="preview" alt="">');
 					html.push('<div class="info">');
 					html.push('<h3>'+t.name+'<i class="icon-new"></i><i class="radio"></i></h3>');
 					html.push('<div class="info-item clearfix">');

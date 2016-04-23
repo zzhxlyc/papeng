@@ -192,7 +192,7 @@ $(function(){
 					html.push('<a href="javascript:;" hid="'+t.id+'" class="item">');
 					html.push('<div class="top">');
 					if(t.image&&t.image.path){
-						html.push('<img src="/uploads/'+t.image.path+'" class="preview" alt="">');
+						html.push('<img src="'+t.image.path+'" class="preview" alt="">');
 					}else{
 						html.push('<img src="http://www.yupoo.com/img/spacer.gif" alt="" class="preview" />')
 					}

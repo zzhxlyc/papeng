@@ -58,19 +58,34 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
         <div class="detail-wrap">
           <div class="top">
               <%if(image&&image.path){%>  
-                <img src="/uploads/<%= image.path %>" class="thumb" alt="">
+                <img src="<%= image.path %>" class="thumb" alt="">
               <%}else{%>  
                 <img src="/wx/images/spacer.gif" class="thumb" alt="">
               <%}%>  
               <div class="info">
                   <h3><%= name %><i class="icon-new"></i></h3>
                   <div class="info-item clearfix">
-                      <span class="left"><label>佣金</label><strong><%= yongjin_kind===1?yongjin_info.replace('/套',''):yongjin_info %></strong></span>
+                      <span class="left"><label>佣金</label><strong>
+          
+                      <%if(yongjin_info){%>  
+                        <%= yongjin_kind===1?yongjin_info.replace('/套',''):yongjin_info %>
+                      <%}else{%>
+                        待定
+                      <%}%>
+
+                      </strong></span>
                       <span class="right"><label>界定</label><span><%= jieding_time==='0'?'实时':jieding_time+'分钟' %></span></span>
                   </div>
                   <div class="info-item clearfix">
                       <span class="left"><i class="icon-increase"></i></span>
-                      <span class="right"><label>结佣</label><span class="orange"><<%= jieyong_time %>工作日</span></span>
+                      <span class="right"><label>结佣</label><span class="orange">
+                      <%if(jieyong_time){%>  
+                        <<%= jieyong_time %>工作日</span>
+                      <%}else{%>
+                        时间待定
+                      <%}%>
+                    
+                      </span>
                   </div>
               </div>
           </div>
@@ -78,22 +93,29 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
               <table>
                   <tr>
                       <td><i class="<%= if_daikan?'icon-checked':'icon-check' %>"></i>需带看</td>
-                      <td><i class="icon-checked"></i>须<%= daikan_days %>天内带看</td>
+                      <td><i class="icon-checked"></i>须<%= daikan_days || 1 %>天内带看</td>
                       <td><i class="<%= if_daikan_reward?'icon-checked':'icon-check' %>"></i>带看奖</td>
                       <td><i class="<%= if_renchou?'icon-checked':'icon-check' %>"></i>认筹奖</td>
                   </tr>
               </table>
               <%if(start_at&&end_at){%>  
                 <p>有效期：<%= start_at %> 至 <%= end_at %></p>
-              <%}%>  
+              <%}else{%>
+                <p>有效期待定</p>
+              <%}%>
+
           </div>
           <div class="ext-info">
+            <%if(contact){%>  
             <p>
                 <label for="">电话：</label><a class="em" href="tel:<%= contact %>"><%= contact %></a>
             </p>
+            <%}%>
+            <%if(address){%>  
             <p>
                 <label for="">地址：</label><span><%= address %></span>
             </p>
+            <%}%>
             <p>
                 <label for="">带看奖说明：</label><span><%= daikan_reward_info || '-' %></span>
             </p>
@@ -113,7 +135,7 @@ content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1
             <a href="javascript:;" class="next"></a>
             <div class="image-wrap">
                 <% _.each(images, function(item){ %>
-                <div class="item"><img src="/uploads/<%= item.path %>" /></div>
+                <div class="item"><img src="<%= item.path %>" /></div>
                 <% }); %>
               
             </div>
