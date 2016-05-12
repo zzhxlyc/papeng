@@ -1,4 +1,4 @@
-#header{
+/*#header{
 	background: url('../../images/bg-finance.jpg') no-repeat center 0;
 	height: 900px;
 }
@@ -6,7 +6,12 @@
 #header .nav .selected {
     border-bottom: 4px solid #e71c41;
 }
+*/
 
+#wrapper{
+	padding: 250px 0;
+	text-align: center;
+}
 .section{
 	margin: 50px 0;
 	font-size: 12px;
