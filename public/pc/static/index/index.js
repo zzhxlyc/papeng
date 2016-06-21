@@ -14,7 +14,7 @@ $(function(){
 
 			$('.J_Search').on('click',function(){
 				var key=$('.key').val();
-				location='newhouse.html?name='+key
+				location='/pc/newhouse.html?name='+key
 			});
 
 
