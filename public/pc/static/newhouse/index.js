@@ -213,7 +213,7 @@ $(function(){
 				self.renderPage(data.data);
 				$.each(data.data.list,function(i,t){
 					html.push('<div class="item clearfix">');
-					html.push('<div class="img"><a href="housedetail.html?id='+t.id+'"><img src="/uploads/'+t.image.path+'" alt=""></a></div>');
+					html.push('<div class="img"><a href="housedetail.html?id='+t.id+'"><img src="'+t.image.path+'" alt=""></a></div>');
 					html.push('<h3><a href="housedetail.html?id='+t.id+'">'+t.name+'</a></h3>');
 					html.push('<div class="des">');
 					html.push('<p></p>');
